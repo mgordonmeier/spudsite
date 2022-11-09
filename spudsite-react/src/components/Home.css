@@ -1,0 +1,35 @@
+.frame-2 {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(5px 5px 4px #151515)
+}
+
+.img-header {
+    width: 60%;
+    display: flex;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.rocksalt {
+    font-family: 'Rock Salt', cursive;
+}
+
+.gloria {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.flower {
+    font-family: 'Indie Flower', cursive;
+}
+
+.fuzzy {
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.beenie {
+    font-family: 'Reenie Beanie', cursive;
+}
+
