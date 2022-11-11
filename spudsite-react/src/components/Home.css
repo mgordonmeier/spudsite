@@ -40,7 +40,7 @@
 .spudsite {
     letter-spacing: 6px;
     text-shadow: red 0 0, cyan 0 0;
-    transition: text-shadow 200ms;
+    transition: text-shadow 265ms;
     font-weight: bolder;
 }
 
@@ -111,4 +111,21 @@
     right: 2%;
     filter: drop-shadow(0px 0px 3px #1515154b)
 }
+
+.songSymbol {
+    width: 70px;
+    height: auto;
+    filter: drop-shadow(0px 0px 3px #1515154b);
+}
+
+.songSymbol img:before {
+    transform: scale(1);
+    transition: ease;
+}
+
+.songSymbol:hover {
+    transform: scale(1.5);
+    transition: all 200ms ease;
+}
+
 
