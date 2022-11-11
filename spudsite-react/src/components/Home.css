@@ -37,3 +37,78 @@
     font-family: 'Reenie Beanie', cursive;
 }
 
+.spudsite {
+    letter-spacing: 6px;
+    text-shadow: red 0 0, cyan 0 0;
+    transition: text-shadow 200ms;
+    font-weight: bolder;
+}
+
+.spudsite:hover {
+    text-shadow: red -3px 0, cyan 3px 0;
+}
+
+.social-icons {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding-bottom: 1em;
+    filter: drop-shadow(3px 3px 3px #151515)
+   
+}
+
+.social-icons li {
+    display: inline-block;
+    margin: 0.15em;
+    position: relative;
+    font-size: 1.2em;
+}
+
+.social-icons i {
+    color: #5e17ae;
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    transition: all 265ms ease-out;
+}
+
+.social-icons a {
+    display: inline-block;
+}
+
+.social-icons a::before {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    content: " ";
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: block;
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    transition: ease-out;
+}
+
+.social-icons a:hover::before {
+    transform: scale(0);
+    transition: all 265ms ease-in;
+}
+
+.social-icons a:hover i {
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    color: #5e17ae;
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 265ms ease-in;
+}
+
+.funk-n-jump {
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    filter: drop-shadow(0px 0px 3px #1515154b)
+}
+
