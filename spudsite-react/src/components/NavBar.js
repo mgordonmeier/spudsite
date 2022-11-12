@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-// import logo from "../img/FnSLogo.svg";
+import logo from "../img/AnotherLogo.png";
 
 function NavBar() {
 
@@ -9,8 +9,7 @@ function NavBar() {
             <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between" style={{ borderRadius: "20px" }}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
-                        {/* <img src={logo} alt="Fresh Spuds Logo"/> */}
-                        Funk N Spuds
+                        <img src={logo} alt="Fresh Spuds Logo" className="img-responsive" style={{height: "auto", width: "100px"}}/>
                         </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
