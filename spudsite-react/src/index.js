@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import background from "./img/pour4.JPG";
+// import bg from './img/SpudsiteBg.jpg';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div style={{
-    backgroundImage: background,
+    backgroundImage: "url(" + require( "./img/SpudsiteBg.jpg" ) + ")",
     backgroundSize: "cover",
-    height: 1300
-  }}>
+    height: "auto"  }}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
