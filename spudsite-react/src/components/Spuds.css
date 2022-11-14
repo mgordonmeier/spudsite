@@ -1,0 +1,15 @@
+.spuddies {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(2px 2px 4px #151515)
+}
+
+.spuddies img:before {
+    transform: scale(1);
+    transition: ease-out;
+}
+
+.spuddies:hover {
+    transform: scale(1.4);
+    transition: all 265ms ease;
+}
