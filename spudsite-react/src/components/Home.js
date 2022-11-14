@@ -6,6 +6,9 @@ import spudCover from "../img/FreshSpudsCover.png";
 import envelope from "../img/EnvelopeSongSymbol.png";
 import lhc from "../img/LHCSongSymbol.png";
 import ahem from "../img/AhemSongSymbol.png";
+import h2ku from "../img/Happy2KnowUSongSymbol.png"
+import FooterLinks from "./FooterLinks";
+import SongSymbols from "./SongSymbols";
 
 
 function Home() {
@@ -15,14 +18,12 @@ function Home() {
             <div className="container">
                 <div className="text-center">
                     <div className="rocksalt" style={{ display: "inline-block" }}>
-                        <div className="card mt-4 container specialCard frame-text-box" style={{ width: "62%" }}>
+                        <div className="card mt-4 container specialCard frame-text-box" style={{ width: "70%" }}>
                             <h1 className="m-4 spudsite">Welcome to the Spudsite</h1>
                             <h3 className="mb-4">Home of</h3>
                         </div>
                         <div className="text-start">
-                            <a href="https://youtu.be/0dsg35UWTeA">
-                                <img src={envelope} alt="Envelope Song Symbol" className="songSymbol" />
-                            </a>
+                            <SongSymbols urlLink="https://youtu.be/0dsg35UWTeA" symbol={envelope} altText="Envelope Song Symbol" />
                         </div>
                         <div className="funk-n-jump">
                             <img style={{ height: "10em", width: "15em" }} src={jumpingSpud} alt="Jumping Spud" />
@@ -31,9 +32,7 @@ function Home() {
                             <img src={spudCover} alt="Fresh Spuds Cover" className="img-header" />
                         </div>
                         <div className="text-end me-10">
-                            <a href="https://youtu.be/kIhJc4kovKI">
-                                <img src={lhc} alt="Low Hanging Ceilings Song Symbol" className="songSymbol" />
-                            </a>
+                            <SongSymbols urlLink="https://youtu.be/kIhJc4kovKI" symbol={lhc} altText="Low Hanging Ceilings Song Symbol" />
                         </div>
                         <div className="card mb-3 container specialCard beenie" style={{ width: "75%", display: "inline-block" }}>
                             <h4 className="m-1">Funk N Spuds is a Minneapolis based musical collective of artists from around the Midwest.</h4>
@@ -41,21 +40,23 @@ function Home() {
                             {/* <p className="m-2">Funk N Spuds has taken the stage at most venues in the Twin Cities, but also </p> */}
                         </div>
                         <div className="text-start">
-                            <a href="https://youtu.be/MjuEEClLuDQ">
-                                <img src={ahem} alt="Ahem Song Symbol" className="songSymbol"/>
-                            </a>
+                            <SongSymbols urlLink="https://youtu.be/MjuEEClLuDQ" symbol={ahem} altText="Ahem Song Symbol" />
+                        </div>
+                        <div className="intro-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cSz4jmj5Zfc" title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div className="text-end">
+                            <SongSymbols urlLink="https://youtu.be/q6x-OIfsgRg" symbol={h2ku} altText="Happy 2 Know U Song Symbol"/>
                         </div>
                     </div>
                 </div>
             </div>
             <footer>
                 <div className="container text-center">
-                    <ul class="social-icons">
-                        <li className="m-2"><a href="https://open.spotify.com/artist/2ZfuKARQLHtJx0kPCb7jbe?si=avihm02YQDaHOEhmh8r2pg"><i class="fa-brands fa-spotify"></i></a></li>
-                        <li className="m-2"><a href="https://funknspuds.bandcamp.com"><i class="fa-brands fa-bandcamp"></i></a></li>
-                        <li className="m-2"><a href="https://www.youtube.com/c/FunkNSpuds/"><i class="fa-brands fa-youtube"></i></a></li>
-                        <li className="m-2"><a href="https://www.tiktok.com/@funknspuds?lang=en"><i class="fa-brands fa-tiktok"></i></a></li>
-                    </ul>
+                    <FooterLinks />
                 </div>
             </footer>
         </div>

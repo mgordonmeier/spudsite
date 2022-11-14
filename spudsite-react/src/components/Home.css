@@ -16,7 +16,7 @@
 }
 
 .specialCard{
-    background: rgba(211, 141, 255, 0.75);
+    background: rgba(211, 141, 255, 0.6);
     /* filter: drop-shadow(5px 5px 4px #151515) */
 }
 
@@ -129,6 +129,10 @@
 .songSymbol:hover {
     transform: scale(1.5);
     transition: all 200ms ease;
+}
+
+.intro-video {
+    filter: drop-shadow(5px 5px 5px #151515)
 }
 
 
