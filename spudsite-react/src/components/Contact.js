@@ -77,6 +77,7 @@ function Contact() {
                         <div style={{ display: "inline-block" }}>
                             {rollCheck ? <SongCard songName="Roll On" onSongCancel={onRollCancel} youtubeUrl="https://www.youtube.com/embed/0OQIxd8jOzM" songInfo={rollDescription} />
                                 : <SongSymbols symbol={rollOn} altText="Roll On Song Symbol" onClick={onRollClick} />}
+
                         </div>
                     </div>
                     <footer className="container text-center">

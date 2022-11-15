@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FooterLinks from "./FooterLinks";
 import SongSymbols from "./SongSymbols";
+import SongCard from "./SongCard";
 import InfoPanel from "./InfoPanel";
 import "./Spuds.css";
 import spuddieMax from "../img/spuddie-max.PNG";
@@ -22,6 +23,60 @@ function Spuds() {
     const [martyInfo, setMartyInfo] = useState(false);
     const [thomasInfo, setThomasInfo] = useState(false);
     const [justinInfo, setJustinInfo] = useState(false);
+
+    const [mtnCheck, setMtnCheck] = useState(false);
+    const [mangoCheck, setMangoCheck] = useState(false);
+    const [cantStopCheck, setCantStopCheck] = useState(false);
+    const [harmCheck, setHarmCheck] = useState(false);
+
+    function onMtnClick() {
+        setMtnCheck(true)
+    }
+
+    function onMtnCancel() {
+        setMtnCheck(false)
+    }
+
+    const mtnDescription = "The Mountain Song was written by Max after an roadtrip to Colorado where he and a few " +
+        "friends attempted to climb Mt. Elbert. Arriving around 3am at the base of the mountain, the friends made it to the summit " +
+    "just before 6am when wild weather overtook them. A snowstorm forced them to take cover and eventually retreat, but just as they reached " +
+    "the bottom of the summit, the clouds parted and (in Emperor's New Groove fashion) the mountaintop was singing.";
+
+    function onMangoClick() {
+        setMangoCheck(true)
+    }
+
+    function onMangoCancel() {
+        setMangoCheck(false)
+    }
+
+    const mangoDescription = "Max threw together Mango Jam on garageband in his bedroom over the summer of 2019. He brought in " +
+    "Thomas and Zach to shred over the foundation, tossed it to Martin while he was still living in La Crosse, and eventually brought " +
+    "Justin in later that winter. This has long been one of the favorites of the band and fans alike.";
+
+    function onCantStopClick() {
+        setCantStopCheck(true)
+    }
+
+    function onCantStopCancel() {
+        setCantStopCheck(false)
+    }
+
+    const cantStopDescription = "With origins dating back to bedroom recordings of 2013, Can't Stop might be the oldest FnS original still in tact. " +
+    "Written with the help of Erik Lindgrin, this tune hits on the feeling of being in love and feeling like it will last forever.";
+
+    function onHarmClick() {
+        setHarmCheck(true)
+    }
+
+    function onHarmCancel() {
+        setHarmCheck(false)
+    }
+
+    const harmDescription = "Harmonize was written in the fall of 2016 after a double dose of inspiration from Bon Iver's recent 22 A Million album " +
+    "and a colorful fall drive drenched in late afternoon autumn sun. After studying Yeat's poem 'The Second Coming' and Joan Didion's 'Slouching Towards Bethlehem', " +
+    "Max felt some sense of impending doom. His response: Harmonize.";
+
 
     function onMaxClick() {
         setMaxInfo(true);
@@ -80,37 +135,49 @@ function Spuds() {
     return (
         <div className="container rocksalt">
             <div className="text-start ms-5">
-                <SongSymbols urlLink="https://youtu.be/Et9OYk7XIM8" symbol={cantStop} altText="Can't Stop Song Symbol" />
+                <div style={{ display: "inline-block" }}>
+                    {cantStopCheck ? <SongCard songName="Can't Stop" onSongCancel={onCantStopCancel} youtubeUrl="https://www.youtube.com/embed/Et9OYk7XIM8" songInfo={cantStopDescription} />
+                        : <SongSymbols symbol={cantStop} altText="Can't Stop Song Symbol" onClick={onCantStopClick} />}
+                </div>
             </div>
             <div className="container" style={{ width: "50%" }}>
                 <h1 className="text-center m-3 spudsite">Meet the Spuds</h1>
             </div>
             <div className="text-center">
                 <div className="text-end me-5">
-                    <SongSymbols urlLink="https://youtu.be/2O8G22vrpRw" symbol={mtnSong} altText="Mountain Song Symbol" />
+                    <div style={{ display: "inline-block" }}>
+                        {mtnCheck ? <SongCard songName="The Mountain Song" onSongCancel={onMtnCancel} youtubeUrl="https://www.youtube.com/embed/2O8G22vrpRw" songInfo={mtnDescription} />
+                            : <SongSymbols symbol={mtnSong} altText="Mountain Song Symbol" onClick={onMtnClick} />}
+                    </div>
                 </div>
                 <div style={{ display: "inline-block" }}>
                     <div className="text-center row">
                         {maxInfo ? <InfoPanel memberName="Max Meier" memberInfo={maxDescription} onCancel={onMaxCancel} top={1} dalleImg={dalleMax} dalleAlt={dalleAlt} />
                             : <img src={spuddieMax} alt="Spuddie Buddie - Max on Flugel" className="spuddies me-5" onClick={onMaxClick} />}
-                        {martyInfo ? <InfoPanel className="m-2" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} top={1} dalleImg={dalleMartin} dalleAlt={dalleAlt}/>
+                        {martyInfo ? <InfoPanel className="m-2" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} top={1} dalleImg={dalleMartin} dalleAlt={dalleAlt} />
                             : <img src={spuddieMarty} alt="Spuddie Buddie - Marty on drums" className="spuddies" onClick={onMartyClick} />}
                     </div>
                 </div>
                 <div></div>
                 <div style={{ display: "inline-block" }}>
                     <div className="text-center row">
-                        {thomasInfo ? <InfoPanel className="m-2" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} top={0}  dalleImg={dalleThomas} dalleAlt={dalleAlt}/>
+                        {thomasInfo ? <InfoPanel className="m-2" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} top={0} dalleImg={dalleThomas} dalleAlt={dalleAlt} />
                             : <img src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies me-5" onClick={onThomasClick} />}
-                        {justinInfo ? <InfoPanel className="m-2" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} top={0} dalleImg={dalleJustin} dalleAlt={dalleAlt}/>
+                        {justinInfo ? <InfoPanel className="m-2" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} top={0} dalleImg={dalleJustin} dalleAlt={dalleAlt} />
                             : <img src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies" onClick={onJustinClick} />}
                     </div>
                 </div>
                 <div className="text-start ms-3">
-                    <SongSymbols urlLink="https://youtu.be/tGncFGhEAY0" symbol={harm} altText="Harmonize Song Symbol" />
+                    <div style={{ display: "inline-block" }}>
+                        {harmCheck ? <SongCard songName="Harmonize" onSongCancel={onHarmCancel} youtubeUrl="https://www.youtube.com/embed/tGncFGhEAY0" songInfo={harmDescription} />
+                            : <SongSymbols symbol={harm} altText="Harmonize Song Symbol" onClick={onHarmClick} />}
+                    </div>
                 </div>
                 <div className="text-end me-3">
-                    <SongSymbols urlLink="https://youtu.be/9783gZaMlZU" symbol={mango} altText="Mango Jam Song Symbol" />
+                    <div style={{ display: "inline-block" }}>
+                        {mangoCheck ? <SongCard songName="Mango Jam" onSongCancel={onMangoCancel} youtubeUrl="https://www.youtube.com/embed/9783gZaMlZU" songInfo={mangoDescription} />
+                            : <SongSymbols symbol={mango} altText="Mango Jam Song Symbol" onClick={onMangoClick} />}
+                    </div>
                 </div>
             </div>
             <footer className="container text-center">
