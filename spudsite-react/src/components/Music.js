@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Music.css";
 import SongSymbols from "./SongSymbols";
+import SongCard from "./SongCard";
 import FooterLinks from "./FooterLinks";
 import jumpingSpud from "../img/FunkNJump.gif";
 import changes from "../img/ChangesSongSymbol.png";
@@ -12,12 +13,54 @@ import beenGone from "../img/BeenGoneSongSymbol.png";
 
 function Music() {
 
+    const [beenGoneCheck, setBeenGoneCheck] = useState(false);
+    const [changesCheck, setChangesCheck] = useState(false);
+    const [pentUpCheck, setPentUpCheck] = useState(false);
+
+    function onBeenGoneClick() {
+        setBeenGoneCheck(true);
+    }
+
+    function onBeenGoneCancel() {
+        setBeenGoneCheck(false);
+    }
+
+    const beenGoneDescription = "Been Gone is a break-up song resulting from a split Max experienced in early 2018. " +
+        "'The music is broken, the music is clear - And we're wandering around believing in the sound, my dear'. Sometimes " +
+        "it's better to call it quits than trying to put back together a shattered piece of glass.";
+
+    function onChangesClick() {
+        setChangesCheck(true)
+    }
+
+    function onChangesCancel() {
+        setChangesCheck(false)
+    }
+
+    const changesDescription = "Meditating on the balcony of the house Max and Martin shared during the beginning of the pandemic, " +
+        "Max wrote this song and shared it with the Spuds mid-livestream. The band quickly learned to jam on the simple four chord progression " +
+        "and it is one of the tracks appearing on Ramsey's Adventure Cabin - EP";
+
+    function onPentUpClick() {
+        setPentUpCheck(true)
+    }
+
+    function onPentUpCancel() {
+        setPentUpCheck(false)
+    }
+
+    const pentUpDescription = "Zach came up with the stellar sax part to this groove (originally an iPhone recording of the group during the first days of the pandemic). " +
+        "The group arranged and recorded this track during Ramsey Adventure Cabin weekend. Can you feel the energy?"
+
     return (
         <div className="rocksalt container">
             <div className="text-center">
                 <div>
                     <div className="text-end me-5">
-                        <SongSymbols urlLink="https://youtu.be/I-a0hjlSZaU?t=2268" symbol={beenGone} altText="Been Gone Song Symbol" />
+                        <div style={{ display: "inline-block" }}>
+                            {beenGoneCheck ? <SongCard songName="Been Gone" onSongCancel={onBeenGoneCancel} youtubeUrl="https://www.youtube.com/embed/I-a0hjlSZaU?start=2268" songInfo={beenGoneDescription} />
+                                : <SongSymbols symbol={beenGone} altText="Been Gone Song Symbol" onClick={onBeenGoneClick} />}
+                        </div>
                     </div>
                     <h1 className="mb-5 spudsite">Livestream Central</h1>
                     <div class="music-video-box">
@@ -32,7 +75,10 @@ function Music() {
                         </div>
                     </div>
                     <div className="text-start ms-5">
-                        <SongSymbols urlLink="https://youtu.be/-PSL2XeBKA8" symbol={changes} altText="Changes Song Symbol" />
+                        <div style={{ display: "inline-block" }}>
+                            {changesCheck ? <SongCard songName="Changes" onSongCancel={onChangesCancel} youtubeUrl="https://www.youtube.com/embed/-PSL2XeBKA8" songInfo={changesDescription} />
+                                : <SongSymbols symbol={changes} altText="Changes Song Symbol" onClick={onChangesClick} />}
+                        </div>
                     </div>
                     <h1 className="mb-5 spudsite">Listen on Bandcamp</h1>
                     <div class="bandcamp-box">
@@ -46,7 +92,10 @@ function Music() {
                         </div>
                     </div>
                     <div className="text-end me-5">
-                        <SongSymbols urlLink="https://youtu.be/hWuE9rREJQI" symbol={pentUp} altText="Pent Up Song Symbol" />
+                        <div style={{ display: "inline-block" }}>
+                            {pentUpCheck ? <SongCard songName="Pent Up" onSongCancel={onPentUpCancel} youtubeUrl="https://www.youtube.com/embed/hWuE9rREJQI" songInfo={pentUpDescription} />
+                                : <SongSymbols symbol={pentUp} altText="Pent Up Song Symbol" onClick={onPentUpClick} />}
+                        </div>
                     </div>
                     <footer className="container text-center">
                         <FooterLinks />
