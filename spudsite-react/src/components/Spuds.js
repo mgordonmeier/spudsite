@@ -12,6 +12,10 @@ import mango from "../img/MangoJamSongSymbol.png";
 import cantStop from "../img/CantStopSongSymbol.png";
 import harm from "../img/HarmonizeSongSymbol.png";
 import jumpingSpud from "../img/FunkNJump.gif";
+import dalleJustin from "../img/ShaggyOnBass.jpg";
+import dalleMartin from "../img/LunaTunaOnTheDrums.jpg";
+import dalleThomas from "../img/TheHaze.jpg";
+import dalleMax from "../img/FunkySpudInSpace.jpg";
 
 function Spuds() {
     const [maxInfo, setMaxInfo] = useState(false);
@@ -71,6 +75,8 @@ function Spuds() {
         "brother Martin. When not playing music he travels the country with " +
         "his partner Nicole playing Quadball."
 
+    const dalleAlt = "Image created via Dall-E OpenAI";
+
     return (
         <div className="container rocksalt">
             <div className="text-start ms-5">
@@ -85,18 +91,18 @@ function Spuds() {
                 </div>
                 <div style={{ display: "inline-block" }}>
                     <div className="text-center row">
-                        {maxInfo ? <InfoPanel memberName="Max Meier" memberInfo={maxDescription} onCancel={onMaxCancel} />
+                        {maxInfo ? <InfoPanel memberName="Max Meier" memberInfo={maxDescription} onCancel={onMaxCancel} top={1} dalleImg={dalleMax} dalleAlt={dalleAlt} />
                             : <img src={spuddieMax} alt="Spuddie Buddie - Max on Flugel" className="spuddies me-5" onClick={onMaxClick} />}
-                        {martyInfo ? <InfoPanel className="m-2" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} />
+                        {martyInfo ? <InfoPanel className="m-2" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} top={1} dalleImg={dalleMartin} dalleAlt={dalleAlt}/>
                             : <img src={spuddieMarty} alt="Spuddie Buddie - Marty on drums" className="spuddies" onClick={onMartyClick} />}
                     </div>
                 </div>
                 <div></div>
                 <div style={{ display: "inline-block" }}>
                     <div className="text-center row">
-                        {thomasInfo ? <InfoPanel className="m-2" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} />
+                        {thomasInfo ? <InfoPanel className="m-2" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} top={0}  dalleImg={dalleThomas} dalleAlt={dalleAlt}/>
                             : <img src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies me-5" onClick={onThomasClick} />}
-                        {justinInfo ? <InfoPanel className="m-2" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} />
+                        {justinInfo ? <InfoPanel className="m-2" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} top={0} dalleImg={dalleJustin} dalleAlt={dalleAlt}/>
                             : <img src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies" onClick={onJustinClick} />}
                     </div>
                 </div>

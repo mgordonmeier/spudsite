@@ -154,9 +154,19 @@
 }
 
 .navLink:hover {
-    background: #5e17ae;
+    background: #6225a9;
     color: aliceblue;
     text-shadow: rgb(255, 255, 255) -2px 0, rgb(255, 255, 255) 2px 0, rgb(255, 255, 255) 0px 2px, rgb(255, 255, 255) 0px -2px;
+    transform: scale(1.1);
+    transition: all 265ms ease;
+}
+
+.headerLink {
+    border-radius: 50%;
+}
+
+.headerLink:hover {
+    background: #00ddff;
     transform: scale(1.1);
     transition: all 265ms ease;
 }

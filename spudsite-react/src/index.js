@@ -7,7 +7,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div style={{
-    backgroundImage: "url(" + require( "./img/SpudsiteBg.jpg" ) + ")",
+    backgroundImage: "url(" + require( "./img/SpudsiteBg3.jpg" ) + ")",
     backgroundSize: "cover",
     height: "auto"  }}>
     <React.StrictMode>
