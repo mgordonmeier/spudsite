@@ -3,9 +3,9 @@ import React from "react";
 function SongSymbols(props) {
 
     return (
-        <a href={props.urlLink}>
+        <div onClick={props.onClick}>
             <img src={props.symbol} alt={props.altText} className="songSymbol" />
-        </a>
+        </div>
     )
 }
 
