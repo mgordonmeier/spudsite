@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FooterLinks from "./FooterLinks";
 import SongSymbols from "./SongSymbols";
+import InfoPanel from "./InfoPanel";
 import "./Spuds.css";
 import spuddieMax from "../img/spuddie-max.PNG";
 import spuddieMarty from "../img/spuddie-marty.PNG";
@@ -19,8 +20,56 @@ function Spuds() {
     const [justinInfo, setJustinInfo] = useState(false);
 
     function onMaxClick() {
-        
+        setMaxInfo(true);
     }
+
+    function onMaxCancel() {
+        setMaxInfo(false);
+    }
+
+    function onMartyClick() {
+        setMartyInfo(true);
+    }
+
+    function onMartyCancel() {
+        setMartyInfo(false);
+    }
+
+    function onThomasClick() {
+        setThomasInfo(true);
+    }
+
+    function onThomasCancel() {
+        setThomasInfo(false);
+    }
+
+    function onJustinClick() {
+        setJustinInfo(true);
+    }
+
+    function onJustinCancel() {
+        setJustinInfo(false);
+    }
+
+    const maxDescription = "Born and raised in Neenah Wisconsin, " +
+        "Max grew up playing music with and enjoying the company of his " +
+        "brother Martin. When not playing music he travels the country with " +
+        "his partner Nicole playing Quadball."
+
+    const martyDescription = "Born and raised in Neenah Wisconsin, " +
+        "Max grew up playing music with and enjoying the company of his " +
+        "brother Martin. When not playing music he travels the country with " +
+        "his partner Nicole playing Quadball."
+
+    const thomasDescription = "Born and raised in Neenah Wisconsin, " +
+        "Max grew up playing music with and enjoying the company of his " +
+        "brother Martin. When not playing music he travels the country with " +
+        "his partner Nicole playing Quadball."
+
+    const justinDescription = "Born and raised in Neenah Wisconsin, " +
+        "Max grew up playing music with and enjoying the company of his " +
+        "brother Martin. When not playing music he travels the country with " +
+        "his partner Nicole playing Quadball."
 
     return (
         <div className="container rocksalt">
@@ -34,16 +83,25 @@ function Spuds() {
                 <div className="text-end me-5">
                     <SongSymbols urlLink="https://youtu.be/2O8G22vrpRw" symbol={mtnSong} altText="Mountain Song Symbol" />
                 </div>
-                <div>
-                    <img src={spuddieMax} alt="Spuddie Buddie - Max on Flugel" className="spuddies me-5" />
-                    <img src={spuddieMarty} alt="Spuddie Buddie - Marty on drums" className="spuddies" />
+                <div style={{ display: "inline-block" }}>
+                    <div className="text-center row">
+                        {maxInfo ? <InfoPanel memberName="Max Meier" memberInfo={maxDescription} onCancel={onMaxCancel} />
+                            : <img src={spuddieMax} alt="Spuddie Buddie - Max on Flugel" className="spuddies me-5" onClick={onMaxClick} />}
+                        {martyInfo ? <InfoPanel className="m-2" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} />
+                            : <img src={spuddieMarty} alt="Spuddie Buddie - Marty on drums" className="spuddies" onClick={onMartyClick} />}
+                    </div>
+                </div>
+                <div></div>
+                <div style={{ display: "inline-block" }}>
+                    <div className="text-center row">
+                        {thomasInfo ? <InfoPanel className="m-2" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} />
+                            : <img src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies me-5" onClick={onThomasClick} />}
+                        {justinInfo ? <InfoPanel className="m-2" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} />
+                            : <img src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies" onClick={onJustinClick} />}
+                    </div>
                 </div>
                 <div className="text-start ms-3">
                     <SongSymbols urlLink="https://youtu.be/tGncFGhEAY0" symbol={harm} altText="Harmonize Song Symbol" />
-                </div>
-                <div>
-                    <img src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies me-5" />
-                    <img src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies" />
                 </div>
                 <div className="text-end me-3">
                     <SongSymbols urlLink="https://youtu.be/9783gZaMlZU" symbol={mango} altText="Mango Jam Song Symbol" />
