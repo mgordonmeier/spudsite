@@ -1,0 +1,17 @@
+.music-video-box {
+  
+    text-align: center;
+    filter: drop-shadow(5px 5px 5px #151515)
+
+}
+
+.bandcamp-box {
+    padding: 1em;
+    display: block;
+    text-align: center;
+    filter: drop-shadow(3px 3px 3px #151515)
+}
+
+.tag {
+    filter: drop-shadow(1px 1px 2px #151515)
+}
