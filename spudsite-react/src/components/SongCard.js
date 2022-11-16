@@ -8,7 +8,7 @@ function SongCard(props) {
                 <button className="btn btn-danger btn-sm float-end" onClick={props.onSongCancel}>X</button>
             </div>
             <div className="text-center">
-                <iframe style={{width: "17rem"}} className="card-img-top text-center" src={props.youtubeUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe style={{width: "17rem"}} className="card-img-top text-center" src={props.youtubeUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
             <div className="card-body beenie d-inline">
                 <h5 className="card-text">{props.songInfo}</h5>

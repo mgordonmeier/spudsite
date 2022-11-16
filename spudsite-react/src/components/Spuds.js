@@ -141,7 +141,7 @@ function Spuds() {
                 </div>
             </div>
             <div className="container" style={{ width: "50%" }}>
-                <h1 className="text-center m-3 spudsite">Meet the Spuds</h1>
+                <h1 className="text-center spudsite">Meet the Spuds</h1>
             </div>
             <div className="text-center">
                 <div className="text-end me-5">

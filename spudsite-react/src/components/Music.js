@@ -63,15 +63,15 @@ function Music() {
                         </div>
                     </div>
                     <h1 className="mb-5 spudsite">Livestream Central</h1>
-                    <div class="music-video-box">
+                    <div className="music-video-box">
                         <div className="m-3">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                         <div className="m-3">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/PRyNdlSUJJY?start=19666" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/PRyNdlSUJJY?start=19666" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                         <div>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/C5eFspyaYmc?start=267" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/C5eFspyaYmc?start=267" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
                     <div className="text-start ms-5">
@@ -81,7 +81,7 @@ function Music() {
                         </div>
                     </div>
                     <h1 className="mb-5 spudsite">Listen on Bandcamp</h1>
-                    <div class="bandcamp-box">
+                    <div className="bandcamp-box">
                         <div className="m-2">
                             <iframe className="m-3" style={{ border: "8em", width: "200px", height: "200px" }} src="https://bandcamp.com/EmbeddedPlayer/track=2496098191/size=large/bgcol=ffffff/linkcol=63b2cc/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/low-hanging-ceilings-3">Low Hanging Ceilings by Funk N Spuds</a></iframe>
                             <iframe className="m-3" style={{ border: "8em", width: "200px", height: "200px" }} src="https://bandcamp.com/EmbeddedPlayer/track=1517826561/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/the-envelope">The Envelope by Funk N Spuds</a></iframe>

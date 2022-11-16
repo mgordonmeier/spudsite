@@ -91,8 +91,8 @@ function Home() {
                             </div>
                         </div>
                         <div className="container frame-text-box" style={{ width: "70%" }}>
-                            <h1 className="m-4 spudsite">Welcome to the Spudsite</h1>
-                            <h3 className="mb-4">Home of</h3>
+                            <h1 className=" spudsite">Welcome to the Spudsite</h1>
+                            <h3>Home of</h3>
                         </div>
                         <div className="text-start ms-5">
                             <div style={{ display: "inline-block" }}>
@@ -123,9 +123,9 @@ function Home() {
                         </div>
                         <div className="intro-video">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/cSz4jmj5Zfc" title="YouTube video player"
-                                frameborder="0"
+                                frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                                allowFullScreen></iframe>
                         </div>
                         <div className="text-end me-5">
                             <div style={{ display: "inline-block" }}>
