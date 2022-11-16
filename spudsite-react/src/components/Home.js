@@ -75,7 +75,7 @@ function Home() {
         setAhemCheck(false)
     }
 
-    const ahemDescription = "In late 2017 Max sat down behind his computer and popped an early version of this song out " +
+    const ahemDescription = "In late 2017 Max sat down behind his computer and popped out an early version of this song out " +
         "in a couple hours. After that it did little more than gather dust until he brought it to the newly formed Funk N Spuds in early 2020. " +
         "From there it turned into an utter soul jam and another favorite of the group.";
 
