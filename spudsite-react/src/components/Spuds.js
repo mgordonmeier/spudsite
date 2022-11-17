@@ -115,20 +115,13 @@ function Spuds() {
         "brother Martin. When not playing music he travels the country with " +
         "his partner Nicole playing Quadball."
 
-    const martyDescription = "Born and raised in Neenah Wisconsin, " +
-        "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
-        "his partner Nicole playing Quadball."
+    const martyDescription = "Born and raised in Neenah Wisconsin with his brother Max, " +
+        "Martin took to the drums early (and is secretly a great piano player too). ";
 
-    const thomasDescription = "Born and raised in Neenah Wisconsin, " +
-        "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
-        "his partner Nicole playing Quadball."
+    const thomasDescription = "Straight out of Cleveland roars Thomas 'the Haze' Hazlett on Electric guitar.";
 
-    const justinDescription = "Born and raised in Neenah Wisconsin, " +
-        "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
-        "his partner Nicole playing Quadball."
+    const justinDescription = "This sonic wonderkid grew up in the wilds of Minnesota and is ready to " +
+    "jam on pure vibes alone."
 
     const dalleAlt = "Image created via Dall-E OpenAI";
 
