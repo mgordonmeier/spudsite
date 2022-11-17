@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Spuds from './components/Spuds';
+import Game from './components/Game';
 import Music from './components/Music';
 import Shows from './components/Shows';
 import Contact from './components/Contact';
@@ -20,6 +21,10 @@ function App() {
 
         <Route path="/spuds">
           <Spuds />
+        </Route>
+
+        <Route path="/game">
+          <Game />
         </Route>
 
         <Route path="/music">
