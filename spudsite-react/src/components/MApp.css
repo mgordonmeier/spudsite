@@ -20,3 +20,8 @@
 .texture-selector img:active {
     border: 2px solid red;
 }
+
+.menu {
+    top: 80px;
+    left: 80px;
+}

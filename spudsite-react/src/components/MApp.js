@@ -7,6 +7,7 @@ import { FPV } from './MApp-components/FPV';
 import { Cubes } from './MApp-components/Cubes';
 import "./MApp.css";
 import { TextureSelector } from './MApp-components/TextureSelector';
+import { Menu } from './MApp-components/Menu';
 
 function MApp() {
   return (
@@ -22,7 +23,7 @@ function MApp() {
           <Ground />
         </Physics>
       </Canvas>
-      <div className='absolute centered cursor'>+</div>
+      {/* <div className='absolute centered cursor'>+</div> */}
       <TextureSelector />
       <Menu />
     </>
