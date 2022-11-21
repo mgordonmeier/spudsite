@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Spuds from './components/Spuds';
 import Music from './components/Music';
+import Games from './components/Games';
 import Shows from './components/Shows';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
@@ -24,6 +25,10 @@ function App() {
 
         <Route path="/music">
           <Music />
+        </Route>
+
+        <Route path="/games">
+          <Games />
         </Route>
 
         <Route path="/shows">
