@@ -112,7 +112,7 @@ function Spuds() {
 
     const maxDescription = "Born and raised in Neenah Wisconsin, " +
         "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
+        "brother Martin. When not playing music with Funk 'N Spuds he travels the country with " +
         "his partner Nicole playing Quadball."
 
     const martyDescription = "Born and raised in Neenah Wisconsin, " +
@@ -120,15 +120,13 @@ function Spuds() {
         "brother Martin. When not playing music he travels the country with " +
         "his partner Nicole playing Quadball."
 
-    const thomasDescription = "Born and raised in Neenah Wisconsin, " +
-        "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
-        "his partner Nicole playing Quadball."
+    const thomasDescription = "Hailing from the Wild Wild Midwest, Thomas is " + 
+    "Funk 'N Spuds' six string slinger. When the encore ends he trades in his " + 
+    "guitar for a camera to ride off into the night, shooting stars in galaxies far, far away...."
 
-    const justinDescription = "Born and raised in Neenah Wisconsin, " +
-        "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
-        "his partner Nicole playing Quadball."
+    const justinDescription = "Justin was born and raised in Prior Lake, Minnesota, " +
+    "to a family who loves water, wind, and music.  He now lives in Saint Paul and makes " + 
+    "music with the Funk 'N Spuds."
 
     const dalleAlt = "Image created via Dall-E OpenAI";
 

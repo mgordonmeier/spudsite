@@ -7,6 +7,7 @@ import jumpingSpud from "../img/FunkNJump.gif";
 import changes from "../img/ChangesSongSymbol.png";
 import pentUp from "../img/PentUpSongSymbol.png";
 import beenGone from "../img/BeenGoneSongSymbol.png";
+import lithouse from "../img/LithouseSongSymbol.png";
 
 
 
@@ -16,6 +17,7 @@ function Music() {
     const [beenGoneCheck, setBeenGoneCheck] = useState(false);
     const [changesCheck, setChangesCheck] = useState(false);
     const [pentUpCheck, setPentUpCheck] = useState(false);
+    const [litCheck, setLitCheck] = useState(false);
 
     function onBeenGoneClick() {
         setBeenGoneCheck(true);
@@ -50,8 +52,22 @@ function Music() {
     }
 
     const pentUpDescription = "Zach came up with the stellar sax part to this groove (originally an iPhone recording of the group during the first days of the pandemic). " +
-        "The group arranged and recorded this track during Ramsey Adventure Cabin weekend. Can you feel the energy?"
+        "The group arranged and recorded this track during Ramsey Adventure Cabin weekend. Can you feel the energy?";
 
+    function onLitClick() {
+            setLitCheck(true)
+        }
+    
+        function onLitCancel() {
+            setLitCheck(false)
+        }
+    
+        const litDescription = "LitHouse is a song that Justin brought to the group over the summer of 2021. Upon the cyclical piano " +
+        "intro Zach threw some ambient sax, Max transformed into a singing whale with the help of his flugelhorn, and the rest of the Spuds " +
+        "helped to build this soaring atmospheric sonic tome."
+    
+    
+        
     return (
         <div className="rocksalt container">
             <div className="text-center">
@@ -63,6 +79,12 @@ function Music() {
                         </div>
                     </div>
                     <h1 className="mb-5 spudsite">Livestream Central</h1>
+                    <div className="text-start ms-1">
+                        <div style={{ display: "inline-block" }}>
+                            {litCheck ? <SongCard songName="LitHouse" onSongCancel={onLitCancel} youtubeUrl="https://www.youtube.com/embed/CF8fYacBiv0" songInfo={litDescription} />
+                                : <SongSymbols symbol={lithouse} altText="LitHouse Song Symbol" onClick={onLitClick} />}
+                        </div>
+                    </div>
                     <div className="music-video-box">
                         <div className="m-3">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
