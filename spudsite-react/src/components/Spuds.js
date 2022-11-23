@@ -115,10 +115,10 @@ function Spuds() {
         "brother Martin. When not playing music with Funk 'N Spuds he travels the country with " +
         "his partner Nicole playing Quadball."
 
-    const martyDescription = "Born and raised in Neenah Wisconsin, " +
-        "Max grew up playing music with and enjoying the company of his " +
-        "brother Martin. When not playing music he travels the country with " +
-        "his partner Nicole playing Quadball."
+    const martyDescription = "Martin grew up in Neenah Wisconsin with " +
+    "his brother Max, playing music together in school bands and getting into trouble. " +
+    "This bandana-clad wizard spends his days chasing his cats around the apartment " +
+    "and making beats and synth jams that bring pure joy."
 
     const thomasDescription = "Hailing from the Wild Wild Midwest, Thomas is " + 
     "Funk 'N Spuds' six string slinger. When the encore ends he trades in his " + 

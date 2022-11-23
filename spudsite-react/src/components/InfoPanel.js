@@ -11,7 +11,7 @@ function InfoPanel(props) {
     return (
         <div className="card specialCard text-center m-2" style={{width: "20rem"}}>
             <div className="card-header m-2">
-                <p className="d-inline"><strong>{props.memberName}</strong></p>
+                <p className="d-inline spudsiteSm"><strong>{props.memberName}</strong></p>
                 <button className="btn btn-danger btn-sm float-end" onClick={props.onCancel}>X</button>
             </div>
             {props.top ? <div className="text-center"><img src={props.dalleImg} alt={props.dalleAlt} className={topOrBottom} style={{width: "18rem", height: "auto", borderRadius: "7px"}} /></div> : null}

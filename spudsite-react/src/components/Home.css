@@ -47,6 +47,17 @@
     text-shadow: red -3px 0, cyan 3px 0;
 }
 
+.spudsiteSM {
+    letter-spacing: 3px;
+    text-shadow: red 0 0, cyan 0 0;
+    transition: text-shadow 265ms;
+    font-weight: bolder;
+}
+
+.spudsiteSm:hover {
+    text-shadow: red -2px 0, cyan 2px 0;
+}
+
 .social-icons {
     padding: 0;
     margin: 0;

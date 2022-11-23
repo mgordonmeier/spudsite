@@ -101,7 +101,9 @@ function Home() {
                             </div>
                         </div>
                         <div className="frame-2">
-                            <img src={spudCover} alt="Fresh Spuds Cover" className="img-header" />
+                            <a href="https://voyageminnesota.com/interview/conversations-with-max-martin-justin-thomas-zach-meier-meier-halverson-hazlett-miller/">
+                                <img src={spudCover} alt="Fresh Spuds Cover" className="img-header" />
+                            </a>
                         </div>
                         <div className="text-end me-4">
                             <div style={{ display: "inline-block" }}>
@@ -122,7 +124,7 @@ function Home() {
                             </div>
                         </div>
                         <div className="intro-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cSz4jmj5Zfc" title="YouTube video player"
+                            <iframe style={{ borderRadius: "4px" }} width="560" height="315" src="https://www.youtube.com/embed/cSz4jmj5Zfc" title="YouTube - Happy 2 Know U"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen></iframe>

@@ -87,13 +87,13 @@ function Music() {
                     </div>
                     <div className="music-video-box">
                         <div className="m-3">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe style={{borderRadius: "4px"}}  width="560" height="315" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube - Spud County" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                         <div className="m-3">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/PRyNdlSUJJY?start=19666" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe style={{borderRadius: "4px"}} width="560" height="315" src="https://www.youtube.com/embed/PRyNdlSUJJY?start=19666" title="YouTube - Porchfest" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                         <div>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/C5eFspyaYmc?start=267" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe style={{borderRadius: "4px"}} width="560" height="315" src="https://www.youtube.com/embed/C5eFspyaYmc?start=267" title="YouTube - RAC EP Release" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
                     <div className="text-start ms-5">
@@ -102,15 +102,15 @@ function Music() {
                                 : <SongSymbols symbol={changes} altText="Changes Song Symbol" onClick={onChangesClick} />}
                         </div>
                     </div>
-                    <h1 className="mb-5 spudsite">Listen on Bandcamp</h1>
+                    <h1 className=" spudsite">Listen on Bandcamp</h1>
                     <div className="bandcamp-box">
                         <div className="m-2">
-                            <iframe className="m-3" style={{ border: "8em", width: "200px", height: "200px" }} src="https://bandcamp.com/EmbeddedPlayer/track=2496098191/size=large/bgcol=ffffff/linkcol=63b2cc/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/low-hanging-ceilings-3">Low Hanging Ceilings by Funk N Spuds</a></iframe>
-                            <iframe className="m-3" style={{ border: "8em", width: "200px", height: "200px" }} src="https://bandcamp.com/EmbeddedPlayer/track=1517826561/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/the-envelope">The Envelope by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="LHC Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "4px" }} src="https://bandcamp.com/EmbeddedPlayer/track=2496098191/size=large/bgcol=ffffff/linkcol=63b2cc/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/low-hanging-ceilings-3">Low Hanging Ceilings by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="Envelope Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "5px"  }} src="https://bandcamp.com/EmbeddedPlayer/track=1517826561/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/the-envelope">The Envelope by Funk N Spuds</a></iframe>
                         </div>
                         <div style={{ display: "inline-flex" }}>
-                            <iframe className="m-3" style={{ border: "4em", width: "350px", height: "621px" }} src="https://bandcamp.com/EmbeddedPlayer/album=317344125/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/ramseys-adventure-cabin">Ramsey's Adventure Cabin by Funk N Spuds</a></iframe>
-                            <iframe className="m-3" style={{ border: "4em", width: "350px", height: "720px" }} src="https://bandcamp.com/EmbeddedPlayer/album=879770262/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/harmonize">Harmonize by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="RAC Bandcamp" style={{ border: "4em", width: "350px", height: "621px" }} src="https://bandcamp.com/EmbeddedPlayer/album=317344125/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/ramseys-adventure-cabin">Ramsey's Adventure Cabin by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="Harmonize Bandcamp" style={{ border: "4em", width: "350px", height: "720px" }} src="https://bandcamp.com/EmbeddedPlayer/album=879770262/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/harmonize">Harmonize by Funk N Spuds</a></iframe>
                         </div>
                     </div>
                     <div className="text-end me-5">

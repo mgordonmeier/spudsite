@@ -71,7 +71,9 @@ function Contact() {
                     </div>
                     <p className="mt-5">Leave us a message or silly story <a href="mailto:funknspuds@gmail.com">funknspuds@gmail.com</a></p>
                     <div>
-                        <img src={fnsLogo} alt="FnS Logo" style={{ width: "20em" }} />
+                        <a href="https://mndaily.com/262980/arts-entertainment/como-band-creates-funky-concert-venue-at-home/">
+                            <img src={fnsLogo} alt="FnS Logo" style={{ width: "20em" }} />
+                        </a>
                     </div>
                     <div className="text-end me-5">
                         <div style={{ display: "inline-block" }}>
