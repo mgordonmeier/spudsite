@@ -18,6 +18,7 @@ import dalleMartin from "../img/LunaTunaOnTheDrums.jpg";
 import dalleThomas from "../img/TheHaze.jpg";
 import dalleMax from "../img/FunkySpudInSpace.jpg";
 
+
 function Spuds() {
     const [maxInfo, setMaxInfo] = useState(false);
     const [martyInfo, setMartyInfo] = useState(false);
@@ -131,8 +132,8 @@ function Spuds() {
     const dalleAlt = "Image created via Dall-E OpenAI";
 
     return (
-        <div className="container rocksalt">
-            <div className="text-start ms-5">
+        <div className="container rocksalt" >
+            <div className="text-start m-2">
                 <div style={{ display: "inline-block" }}>
                     {cantStopCheck ? <SongCard songName="Can't Stop" onSongCancel={onCantStopCancel} youtubeUrl="https://www.youtube.com/embed/Et9OYk7XIM8" songInfo={cantStopDescription} />
                         : <SongSymbols symbol={cantStop} altText="Can't Stop Song Symbol" onClick={onCantStopClick} />}
@@ -142,36 +143,36 @@ function Spuds() {
                 <h1 className="text-center spudsite">Meet the Spuds</h1>
             </div>
             <div className="text-center">
-                <div className="text-end me-5">
+                <div className="text-end m-2">
                     <div style={{ display: "inline-block" }}>
                         {mtnCheck ? <SongCard songName="The Mountain Song" onSongCancel={onMtnCancel} youtubeUrl="https://www.youtube.com/embed/2O8G22vrpRw" songInfo={mtnDescription} />
                             : <SongSymbols symbol={mtnSong} altText="Mountain Song Symbol" onClick={onMtnClick} />}
                     </div>
                 </div>
-                <div style={{ display: "inline-block" }}>
+                <div className="text-center" style={{ display: "inline-block" }}>
                     <div className="text-center row">
-                        {maxInfo ? <InfoPanel memberName="Max Meier" memberInfo={maxDescription} onCancel={onMaxCancel} top={1} dalleImg={dalleMax} dalleAlt={dalleAlt} />
-                            : <img src={spuddieMax} alt="Spuddie Buddie - Max on Flugel" className="spuddies me-5" onClick={onMaxClick} />}
-                        {martyInfo ? <InfoPanel className="m-2" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} top={1} dalleImg={dalleMartin} dalleAlt={dalleAlt} />
-                            : <img src={spuddieMarty} alt="Spuddie Buddie - Marty on drums" className="spuddies" onClick={onMartyClick} />}
+                        {maxInfo ? <InfoPanel className="m-2 col-6"memberName="Max Meier" memberInfo={maxDescription} onCancel={onMaxCancel} top={1} dalleImg={dalleMax} dalleAlt={dalleAlt} />
+                            : <img src={spuddieMax} alt="Spuddie Buddie - Max on Flugel" className="spuddies m-2 col-6" onClick={onMaxClick} />}
+                        {martyInfo ? <InfoPanel className="m-2 col-6" memberName="Martin Meier" memberInfo={martyDescription} onCancel={onMartyCancel} top={1} dalleImg={dalleMartin} dalleAlt={dalleAlt} />
+                            : <img src={spuddieMarty} alt="Spuddie Buddie - Marty on drums" className="spuddies m-2 col-6" onClick={onMartyClick} />}
                     </div>
                 </div>
                 <div></div>
-                <div style={{ display: "inline-block" }}>
+                <div className="" style={{ display: "inline-block" }}>
                     <div className="text-center row">
-                        {thomasInfo ? <InfoPanel className="m-2" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} top={0} dalleImg={dalleThomas} dalleAlt={dalleAlt} />
-                            : <img src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies me-5" onClick={onThomasClick} />}
-                        {justinInfo ? <InfoPanel className="m-2" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} top={0} dalleImg={dalleJustin} dalleAlt={dalleAlt} />
-                            : <img src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies" onClick={onJustinClick} />}
+                        {thomasInfo ? <InfoPanel className="m-2 col-6" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} top={0} dalleImg={dalleThomas} dalleAlt={dalleAlt} />
+                            : <img style={{display: "inline-block"}} src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies m-2 col-6" onClick={onThomasClick} />}
+                        {justinInfo ? <InfoPanel className="m-2 col-6" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} top={0} dalleImg={dalleJustin} dalleAlt={dalleAlt} />
+                            : <img style={{display: "inline-block"}} src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies m-2 col-6" onClick={onJustinClick} />}
                     </div>
                 </div>
-                <div className="text-start ms-3">
+                <div className="text-start m-2">
                     <div style={{ display: "inline-block" }}>
                         {harmCheck ? <SongCard songName="Harmonize" onSongCancel={onHarmCancel} youtubeUrl="https://www.youtube.com/embed/tGncFGhEAY0" songInfo={harmDescription} />
                             : <SongSymbols symbol={harm} altText="Harmonize Song Symbol" onClick={onHarmClick} />}
                     </div>
                 </div>
-                <div className="text-end me-3">
+                <div className="text-end m-2">
                     <div style={{ display: "inline-block" }}>
                         {mangoCheck ? <SongCard songName="Mango Jam" onSongCancel={onMangoCancel} youtubeUrl="https://www.youtube.com/embed/9783gZaMlZU" songInfo={mangoDescription} />
                             : <SongSymbols symbol={mango} altText="Mango Jam Song Symbol" onClick={onMangoClick} />}

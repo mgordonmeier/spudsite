@@ -55,48 +55,48 @@ function Music() {
         "The group arranged and recorded this track during Ramsey Adventure Cabin weekend. Can you feel the energy?";
 
     function onLitClick() {
-            setLitCheck(true)
-        }
-    
-        function onLitCancel() {
-            setLitCheck(false)
-        }
-    
-        const litDescription = "LitHouse is a song that Justin brought to the group over the summer of 2021. Upon the cyclical piano " +
+        setLitCheck(true)
+    }
+
+    function onLitCancel() {
+        setLitCheck(false)
+    }
+
+    const litDescription = "LitHouse is a song that Justin brought to the group over the summer of 2021. Upon the cyclical piano " +
         "intro Zach threw some ambient sax, Max transformed into a singing whale with the help of his flugelhorn, and the rest of the Spuds " +
         "helped to build this soaring atmospheric sonic tome."
-    
-    
-        
+
+
+
     return (
         <div className="rocksalt container">
             <div className="text-center">
                 <div>
-                    <div className="text-end me-5">
+                    <div className="text-end m-2">
                         <div style={{ display: "inline-block" }}>
                             {beenGoneCheck ? <SongCard songName="Been Gone" onSongCancel={onBeenGoneCancel} youtubeUrl="https://www.youtube.com/embed/I-a0hjlSZaU?start=2268" songInfo={beenGoneDescription} />
                                 : <SongSymbols symbol={beenGone} altText="Been Gone Song Symbol" onClick={onBeenGoneClick} />}
                         </div>
                     </div>
                     <h1 className="mb-5 spudsite">Livestream Central</h1>
-                    <div className="text-start ms-1">
+                    <div className="text-start m-2">
                         <div style={{ display: "inline-block" }}>
                             {litCheck ? <SongCard songName="LitHouse" onSongCancel={onLitCancel} youtubeUrl="https://www.youtube.com/embed/CF8fYacBiv0" songInfo={litDescription} />
                                 : <SongSymbols symbol={lithouse} altText="LitHouse Song Symbol" onClick={onLitClick} />}
                         </div>
                     </div>
                     <div className="music-video-box">
-                        <div className="m-3">
-                            <iframe style={{borderRadius: "4px"}}  width="560" height="315" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube - Spud County" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <div className="ratio ratio-16x9 m-3" style={{ width: "65vw", display: "inline-block" }}>
+                            <iframe style={{ borderRadius: "4px" }} width="auto" height="auto" src="https://www.youtube.com/embed/MOTcyp4Lj64?start=5907" title="YouTube - Spud County" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
-                        <div className="m-3">
-                            <iframe style={{borderRadius: "4px"}} width="560" height="315" src="https://www.youtube.com/embed/PRyNdlSUJJY?start=19666" title="YouTube - Porchfest" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <div className="ratio ratio-16x9 m-3" style={{ width: "65vw", display: "inline-block" }}>
+                            <iframe style={{ borderRadius: "4px" }} width="auto" height="auto" src="https://www.youtube.com/embed/PRyNdlSUJJY?start=19666" title="YouTube - Porchfest" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
-                        <div>
-                            <iframe style={{borderRadius: "4px"}} width="560" height="315" src="https://www.youtube.com/embed/C5eFspyaYmc?start=267" title="YouTube - RAC EP Release" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <div className="ratio ratio-16x9 m-3" style={{ width: "65vw", display: "inline-block" }}>
+                            <iframe style={{ borderRadius: "4px" }} width="auto" height="auto" src="https://www.youtube.com/embed/C5eFspyaYmc?start=267" title="YouTube - RAC EP Release" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
-                    <div className="text-start ms-5">
+                    <div className="text-start m-2">
                         <div style={{ display: "inline-block" }}>
                             {changesCheck ? <SongCard songName="Changes" onSongCancel={onChangesCancel} youtubeUrl="https://www.youtube.com/embed/-PSL2XeBKA8" songInfo={changesDescription} />
                                 : <SongSymbols symbol={changes} altText="Changes Song Symbol" onClick={onChangesClick} />}
@@ -106,14 +106,16 @@ function Music() {
                     <div className="bandcamp-box">
                         <div className="m-2">
                             <iframe className="m-3" title="LHC Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "4px" }} src="https://bandcamp.com/EmbeddedPlayer/track=2496098191/size=large/bgcol=ffffff/linkcol=63b2cc/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/low-hanging-ceilings-3">Low Hanging Ceilings by Funk N Spuds</a></iframe>
-                            <iframe className="m-3" title="Envelope Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "5px"  }} src="https://bandcamp.com/EmbeddedPlayer/track=1517826561/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/the-envelope">The Envelope by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="Envelope Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "5px" }} src="https://bandcamp.com/EmbeddedPlayer/track=1517826561/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/the-envelope">The Envelope by Funk N Spuds</a></iframe>
                         </div>
-                        <div style={{ display: "inline-flex" }}>
-                            <iframe className="m-3" title="RAC Bandcamp" style={{ border: "4em", width: "350px", height: "621px" }} src="https://bandcamp.com/EmbeddedPlayer/album=317344125/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/ramseys-adventure-cabin">Ramsey's Adventure Cabin by Funk N Spuds</a></iframe>
-                            <iframe className="m-3" title="Harmonize Bandcamp" style={{ border: "4em", width: "350px", height: "720px" }} src="https://bandcamp.com/EmbeddedPlayer/album=879770262/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/harmonize">Harmonize by Funk N Spuds</a></iframe>
+                        <div>
+                            <div className="text-center align-top" style={{display: "inline-block"}}>
+                                <iframe className="m-3 align-top" title="Harmonize Bandcamp" style={{ border: "4em", width: "200px", height: "600px" }} src="https://bandcamp.com/EmbeddedPlayer/album=879770262/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/harmonize">Harmonize by Funk N Spuds</a></iframe>
+                                <iframe className="m-3 align-top" title="RAC Bandcamp" style={{ border: "4em", width: "200px", height: "500px" }} src="https://bandcamp.com/EmbeddedPlayer/album=317344125/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/ramseys-adventure-cabin">Ramsey's Adventure Cabin by Funk N Spuds</a></iframe>
+                            </div>
                         </div>
                     </div>
-                    <div className="text-end me-5">
+                    <div className="text-end m-2">
                         <div style={{ display: "inline-block" }}>
                             {pentUpCheck ? <SongCard songName="Pent Up" onSongCancel={onPentUpCancel} youtubeUrl="https://www.youtube.com/embed/hWuE9rREJQI" songInfo={pentUpDescription} />
                                 : <SongSymbols symbol={pentUp} altText="Pent Up Song Symbol" onClick={onPentUpClick} />}

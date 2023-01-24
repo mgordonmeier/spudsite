@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Home.css';
 // import background from "../img/pour4.JPG";
 import jumpingSpud from "../img/FunkNJump.gif";
-import spudCover from "../img/FreshSpudsCover.png";
+import spudCover from "../img/FreshSpudsCover.jpg";
 import envelope from "../img/EnvelopeSongSymbol.png";
 import lhc from "../img/LHCSongSymbol.png";
 import ahem from "../img/AhemSongSymbol.png";
@@ -80,21 +80,23 @@ function Home() {
         "From there it turned into an utter soul jam and another favorite of the group.";
 
     return (
-        <div>
+    
             <div className="container">
                 <div className="text-center">
-                    <div className="rocksalt" style={{ display: "inline-block" }}>
-                        <div className="text-end me-5">
-                            <div style={{ display: "inline-block" }}>
+                    <div className="rocksalt" 
+                    // style={{ display: "inline-block" }}
+                    >
+                        <div className="text-end m-2">
+                            <div className="text-center" style={{ display: "inline-block" }}>
                                 {first1Check ? <SongCard songName="First One Up" onSongCancel={onFirst1Cancel} youtubeUrl="https://www.youtube.com/embed/pIDOSohb8jI" songInfo={first1Description} /> :
                                     <SongSymbols symbol={first1up} altText="First One Up Song Symbol" onClick={onFirst1Click} />}
                             </div>
                         </div>
-                        <div className="container frame-text-box" style={{ width: "70%" }}>
-                            <h1 className=" spudsite">Welcome to the Spudsite</h1>
+                        {/* <div className="container frame-text-box" style={{ width: "70vw" }}> */}
+                            <h1 className="spudsite">Welcome to the Spudsite</h1>
                             <h3>Home of</h3>
-                        </div>
-                        <div className="text-start ms-5">
+                        {/* </div> */}
+                        <div className="text-start m-2" >
                             <div style={{ display: "inline-block" }}>
                                 {lhcCheck ? <SongCard songName="Low Hanging Ceilings" onSongCancel={onLhcCancel} youtubeUrl="https://www.youtube.com/embed/kIhJc4kovKI" songInfo={lhcDescription} /> :
                                     <SongSymbols symbol={lhc} altText="Low Hanging Ceilings Song Symbol" onClick={onLhcClick} />}
@@ -102,34 +104,34 @@ function Home() {
                         </div>
                         <div className="frame-2">
                             <a href="https://voyageminnesota.com/interview/conversations-with-max-martin-justin-thomas-zach-meier-meier-halverson-hazlett-miller/">
-                                <img src={spudCover} alt="Fresh Spuds Cover" className="img-header" />
+                                <img style={{width: "70%"}} src={spudCover} alt="Fresh Spuds Cover" className="img-header" />
                             </a>
                         </div>
-                        <div className="text-end me-4">
+                        <div className="text-end m-2">
                             <div style={{ display: "inline-block" }}>
                                 {envelopeCheck ? <SongCard songName="The Envelope" onSongCancel={onEnvelopeCancel} youtubeUrl="https://www.youtube.com/embed/0dsg35UWTeA" songInfo={envelopeDescription} /> :
                                     <SongSymbols symbol={envelope} altText="The Envelope Song Symbol" onClick={onEnvelopeClick} />}
                             </div>
                         </div>
-                        <div className="card container specialCard beenie" style={{ width: "75%", display: "inline-block" }}>
+                        <div className="card container specialCard beenie" style={{ width: "75vw", display: "inline-block" }}>
                             <h4 className="m-1">Funk N Spuds is a Minneapolis based musical collective of artists from around the Midwest.</h4>
                             <h4 className="m-1">Formed in early 2020, their jam-rock jazz-pop sounds inspire hope in listeners and positive change in the world.</h4>
                             <h4 className="m-1">Over the past few years the Spuds have played venues across the Twin Cities, Southern Minnesota, and Central Wisconsin including Mid West Music Fest, Appleton Beer Factory, The Cabooze, 612 Brew, Galactic Get Down, and UW Stout. </h4>
                             {/* <p className="m-2">Funk N Spuds has taken the stage at most venues in the Twin Cities, but also </p> */}
                         </div>
-                        <div className="text-start ms-3">
+                        <div className="text-start m-2">
                             <div style={{ display: "inline-block" }}>
                                 {ahemCheck ? <SongCard songName="Ahem" onSongCancel={onAhemCancel} youtubeUrl="https://www.youtube.com/embed/MjuEEClLuDQ" songInfo={ahemDescription} /> :
                                     <SongSymbols symbol={ahem} altText="Ahem Song Symbol" onClick={onAhemClick} />}
                             </div>
                         </div>
-                        <div className="intro-video">
-                            <iframe style={{ borderRadius: "4px" }} width="560" height="315" src="https://www.youtube.com/embed/cSz4jmj5Zfc" title="YouTube - Happy 2 Know U"
+                        <div className="intro-video ratio ratio-16x9 m-4" style={{width: "65vw", display: "inline-block"}}>
+                            <iFrame style={{ borderRadius: "4px" }} src="https://www.youtube.com/embed/KMAOT2d1tXI" title="YouTube - Mango Jam"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen></iframe>
+                                allowFullScreen></iFrame>
                         </div>
-                        <div className="text-end me-5">
+                        <div className="text-end m-2">
                             <div style={{ display: "inline-block" }}>
                                 {h2kuCheck ? <SongCard songName="Happy 2 Know U" onSongCancel={onH2kuCancel} youtubeUrl="https://www.youtube.com/embed/q6x-OIfsgRg" songInfo={h2kuDescription} /> :
                                     <SongSymbols symbol={h2ku} altText="Happy 2 Know U Song Symbol" onClick={onH2kuClick} />}
@@ -137,8 +139,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <footer>
+                <footer>
                 <div className="container text-center">
                     <FooterLinks />
                 </div>
@@ -148,7 +149,8 @@ function Home() {
                     </a>
                 </div>
             </footer>
-        </div>
+            </div>
+
     )
 }
 

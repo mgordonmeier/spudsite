@@ -38,6 +38,7 @@ function Games() {
                                     <h4 className="">'S' - back</h4>
                                     <h4 className="">'A' - left</h4>
                                     <h4 className="">'D' - right</h4>
+                                    <h4 className="">'space' - jump</h4>
                                 </div>
                                 <div className="col-sm-6">
                                     <h4 className="">'mouse' - move camera</h4>

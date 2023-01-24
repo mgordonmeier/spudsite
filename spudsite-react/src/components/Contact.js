@@ -56,14 +56,14 @@ function Contact() {
         <div className="container rocksalt">
             <div className="text-center">
                 <div>
-                    <div className="text-end me-5">
+                    <div className="text-end m-2">
                         <div style={{ display: "inline-block" }}>
                             {hippieCheck ? <SongCard songName="Hippie Hill" onSongCancel={onHippieCancel} youtubeUrl="https://www.youtube.com/embed/5EuS4imn_fU" songInfo={hippieDescription} /> :
                                 <SongSymbols symbol={hippie} altText="Hippie Song Symbol" onClick={onHippieClick} />}
                         </div>
                     </div>
-                    <h1 className="spudsite mt-4">Get in touch!</h1>
-                    <div className="text-start ms-5">
+                    <h1 className="spudsite m-4">Get in touch!</h1>
+                    <div className="text-start m-2">
                         <div style={{ display: "inline-block" }}>
                             {friendsCheck ? <SongCard songName="All My Friends" onSongCancel={onFriendsCancel} youtubeUrl="https://www.youtube.com/embed/W4eh7Ianuis" songInfo={friendsDescription} />
                                 : <SongSymbols symbol={myFriends} altText="All My Friends Song Symbol" onClick={onFriendsClick} />}
@@ -72,10 +72,10 @@ function Contact() {
                     <p className="mt-5">Leave us a message or silly story <a href="mailto:funknspuds@gmail.com">funknspuds@gmail.com</a></p>
                     <div>
                         <a href="https://mndaily.com/262980/arts-entertainment/como-band-creates-funky-concert-venue-at-home/">
-                            <img src={fnsLogo} alt="FnS Logo" style={{ width: "20em" }} />
+                            <img className="music-video-box" src={fnsLogo} alt="FnS Logo" style={{ width: "20em" }} />
                         </a>
                     </div>
-                    <div className="text-end me-5">
+                    <div className="text-end m-2">
                         <div style={{ display: "inline-block" }}>
                             {rollCheck ? <SongCard songName="Roll On" onSongCancel={onRollCancel} youtubeUrl="https://www.youtube.com/embed/0OQIxd8jOzM" songInfo={rollDescription} />
                                 : <SongSymbols symbol={rollOn} altText="Roll On Song Symbol" onClick={onRollClick} />}
