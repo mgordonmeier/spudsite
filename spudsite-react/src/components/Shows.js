@@ -9,6 +9,13 @@ import lowDown from "../img/LowDownFNS-Appleton.jpg";
 import noName from "../img/NoNameDec17SpudsAndLads.jpg";
 import whiteS from "../img/FnSatWhiteS.jpg";
 import logo from "../img/fns-logo.png";
+import Art612 from "../img/ArtAWhirl612Spudsite.jpg"
+import GGD22 from "../img/GGD2022Spudsite.jpg"
+import MWMF22 from "../img/MWMFSpudsite.jpg"
+import Paper22 from "../img/PaperfestPromoSpudsite.jpg"
+import Shoebox from "../img/ShoeboxEpisodeXiiSpudsite.jpg"
+import SpudCounty from "../img/SpudCountySpudsite.jpg"
+
 
 function Shows() {
 
@@ -52,25 +59,58 @@ function Shows() {
                     <h1 className="spudsite m-2">Upcoming Shows!</h1>
 
                     <h5 className="spudsite mt-5">February 4, 2023 @ The White Squirrel Bar (St. Paul, MN)</h5>
-                    <a href="https://whitesquirrelbar.com"> 
+                    <a href="https://whitesquirrelbar.com">
                         <img className="mt-2 mb-4 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={whiteS} alt="White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus" />
                     </a>
 
                     <h5 className="spudsite mt-5">February 11, 2023 @ Underground Music Cafe (Minneapolis, MN)</h5>
-                    <a href="https://www.undergroundmusicvenue.com"> 
+                    <a href="https://www.undergroundmusicvenue.com">
                         <img className=" music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={logo} alt="Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf " />
                     </a>
 
-                    <h1 className="spudsite m-5">Past Shows</h1>
-                    
-                    <h5 className="spudsite mt-5">January 20, 2023 @ Appleton Beer Factory (Appleton, WI)</h5>
+
+
+                    <h1 className="spudsite m-3">Past Shows</h1>
+
+                    <h5 className="spudsite mt-3">January 20, 2023 @ Appleton Beer Factory (Appleton, WI)</h5>
                     <a href="https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738">
-                        <img  className="mt-2 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={lowDown} alt="Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds" />
+                        <img className="mt-2 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={lowDown} alt="Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds" />
                     </a>
-                    <h5 className="spudsite mt-5">December 17, 2022 @ Ed's No Name Bar (Winona, MN)</h5>
-                    <a href="https://visitwinona.com/directory_entry/eds-no-name-bar/"> 
-                        <img className="mt-2 mb-5 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={noName} alt="No Name Bar Winona - Funk N Spuds and Sugar Lads" />
+                    <h5 className="spudsite mt-3">December 17, 2022 @ Ed's No Name Bar (Winona, MN)</h5>
+                    <a href="https://visitwinona.com/directory_entry/eds-no-name-bar/">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={noName} alt="No Name Bar Winona - Funk N Spuds and Sugar Lads" />
                     </a>
+
+                    <h5 className="spudsite mt-3">October 14, 2022 Shoebox Episode XII (St. Paul, MN)</h5>
+                    <a href="https://www.airshipcaravan.com/">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Shoebox} alt="Shoebos Episode XII - Pandelion, Juniper Fly, Funk N Spuds, Airship Caravan" />
+                    </a>
+
+                    <h5 className="spudsite mt-3">August 26, 2022 Galactic Get Down 6 (New Richmond, WI)</h5>
+                    <a href="https://www.thegalacticgetdown.com/">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={GGD22} alt="Galactic Get Down Music Festival" />
+                    </a>
+
+                    <h5 className="spudsite mt-3">July 15, 2022 Paperfest (Kimberly, WI)</h5>
+                    <a href="https://www.paperfest.com/">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Paper22} alt="Funk N Spuds at Paperfest 2022" />
+                    </a>
+
+                    <h5 className="spudsite mt-3">May 20, 2022 Art-A-Whirl @ 612Brew (Minneapolis, MN)</h5>
+                    <a href="https://nemaa.org/art-a-whirl/">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Art612} alt="Funk N Spuds at 612Brew for Art-A-Whirl 2022" />
+                    </a>
+
+                    <h5 className="spudsite mt-3">April 29, 2022 Mid West Music Fest @ Eagles Club (Winona, MN)</h5>
+                    <a href="https://www.midwestmusicfest.org/">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={MWMF22} alt="Funk N Spuds at Mid West Music Fest 2022" />
+                    </a>
+
+                    <h5 className="spudsite mt-3">March 26, 2022 Spud County (Livestream - Youtube)</h5>
+                    <a href="https://youtu.be/MOTcyp4Lj64?t=5937">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={SpudCounty} alt="Spud County Livestream - Cook County and Funk N Spuds" />
+                    </a>
+
                     <div className="text-end m-2">
                         <div style={{ display: "inline-block" }}>
                             {somethinCheck ? <SongCard songName="Somethin Sometimes" onSongCancel={onSomethinCancel} youtubeUrl="https://www.youtube.com/embed/OQuKGgxlRYk" songInfo={somethinDescription} />
