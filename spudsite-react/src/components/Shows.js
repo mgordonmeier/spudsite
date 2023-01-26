@@ -8,13 +8,14 @@ import SongCard from "./SongCard";
 import lowDown from "../img/LowDownFNS-Appleton.jpg";
 import noName from "../img/NoNameDec17SpudsAndLads.jpg";
 import whiteS from "../img/FnSatWhiteS.jpg";
-import logo from "../img/fns-logo.png";
+// import logo from "../img/fns-logo.png";
 import Art612 from "../img/ArtAWhirl612Spudsite.jpg"
 import GGD22 from "../img/GGD2022Spudsite.jpg"
 import MWMF22 from "../img/MWMFSpudsite.jpg"
 import Paper22 from "../img/PaperfestPromoSpudsite.jpg"
 import Shoebox from "../img/ShoeboxEpisodeXiiSpudsite.jpg"
 import SpudCounty from "../img/SpudCountySpudsite.jpg"
+import Underground from "../img/UndergroundClamsVelvetFns.jpg"
 
 
 function Shows() {
@@ -65,16 +66,16 @@ function Shows() {
 
                     <h5 className="spudsite mt-5">February 11, 2023 @ Underground Music Cafe (Minneapolis, MN)</h5>
                     <a href="https://www.undergroundmusicvenue.com">
-                        <img className=" music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={logo} alt="Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf " />
+                        <img className="mt-2 mb-4 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={Underground} alt="Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf " />
                     </a>
 
 
 
-                    <h1 className="spudsite m-3">Past Shows</h1>
+                    <h1 className="spudsite m-4">Past Shows</h1>
 
                     <h5 className="spudsite mt-3">January 20, 2023 @ Appleton Beer Factory (Appleton, WI)</h5>
                     <a href="https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738">
-                        <img className="mt-2 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={lowDown} alt="Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds" />
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={lowDown} alt="Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds" />
                     </a>
                     <h5 className="spudsite mt-3">December 17, 2022 @ Ed's No Name Bar (Winona, MN)</h5>
                     <a href="https://visitwinona.com/directory_entry/eds-no-name-bar/">
