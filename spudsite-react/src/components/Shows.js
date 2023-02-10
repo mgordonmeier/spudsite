@@ -8,7 +8,7 @@ import SongCard from "./SongCard";
 import lowDown from "../img/LowDownFNS-Appleton.jpg";
 import noName from "../img/NoNameDec17SpudsAndLads.jpg";
 import whiteS from "../img/FnSatWhiteS.jpg";
-// import logo from "../img/fns-logo.png";
+import mwmf23 from "../img/MWMF2023.png"
 import Art612 from "../img/ArtAWhirl612Spudsite.jpg"
 import GGD22 from "../img/GGD2022Spudsite.jpg"
 import MWMF22 from "../img/MWMFSpudsite.jpg"
@@ -59,19 +59,22 @@ function Shows() {
                     </div>
                     <h1 className="spudsite m-2">Upcoming Shows!</h1>
 
-                    <h5 className="spudsite mt-5">February 4, 2023 @ The White Squirrel Bar (St. Paul, MN)</h5>
-                    <a href="https://whitesquirrelbar.com">
-                        <img className="mt-2 mb-4 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={whiteS} alt="White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus" />
-                    </a>
-
                     <h5 className="spudsite mt-5">February 11, 2023 @ Underground Music Cafe (Minneapolis, MN)</h5>
                     <a href="https://www.undergroundmusicvenue.com">
                         <img className="mt-2 mb-4 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={Underground} alt="Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf " />
                     </a>
 
+                    <h5 className="spudsite mt-5">May 13, 2023 @ Mid West Music Fest Main Stage (Winona, MN)</h5>
+                    <a href="https://www.midwestmusicfest.org/">
+                        <img className="mt-2 mb-4 music-video-box" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={mwmf23} alt="Mid West Music Fest 2023 Lineup" />
+                    </a>
 
+                    <h1 className="spudsite m-3">Past Shows</h1>
 
-                    <h1 className="spudsite m-4">Past Shows</h1>
+                    <h5 className="spudsite mt-5">February 4, 2023 @ The White Squirrel Bar (St. Paul, MN)</h5>
+                    <a href="https://whitesquirrelbar.com">
+                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={whiteS} alt="White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus" />
+                    </a>
 
                     <h5 className="spudsite mt-3">January 20, 2023 @ Appleton Beer Factory (Appleton, WI)</h5>
                     <a href="https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738">
