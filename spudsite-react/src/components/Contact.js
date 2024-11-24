@@ -7,6 +7,7 @@ import rollOn from "../img/RollOnSongSymbol.png";
 import fnsLogo from "../img/fns-logo.png"
 import myFriends from "../img/AllMyFriendsSongSymbol.png"
 import SongCard from "./SongCard";
+import discord  from "../img/fnsDiscord.png"
 
 function Contact() {
 
@@ -71,11 +72,17 @@ function Contact() {
                     </div>
                     <p className="mt-5">Leave us a message or silly story <a href="mailto:funknspuds@gmail.com">funknspuds@gmail.com</a></p>
                     <div>
-                        <a href="https://mndaily.com/262980/arts-entertainment/como-band-creates-funky-concert-venue-at-home/">
-                            <img className="music-video-box" src={fnsLogo} alt="FnS Logo" style={{ width: "20em" }} />
+                    <p className="mt-5">Click here to join the discord</p>
+                        <a href="https://discord.gg/XzafWtMgFZ">
+                            <img className="music-video-box mt-1" src={discord} alt="" style={{ width: "7em" }}/>
                         </a>
                     </div>
-                    <div className="text-end m-2">
+                    <div>
+                        <a href="https://mndaily.com/262980/arts-entertainment/como-band-creates-funky-concert-venue-at-home/">
+                            <img className="music-video-box mt-4" src={fnsLogo} alt="FnS Logo" style={{ width: "20em" }} />
+                        </a>
+                    </div>
+                    <div className="text-end me-5">
                         <div style={{ display: "inline-block" }}>
                             {rollCheck ? <SongCard songName="Roll On" onSongCancel={onRollCancel} youtubeUrl="https://www.youtube.com/embed/0OQIxd8jOzM" songInfo={rollDescription} />
                                 : <SongSymbols symbol={rollOn} altText="Roll On Song Symbol" onClick={onRollClick} />}

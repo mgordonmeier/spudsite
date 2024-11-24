@@ -7,7 +7,7 @@ import jumpingSpud from "../img/FunkNJump.gif";
 import changes from "../img/ChangesSongSymbol.png";
 import pentUp from "../img/PentUpSongSymbol.png";
 import beenGone from "../img/BeenGoneSongSymbol.png";
-import lithouse from "../img/LithouseSongSymbol.png";
+import lithouse from "../img/Orbz/LithouseOrb.png";
 
 
 
@@ -81,8 +81,8 @@ function Music() {
                     <h1 className="mb-5 spudsite">Livestream Central</h1>
                     <div className="text-start m-2">
                         <div style={{ display: "inline-block" }}>
-                            {litCheck ? <SongCard songName="LitHouse" onSongCancel={onLitCancel} youtubeUrl="https://www.youtube.com/embed/CF8fYacBiv0" songInfo={litDescription} />
-                                : <SongSymbols symbol={lithouse} altText="LitHouse Song Symbol" onClick={onLitClick} />}
+                            {litCheck ? <SongCard songName="LitHouse" onSongCancel={onLitCancel} youtubeUrl="https://www.youtube.com/embed/2fnhFhTp5-g" songInfo={litDescription} />
+                                : <div className="rotate2"><SongSymbols symbol={lithouse} altText="LitHouse Song Symbol" onClick={onLitClick} /></div>}
                         </div>
                     </div>
                     <div className="music-video-box">
@@ -104,6 +104,14 @@ function Music() {
                     </div>
                     <h1 className=" spudsite">Listen on Bandcamp</h1>
                     <div className="bandcamp-box">
+                        <div>
+                            <iframe className="m-3 align-top" title="Into Focus Bandcamp" style={{ border: "4em", width: "350px", height: "760px" }} src="https://bandcamp.com/EmbeddedPlayer/album=2671849949/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/album/into-focus">Into Focus by Funk N Spuds</a></iframe>
+                        </div>
+                        <div className="m-2">
+                            <iframe className="m-3" title="Hillside Sunset Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "4px" }} src="https://bandcamp.com/EmbeddedPlayer/track=1177938476/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/hillside-sunset-3">Hillside Sunset by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="Lithouse Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "4px" }} src="https://bandcamp.com/EmbeddedPlayer/track=766847436/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/lithouse">Lithouse by Funk N Spuds</a></iframe>
+                            <iframe className="m-3" title="Tied In Knots Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "4px" }} src="https://bandcamp.com/EmbeddedPlayer/track=3510970589/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/tied-in-knots">Tied In Knots by Funk N Spuds</a></iframe>
+                        </div>
                         <div className="m-2">
                             <iframe className="m-3" title="LHC Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "4px" }} src="https://bandcamp.com/EmbeddedPlayer/track=2496098191/size=large/bgcol=ffffff/linkcol=63b2cc/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/low-hanging-ceilings-3">Low Hanging Ceilings by Funk N Spuds</a></iframe>
                             <iframe className="m-3" title="Envelope Bandcamp" style={{ border: "8em", width: "200px", height: "200px", borderRadius: "5px" }} src="https://bandcamp.com/EmbeddedPlayer/track=1517826561/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://funknspuds.bandcamp.com/track/the-envelope">The Envelope by Funk N Spuds</a></iframe>

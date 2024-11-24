@@ -8,6 +8,8 @@ import spuddieMax from "../img/spuddie-max.PNG";
 import spuddieMarty from "../img/spuddie-marty.PNG";
 import spuddieThomas from "../img/spuddie-thomas.PNG";
 import spuddieJustin from "../img/spuddie-justin.PNG";
+//import spuddieNick from "../img/spuddie-nick.PNG";
+import spuddieChristian from "../img/spuddie-christian.PNG"
 import mtnSong from "../img/MountainSongSymbol.png";
 import mango from "../img/MangoJamSongSymbol.png";
 import cantStop from "../img/CantStopSongSymbol.png";
@@ -17,6 +19,8 @@ import dalleJustin from "../img/ShaggyOnBass.jpg";
 import dalleMartin from "../img/LunaTunaOnTheDrums.jpg";
 import dalleThomas from "../img/TheHaze.jpg";
 import dalleMax from "../img/FunkySpudInSpace.jpg";
+//import dalleNick from "../img/NickDalle.jpg";
+import dalleChristian from "../img/ChristianDalle.jpg"
 
 
 function Spuds() {
@@ -24,6 +28,8 @@ function Spuds() {
     const [martyInfo, setMartyInfo] = useState(false);
     const [thomasInfo, setThomasInfo] = useState(false);
     const [justinInfo, setJustinInfo] = useState(false);
+    //const [nickInfo, setNickInfo] = useState(false);
+    const [christianInfo, setChristianInfo] = useState(false);
 
     const [mtnCheck, setMtnCheck] = useState(false);
     const [mangoCheck, setMangoCheck] = useState(false);
@@ -111,6 +117,22 @@ function Spuds() {
         setJustinInfo(false);
     }
 
+    //function onNickClick() {
+    //    setNickInfo(true);
+    //}
+
+    //function onNickCancel() {
+    //    setNickInfo(false);
+    //}
+
+    function onChristianClick() {
+        setChristianInfo(true);
+    }
+
+    function onChristianCancel() {
+        setChristianInfo(false);
+    }
+
     const maxDescription = "Born and raised in Neenah Wisconsin, " +
         "Max grew up playing music with and enjoying the company of his " +
         "brother Martin. When not playing music with Funk 'N Spuds he travels the country with " +
@@ -128,6 +150,16 @@ function Spuds() {
     const justinDescription = "Justin was born and raised in Prior Lake, Minnesota, " +
     "to a family who loves water, wind, and music.  He now lives in Saint Paul and makes " + 
     "music with the Funk 'N Spuds."
+
+    //const nickDescription = "Coming to you from Winona, Minnesota, Nick brings face melting " +
+    //"tenor sax shredding to a whole new level. After spontaneously joining the spuds onstage " +
+    //"at a NoName Bar show, it felt like serendipity struck and the rest is history. You can find " +
+    //"Nick playing with a variety of other local groups and in the Military Jazz Band"
+
+    const christianDescription = "Fresh off a tear with the Immaculate Beings, Christian is " +
+    "a graduate of Lawrence University's jazz program and really knows how to funk it up. " +
+    "Though a recent addition to the group, his chops and soul have cracked the spuds' sound " +
+    "wide open!"
 
     const dalleAlt = "Image created via Dall-E OpenAI";
 
@@ -163,7 +195,15 @@ function Spuds() {
                         {thomasInfo ? <InfoPanel className="m-2 col-6" memberName="Thomas Hazlett" memberInfo={thomasDescription} onCancel={onThomasCancel} top={0} dalleImg={dalleThomas} dalleAlt={dalleAlt} />
                             : <img style={{display: "inline-block"}} src={spuddieThomas} alt="Spuddie Buddie - Thomas on Guitar" className="spuddies m-2 col-6" onClick={onThomasClick} />}
                         {justinInfo ? <InfoPanel className="m-2 col-6" memberName="Justin Halverson" memberInfo={justinDescription} onCancel={onJustinCancel} top={0} dalleImg={dalleJustin} dalleAlt={dalleAlt} />
-                            : <img style={{display: "inline-block"}} src={spuddieJustin} alt="Spuddie Buddie - Justin on Bass" className="spuddies m-2 col-6" onClick={onJustinClick} />}
+                            : <img style={{display: "inline-block"}} src={spuddieJustin} alt="Spuddie Buddie - Justin on Guitar" className="spuddies m-2 col-6" onClick={onJustinClick} />}
+                    </div>
+                </div>
+                <div></div>
+                <div className="" style={{ display: "inline-block" }}>
+                    <div className="text-center row">
+                        
+                        {christianInfo ? <InfoPanel className="m-2 col-6" memberName="Christian Rasmussen" memberInfo={christianDescription} onCancel={onChristianCancel} top={0} dalleImg={dalleChristian} dalleAlt={dalleAlt} />
+                            : <img style={{display: "inline-block"}} src={spuddieChristian} alt="Spuddie Buddie - Christian on Bass" className="spuddies m-2 col-6" onClick={onChristianClick} />}
                     </div>
                 </div>
                 <div className="text-start m-2">

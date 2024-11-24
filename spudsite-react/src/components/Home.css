@@ -182,3 +182,30 @@
 .lastLink {
     margin-right: 0;
 }
+
+.rotate {
+    animation: rotate 30s linear infinite; /* Adjust the duration as needed */
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg); /* Adjust the rotation angle as needed */
+    }
+  }
+
+.rotate2 {
+    animation: rotate 60s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg); /* Adjust the rotation angle as needed */
+  }
+
+ }
