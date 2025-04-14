@@ -1,0 +1,95 @@
+.wandering-spuddie-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.character {
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  pointer-events: auto;
+}
+
+.character:hover {
+  transform: scale(1.1);
+}
+
+.character.chatting {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Prevent clicking the container when chatting */
+}
+
+.spuddie-image-container {
+  pointer-events: auto; /* Re-enable clicking for the image */
+  animation: float 3s ease-in-out infinite;
+}
+
+.chatbox-container {
+  pointer-events: auto;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ensure the container doesn't clip during transitions */
+#root {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .character.chatting {
+    padding: 10px;
+  }
+
+  .chatbox-container {
+    margin-top: 20px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Add floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Add glow effect when chatting */
+.character.chatting img {
+  filter: drop-shadow(0 0 15px rgba(89, 255, 219, 0.6));
+}
+
+.spuddie-image-container img {
+  transition: all 0.3s ease-in-out;
+}
+
+.spuddie-image-container:hover img {
+  transform: scale(1.1);
+}

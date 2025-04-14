@@ -1,0 +1,36 @@
+/* Notification.css */
+
+.notification {
+    position: absolute;
+    top: 5px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(59, 130, 246, 0.9); /* Blue background with opacity */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 1000; /* Ensure it appears above other elements within the container */
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .notification.success {
+    background-color: rgba(16, 185, 129, 0.9); /* Green */
+  }
+  
+  .notification.error {
+    background-color: rgba(239, 68, 68, 0.9); /* Red */
+  }
+  
+  .notification.hide {
+    opacity: 0;
+  }
+  
+  .notification {
+    /* ... existing styles ... */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .notification.fade-out {
+    opacity: 0;
+  }

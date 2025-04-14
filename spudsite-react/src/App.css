@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+.mini-tour-card {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.mini-tour-image {
+    max-width: 300px;
+    height: auto;
+}
+
+.mini-tour-shows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .mini-tour-shows {
+        grid-template-columns: 1fr;
+    }
+    
+    .mini-tour-card {
+        max-width: 100%;
+    }
+    
+    .mini-tour-image {
+        max-width: 100%;
+    }
+}

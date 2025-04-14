@@ -1,17 +1,133 @@
 .music-video-box {
-  
     text-align: center;
-    filter: drop-shadow(5px 5px 5px #151515)
-
+    filter: drop-shadow(5px 5px 5px #151515);
+    margin: 2rem 0;
 }
 
 .bandcamp-box {
-    padding: 1em;
-    display: block;
+    padding: 2rem;
     text-align: center;
-    filter: drop-shadow(3px 3px 3px #151515)
+    filter: drop-shadow(3px 3px 3px #151515);
+    display: block;
 }
 
 .tag {
     filter: drop-shadow(1px 1px 2px #151515)
+}
+
+.song-symbols-container {
+    position: relative;
+    z-index: 1;
+}
+
+.jumping-spud {
+    height: 10em;
+    width: 15em;
+    transition: transform 0.3s ease;
+}
+
+.jumping-spud:hover {
+    transform: scale(1.1);
+}
+
+.singles-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.albums-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .music-video-box .ratio {
+        width: 90vw !important;
+    }
+    .singles-section iframe,
+    .albums-section iframe {
+        margin: 0.5rem;
+    }
+}
+
+.show-card {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.show-card:hover {
+    transform: scale(1.02);
+}
+
+.show-card h4 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.show-card h5 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.show-card a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.show-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 4px;
+    filter: drop-shadow(3px 3px 3px #151515);
+    object-fit: cover;
+}
+
+.past-shows-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+}
+
+.upcoming-shows {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.upcoming-shows .show-image {
+    max-width: 500px;
+}
+
+.past-shows-grid .show-image {
+    max-width: 300px;
+}
+
+@media (max-width: 992px) {
+    .past-shows-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .past-shows-grid {
+        grid-template-columns: 1fr;
+    }
 }

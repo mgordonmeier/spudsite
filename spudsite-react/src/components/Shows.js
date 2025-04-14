@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import SongSymbols from "./SongSymbols";
+import SongSymbolWrapper from "./SongSymbol";
 import FooterLinks from "./FooterLinks";
 import jumpingSpud from "../img/FunkNJump.gif";
 import sunset from "../img/HillsideSunsetSongSymbol.png";
 import somethin from "../img/SomethinSometimesSongSymbol.png";
-import SongCard from "./SongCard";
 import lowDown from "../img/LowDownFNS-Appleton.jpg";
 import noName from "../img/NoNameDec17SpudsAndLads.jpg";
 import whiteS from "../img/FnSatWhiteS.jpg";
@@ -21,7 +20,7 @@ import HunnyCan from "../img/HoneyCan.jpg"
 import pandEmfiSpuds from "../img/pandEmfiSpuds.JPG"
 import funkCreatures from "../img/NoNameOct28Final.jpg"
 import hunnyAlbumRelease from "../img/HunnyAlbumRelease.jpg"
-import spud5s from "../img/5spuds.PNG"
+//import spud5s from "../img/5spuds.PNG"
 import bigTurn from "../img/bigTurn.JPG"
 import uwstout from "../img/UWStout.png"
 import singleRelease from "../img/messin.v3.jpg"
@@ -32,214 +31,451 @@ import albumReleaseShow from "../img/DayBlockShowPosterv6.jpg"
 import fmFest from "../img/FMfest.jpeg"
 import bentPaddle from "../img/BentPaddle.png"
 import HillSunOrb from "../img/Orbz/HillsideSunsetOrb.png"
+import nonamecoins from "../img/NoName1214posterv3.jpg"
+import dayblockfeb8 from "../img/dayblockfeb8.JPG"
+import fnsindeed from "../img/Funk_In_The_Ox.jpg"
+import matcha from "../img/Matcha.png"
+import lenjaorb from "../img/Orbz/LenjaminOrb.png"
+import albumorb from "../img/Orbz/AlbumOrb.png"
+import bassorb from "../img/Orbz/BassOrb.png"
+import spgorb from "../img/Orbz/SPGOrb.png"
+import ewtrtworb from "../img/Orbz/EWTRTWOrb.png"
 
+const SONGS = {
+    sunset: {
+        name: "Hillside Sunset",
+        symbol: sunset,
+        altText: "Hillside Sunset Song Symbol",
+        youtubeUrl: "https://www.youtube.com/embed/_zHxvUMYBuU",
+        description: "Max wrote this song while living in his friend Mary's attic in 2019. " +
+            "During a brief stay in Neenah during the summer of that year, he teamed up with Martin and Nicole to choreograph and record a live-loop " +
+            "one take video."
+    },
+    HSunset: {
+        name: "Hillside Sunset",
+        symbol: HillSunOrb,
+        altText: "Hillside Sunset Orb",
+        youtubeUrl: "https://www.youtube.com/embed/E8EWJwCbcg0",
+        description: "The band recorded the studio version of Hillside Sunset in March of 2023, " +
+            "incorporating revisions brought to the table through GNARhouse and collaboration between Max and Thomas."
+    },
+    somethin: {
+        name: "Somethin Sometimes",
+        symbol: somethin,
+        altText: "Somethin Sometimes Song Symbol",
+        youtubeUrl: "https://www.youtube.com/embed/OQuKGgxlRYk",
+        description: "Inspired by Jack Johnson, in search of hope, Somethin Sometimes was written by " +
+            "Max during the summer of 2019 and recorded over the following months. This song made it on to Minnesota Public Radio at " +
+            "the beginning of the pandemic and was an early favorite of the Spuds."
+    }
+};
+
+const SHOWS = {
+    upcoming: [
+        {
+            title: "Matcha Spud Cabinet",
+            date: "March 27, 2025",
+            location: "White Squirrel Bar",
+            venue: "St Paul, MN",
+            image: matcha,
+            link: "https://whitesquirrelbar.com",
+            alt: "The Spuds return to White Squirrel with new friends and fresh tunes"
+        },
+        {
+            title: "Dream Of The Wild Residency",
+            date: "April 13, 2025",
+            location: "Cabooze",
+            venue: "Minneapolis, MN",
+            image: lenjaorb,
+            link: "https://cabooze.com/#/events",
+            alt: "The Spuds return to the Cabooze with old friends and fresh tunes"
+        }
+    ],
+    miniTour: [
+        {
+            title: "Music in the Parks",
+            date: "May 28, 2025",
+            location: "Lake Harriet Bandshell",
+            venue: "Minneapolis, MN",
+            image: albumorb,
+            link: "https://www.minneapolisparks.org/activities-events/music-movies/",
+            alt: "The Spuds are beyond excited to take the Lake Harriet Bandshell stage"
+        },
+        {
+            title: "Appleton Funk",
+            date: "May 29, 2025",
+            location: "Appleton Beer Factory",
+            venue: "Appleton, WI",
+            image: bassorb,
+            link: "https://www.appletonbeerfactory.com",
+            alt: "Back home to see some family, drink some beer, and be merry!"
+        },
+        {
+            title: "Funk N Spuds with LOWBOY",
+            date: "May 30, 2025",
+            location: "Up North Bar",
+            venue: "Madison, WI",
+            image: spgorb,
+            link: "https://upnorthbarmadison.com",
+            alt: "Can't wait to share the stage with these groovy doods!"
+        },
+        {
+            title: "Desperate Electric",
+            date: "May 31, 2025",
+            location: "NoName Bar",
+            venue: "Winona, MN",
+            image: ewtrtworb,
+            link: "https://www.facebook.com/nonamebarwinona/",
+            alt: "A great finale to our first mini tour"
+        }
+    ],
+    past: [
+        {
+            title: "Funk in the Ox",
+            date: "February 18th, 2025",
+            location: "Indeed Brewing",
+            venue: "Minneapolis, MN",
+            image: fnsindeed,
+            link: "https://fb.me/e/9JB7mH6SS",
+            alt: "Funk in the Ox Taproom"
+        },
+        {
+            title: "Ice Block Winter Music Series",
+            date: "February 8th, 2025",
+            location: "Day Block Brewing",
+            venue: "Minneapolis, MN",
+            image: dayblockfeb8,
+            link: "https://www.dayblockbrewing.com/live-events/ice-block-winter-concert-series-with-funk-n-spuds-the-confused-and-sunshine-the-night-walkers/",
+            alt: "The Spuds return to Day Block Brewing to take the stage with Sunshine and the Night Walkers and the Confused"
+        },
+        {
+            title: "Noname Bar with Maria and the Coins",
+            date: "December 14, 2024",
+            location: "Noname Bar",
+            venue: "Winona, MN",
+            image: nonamecoins,
+            link: "https://www.facebook.com/nonamebarwinona/",
+            alt: "The Spuds return to NoName Bar in Winona with Maria and the Coins"
+        },
+        {
+            title: "Pre-All Pints Hootenanny",
+            date: "July 26, 2024",
+            location: "Bent Paddle",
+            venue: "Duluth, MN",
+            image: bentPaddle,
+            link: "https://youtu.be/LWSKAxJGNH8?si=OrW1QbHW36miJlBf",
+            alt: "Funk N Spuds will be performing at Bent Paddle for their pre-All Pints Hootenanny"
+        },
+        {
+            title: "Justin's Family Reunion",
+            date: "July 19, 2024",
+            location: "Fort Halverson",
+            venue: "Austin, MN",
+            image: justinFest,
+            link: "https://youtu.be/LWSKAxJGNH8?si=OrW1QbHW36miJlBf",
+            alt: "The spuds are heading to Austin, MN to celebrate family and friends with the Halversons"
+        },
+        {
+            title: "Album Release Show",
+            date: "July 12, 2024",
+            location: "Day Block Brewing",
+            venue: "Minneapolis, MN",
+            image: albumReleaseShow,
+            link: "https://www.dayblockbrewing.com/live-events/funk-n-spuds-album-release-show/",
+            alt: "Finally a new Funk N Spuds album"
+        },
+        {
+            title: "Meierfest",
+            date: "June 1, 2024",
+            location: "Fort Meier",
+            venue: "Neenah, WI",
+            image: fmFest,
+            link: "https://youtu.be/_3mhGQWLZms?si=poel_2XAPMsxZ02a",
+            alt: "The spuds are heading back home to perform for family and friends at Fort Meier"
+        },
+        {
+            title: "Tied In Knots - Single Release Show",
+            date: "April 26, 2024",
+            location: "Day Block Brewing",
+            venue: "Minneapolis, MN",
+            details: "with Brother Means Ally and Curly Jefferson",
+            image: singleRelease,
+            link: "https://www.dayblockbrewing.com/live-events/funk-n-spuds/",
+            alt: "Tied In Knots single release at Day Block with soop light show and Brother Means Ally and Curly Jefferson"
+        },
+        {
+            title: "UW Stout",
+            date: "February 29, 2024",
+            location: "Memorial Student Center",
+            venue: "Menomonie, WI",
+            image: uwstout,
+            link: "https://connect.uwstout.edu/BDP/rsvp_boot?id=2259571",
+            alt: "Funk N Spuds will be performing at UW Stout's Memorial Student Center"
+        },
+        {
+            title: "Big Turn Music Festival",
+            date: "February 17, 2024",
+            location: "St. James Hotel, Port Side Room",
+            venue: "Red Wing, MN",
+            image: bigTurn,
+            link: "https://www.bigturnmusicfest.com",
+            alt: "A weekend that's full of sights and sounds in the middle of Febrrruary. This is a place of music and community and we just hope you packed a pair of stomping boots for your trip. This is the Big Turn Music Fest."
+        },
+        {
+            title: "Hunny Bear Album Release Show",
+            date: "January 25, 2024",
+            location: "Can Can Wonderland",
+            venue: "St. Paul, MN",
+            image: hunnyAlbumRelease,
+            link: "https://www.cancanwonderland.com/entertainment",
+            alt: "Hunny Bear Album Release Show with Funk N Spuds and Confucisaurus at Can Can Wonderland Jan 25, 2024"
+        },
+        {
+            title: "Creatures from the Funk Lagoon",
+            date: "October 28, 2023",
+            location: "No Name Bar",
+            venue: "Winona, MN",
+            image: funkCreatures,
+            link: "https://bandsintown.com/e/104727519",
+            alt: "Lavendar Project, Funk N Spuds, and Curly Jefferson and the Jam Turkeys at No Name Bar Oct 28 2023"
+        },
+        {
+            title: "Eagles #34",
+            date: "October 7, 2023",
+            location: "Eagles #34",
+            venue: "Minneapolis, MN",
+            image: pandEmfiSpuds,
+            link: "https://www.eagles34.org/events-entertainment.html",
+            alt: "Efmi, Pandelion, and Funk N Spuds at Eagles #34 Oct 7 2023"
+        },
+        {
+            title: "Highland Park Picnic Shelter",
+            date: "October 7, 2023",
+            location: "Highland Park Picnic Shelter",
+            venue: "St. Paul, MN",
+            image: HighlandHarmonies,
+            link: "https://www.bandsintown.com/e/104727822",
+            alt: "Funk N Spuds at Highland Park for Highland"
+        },
+        {
+            title: "Can Can Wonderland",
+            date: "September 28, 2023",
+            location: "Can Can Wonderland",
+            venue: "St. Paul, MN",
+            image: HunnyCan,
+            link: "https://www.cancanwonderland.com/events/the-hunny-pot",
+            alt: "Funk N Spuds with Hunny Bear and Emery Snow at Can Can Wonderland"
+        },
+        {
+            title: "Mid West Music Fest Main Stage",
+            date: "May 13, 2023",
+            location: "Mid West Music Fest Main Stage",
+            venue: "Winona, MN",
+            image: mwmf23,
+            link: "https://www.midwestmusicfest.org/",
+            alt: "Mid West Music Fest 2023 Lineup"
+        },
+        {
+            title: "Underground Music Cafe",
+            date: "February 11, 2023",
+            location: "Underground Music Cafe",
+            venue: "Minneapolis, MN",
+            image: Underground,
+            link: "https://www.undergroundmusicvenue.com",
+            alt: "Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf"
+        },
+        {
+            title: "The White Squirrel Bar",
+            date: "February 4, 2023",
+            location: "The White Squirrel Bar",
+            venue: "St. Paul, MN",
+            image: whiteS,
+            link: "https://whitesquirrelbar.com",
+            alt: "White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus"
+        },
+        {
+            title: "Appleton Beer Factory",
+            date: "January 20, 2023",
+            location: "Appleton Beer Factory",
+            venue: "Appleton, WI",
+            image: lowDown,
+            link: "https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738",
+            alt: "Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds"
+        },
+        {
+            title: "No Name Bar",
+            date: "December 17, 2022",
+            location: "No Name Bar",
+            venue: "Winona, MN",
+            image: noName,
+            link: "https://visitwinona.com/directory_entry/eds-no-name-bar/",
+            alt: "No Name Bar Winona - Funk N Spuds and Sugar Lads"
+        },
+        {
+            title: "Shoebox Episode XII",
+            date: "October 14, 2022",
+            location: "Shoebox",
+            venue: "St. Paul, MN",
+            image: Shoebox,
+            link: "https://www.airshipcaravan.com/",
+            alt: "Shoebos Episode XII - Pandelion, Juniper Fly, Funk N Spuds, Airship Caravan"
+        },
+        {
+            title: "Galactic Get Down 6",
+            date: "August 26, 2022",
+            location: "Galactic Get Down",
+            venue: "New Richmond, WI",
+            image: GGD22,
+            link: "https://www.thegalacticgetdown.com/",
+            alt: "Galactic Get Down Music Festival"
+        },
+        {
+            title: "Paperfest",
+            date: "July 15, 2022",
+            location: "Paperfest",
+            venue: "Kimberly, WI",
+            image: Paper22,
+            link: "https://www.paperfest.com/",
+            alt: "Funk N Spuds at Paperfest 2022"
+        },
+        {
+            title: "Art-A-Whirl @ 612Brew",
+            date: "May 20, 2022",
+            location: "612Brew",
+            venue: "Minneapolis, MN",
+            image: Art612,
+            link: "https://nemaa.org/art-a-whirl/",
+            alt: "Funk N Spuds at 612Brew for Art-A-Whirl 2022"
+        },
+        {
+            title: "Mid West Music Fest @ Eagles Club",
+            date: "April 29, 2022",
+            location: "Eagles Club",
+            venue: "Winona, MN",
+            image: MWMF22,
+            link: "https://www.midwestmusicfest.org/",
+            alt: "Funk N Spuds at Mid West Music Fest 2022"
+        },
+        {
+            title: "Spud County",
+            date: "March 26, 2022",
+            location: "Livestream",
+            venue: "Youtube",
+            image: SpudCounty,
+            link: "https://youtu.be/MOTcyp4Lj64?t=5937",
+            alt: "Spud County Livestream - Cook County and Funk N Spuds"
+        }
+    ]
+};
 
 function Shows() {
+    const [songStates, setSongStates] = useState({
+        sunset: false,
+        HSunset: false,
+        somethin: false
+    });
 
-    const [sunsetCheck, setSunsetCheck] = useState(false);
-    const [HsunsetCheck, setHSunsetCheck] = useState(false);
-    const [somethinCheck, setSomethinCheck] = useState(false);
+    const toggleSong = (songKey) => {
+        setSongStates(prev => ({
+            ...prev,
+            [songKey]: !prev[songKey]
+        }));
+    };
 
-    function onSunsetClick() {
-        setSunsetCheck(true)
-    }
-
-    function onSunsetCancel() {
-        setSunsetCheck(false)
-    }
-
-    const sunsetDescription = "Max wrote this song while living in the Attic of his friend Mary's house in 2019. " +
-        "During a brief stay in Neenah during the summer of that year, he teamed up with Martin and Nicole to choreograph and record a live-loop " +
-        "one take video.";
-
-    function onHSunsetClick() {
-        setHSunsetCheck(true)
-    }
-
-    function onHSunsetCancel() {
-        setHSunsetCheck(false)
-    }
-
-    const HsunsetDescription = "The band recorded the studio version of Hillside Sunset in March of 2023, " +
-        "incorporating revisions brought to the table through GNARhouse and collaboration between Max and Thomas.";
-
-    function onSomethinClick() {
-        setSomethinCheck(true)
-    }
-
-    function onSomethinCancel() {
-        setSomethinCheck(false)
-    }
-
-    const somethinDescription = "Inspired by Jack Johnson, in search of hope, Somethin Sometimes was written by " +
-        "Max during the summer of 2019 and recorded over the following months. This song made it on to Minnesota Public Radio at " +
-        "the beginning of the pandemic and was an early favorite of the Spuds.";
+    const ShowCard = ({ show, isMiniTour }) => (
+        <div className={`show-card ${isMiniTour ? 'mini-tour-card' : ''}`}>
+            <h4 className="spudsite mb-2">{show.title}</h4>
+            <h5 className="spudsite mb-3">
+                {show.date}<br/>
+                {show.location}<br/>
+                {show.venue}
+                {show.details && <><br/>{show.details}</>}
+            </h5>
+            <a href={show.link}>
+                <img 
+                    className={`show-image ${isMiniTour ? 'mini-tour-image' : ''}`}
+                    src={show.image} 
+                    alt={show.alt} 
+                />
+            </a>
+        </div>
+    );
 
     return (
         <div className="container">
             <div className="text-center rocksalt">
                 <div>
                     <div className="text-start m-2">
-                        <div style={{ display: "inline-block" }}>
-                            {sunsetCheck ? <SongCard songName="Hillside Sunset" onSongCancel={onSunsetCancel} youtubeUrl="https://www.youtube.com/embed/_zHxvUMYBuU" songInfo={sunsetDescription} />
-                                : <SongSymbols symbol={sunset} altText="Hillside Sunset Song Symbol" onClick={onSunsetClick} />}
+                        <SongSymbolWrapper
+                            song={SONGS.sunset}
+                            isOpen={songStates.sunset}
+                            onToggle={() => toggleSong('sunset')}
+                        />
+                    </div>
+
+                    <h1 className="spudsite m-2">Upcoming Spuds!</h1>
+
+                    <div className="calendar-container mt-5">
+                        <div className="calendar-wrapper">
+                            <iframe 
+                                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTitle=0&showTz=0&src=ZnVua25zcHVkc0BnbWFpbC5jb20&color=%23039BE5" 
+                                style={{ border: 'solid 1px #777' }}
+                                width="100%" 
+                                height="600" 
+                                frameBorder="0" 
+                                scrolling="no"
+                                title="Funk N Spuds Calendar"
+                            />
                         </div>
                     </div>
-                    <h1 className="spudsite m-2">Upcoming Shows!</h1>
+
+                    <div className="text-end mb-2">
+                        <SongSymbolWrapper
+                            song={SONGS.HSunset}
+                            isOpen={songStates.HSunset}
+                            onToggle={() => toggleSong('HSunset')}
+                            shouldRotate={true}
+                        />
+                    </div>
+
+                    <div className="upcoming-shows">
+                        {SHOWS.upcoming.map((show, index) => (
+                            <ShowCard key={index} show={show} />
+                        ))}
+                    </div>
+
+                    <h2 className="spudsite mt-5 mb-4">Spring 2025 Mini Tour!</h2>
+                    <div className="mini-tour-shows">
+                        {SHOWS.miniTour.map((show, index) => (
+                            <ShowCard key={index} show={show} isMiniTour={true} />
+                        ))}
+                    </div>
+
+                    <h1 className="spudsite mt-5 mb-4">Past Shows</h1>
+
+                    <div className="past-shows-grid">
+                        {SHOWS.past.map((show, index) => (
+                            <ShowCard key={index} show={show} />
+                        ))}
+                    </div>
 
                     <div className="text-end m-2">
-                        <div style={{ display: "inline-block" }}>
-                            {HsunsetCheck ? <SongCard songName="Hillside Sunset" onSongCancel={onHSunsetCancel} youtubeUrl="https://www.youtube.com/embed/E8EWJwCbcg0" songInfo={HsunsetDescription} />
-                                : <div className="rotate2"><SongSymbols symbol={HillSunOrb} altText="Hillside Sunset Orb" onClick={onHSunsetClick} /></div>}
-                        </div>
+                        <SongSymbolWrapper
+                            song={SONGS.somethin}
+                            isOpen={songStates.somethin}
+                            onToggle={() => toggleSong('somethin')}
+                        />
                     </div>
 
-                    <h4 className="spudsite mt-5 mb-3">Album Release Show</h4>
-                    <h5 className="spudsite mt-3">July 12, 2024 @ Day Block Brewing (Mineapolis, MN)</h5>
-                    <a href="https://www.dayblockbrewing.com/live-events/funk-n-spuds-album-release-show/">
-                        <img className=" mb-2 music-video-box mt-3" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={albumReleaseShow} alt="Finally a new Funk N Spuds album" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Justin's Family Reunion</h4>
-                    <h5 className="spudsite mt-3 mb-3">July 19, 2024 @ Fort Halverson (Austin, MN)</h5>
-                    <a href="">
-                        <img className="mb-2 music-video-box mt-3" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={justinFest} alt="The spuds are heading to Austin, MN to celebrate family and friends with the Halversons" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Pre-All Pints Hootenanny</h4>
-                    <h5 className="spudsite mt-3 mb-3">July 26, 2024 @ Bent Paddle (Duluth, MN)</h5>
-                    <a href="https://bentpaddlebrewing.com">
-                        <img className="mb-2 music-video-box mt-3" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={bentPaddle} alt="Funk N Spuds will be performing at Bent Paddle for their pre-All Pints Hootenanny" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Noname Bar</h4>
-                    <h5 className="spudsite mt-3 mb-3">December 14, 2024 (Winona, MN)</h5>
-                    <a href="https://www.facebook.com/nonamebarwinona/">
-                        <img className="mb-2 music-video-box rotate mt-3" style={{ width: "50%", height: "auto", borderRadius: "4px" }} src={spud5s} alt="details tbd" />
-                    </a>
-
-                    <div className="spudsite mt-"> </div>
-
-
-                    <h1 className="spudsite mt-5 mb-2">Past Shows</h1>
-
-                    <h4 className="spudsite mt-5 mb-3">Meierfest</h4>
-                    <h5 className="spudsite mt-3 mb-3">June 1, 2024 @ Fort Meier (Neenah, WI)</h5>
-                    <a href="https://youtu.be/_3mhGQWLZms?si=poel_2XAPMsxZ02a">
-                        <img className=" mb-2 music-video-box mt-3" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={fmFest} alt="The spuds are heading back home to perform for family and friends at Fort Meier" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Tied In Knots - Single Release Show with Brother Means Ally and Curly Jefferson</h4>
-                    <h5 className="spudsite mt-3 mb-3">April 26, 2024 @ Day Block Brewing (Minneapolis, MN)</h5>
-                    <a href="https://www.dayblockbrewing.com/live-events/funk-n-spuds/">
-                        <img className="mt-2 mb-5 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={singleRelease} alt="Tied In Knots single release at Day Block with soop light show and Brother Means Ally and Curly Jefferson" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">UW Stout</h4>
-                    <h5 className="spudsite mt-3 mb-3">February 29, 2024 @ Memorial Student Center (Menomonie, WI)</h5>
-                    <a href="https://connect.uwstout.edu/BDP/rsvp_boot?id=2259571">
-                        <img className="mt-2 mb-5 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={uwstout} alt="Funk N Spuds will be performing at UW Stout's Memorial Student Center" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Big Turn Music Festival</h4>
-                    <h5 className="spudsite mt-3 mb-3">February 17, 2024 @ St. James Hotel, Port Side Room (Red Wing, MN)</h5>
-                    <a href="https://www.bigturnmusicfest.com">
-                        <img className="mt-2 mb-5 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={bigTurn} alt="A weekend that's full of sights and sounds in the middle of Febrrruary. This is a place of music and community and we just hope you packed a pair of stomping boots for your trip. This is the Big Turn Music Fest." />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Hunny Bear Album Release Show</h4>
-                    <h5 className="spudsite mt-3 mb-3">January 25, 2024 @ Can Can Wonderland (St. Paul, MN)</h5>
-                    <a href="https://www.cancanwonderland.com/entertainment">
-                        <img className="mt-2 mb-5 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={hunnyAlbumRelease} alt="Hunny Bear Album Release Show with Funk N Spuds and Confucisaurus at Can Can Wonderland Jan 25, 2024" />
-                    </a>
-
-                    <h4 className="spudsite mt-5 mb-3">Creatures from the Funk Lagoon</h4>
-                    <h5 className="spudsite mt-3 mb-3">October 28, 2023 @ No Name Bar (Winona, MN)</h5>
-                    <a href="https://bandsintown.com/e/104727519?came_from=297&utm_medium=web&utm_source=copy_link&utm_campaign=event_social_share">
-                        <img className="mt-2 mb-5 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={funkCreatures} alt="Lavendar Project, Funk N Spuds, and Curly Jefferson and the Jam Turkeys at No Name Bar Oct 28 2023" />
-                    </a>
-
-                    <h5 className="spudsite mt-5">October 7, 2023 @ Eagles #34 (Minneapolis, MN)</h5>
-                    <a href="https://www.eagles34.org/events-entertainment.html">
-                        <img className="mt-2 mb-4 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={pandEmfiSpuds} alt="Efmi, Pandelion, and Funk N Spuds at Eagles #34 Oct 7 2023" />
-                    </a>
-
-                    <h5 className="spudsite mt-5">October 7, 2023 @ Highland Park Picnic Shelter (St. Paul, MN)</h5>
-                    <a href="https://www.bandsintown.com/e/104727822-funk-n-spuds-at-highland-park-picnic-shelter">
-                        <img className="mt-2 mb-4 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={HighlandHarmonies} alt="Funk N Spuds at Highland Park for Highland " />
-                    </a>
-
-                    <h5 className="spudsite mt-5">September 28, 2023 @ Can Can Wonderland (St. Paul, MN)</h5>
-                    <a href="https://www.cancanwonderland.com/events/the-hunny-pot">
-                        <img className="mt-2 mb-4 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={HunnyCan} alt="Funk N Spuds with Hunny Bear and Emery Snow at Can Can Wonderland" />
-                    </a>
-
-                    <h5 className="spudsite mt-5">May 13, 2023 @ Mid West Music Fest Main Stage (Winona, MN)</h5>
-                    <a href="https://www.midwestmusicfest.org/">
-                        <img className="mt-2 mb-4 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={mwmf23} alt="Mid West Music Fest 2023 Lineup" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">February 11, 2023 @ Underground Music Cafe (Minneapolis, MN)</h5>
-                    <a href="https://www.undergroundmusicvenue.com">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Underground} alt="Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf " />
-                    </a>
-
-                    <h5 className="spudsite mt-3">February 4, 2023 @ The White Squirrel Bar (St. Paul, MN)</h5>
-                    <a href="https://whitesquirrelbar.com">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={whiteS} alt="White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">January 20, 2023 @ Appleton Beer Factory (Appleton, WI)</h5>
-                    <a href="https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={lowDown} alt="Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">December 17, 2022 @ No Name Bar (Winona, MN)</h5>
-                    <a href="https://visitwinona.com/directory_entry/eds-no-name-bar/">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={noName} alt="No Name Bar Winona - Funk N Spuds and Sugar Lads" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">October 14, 2022 Shoebox Episode XII (St. Paul, MN)</h5>
-                    <a href="https://www.airshipcaravan.com/">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Shoebox} alt="Shoebos Episode XII - Pandelion, Juniper Fly, Funk N Spuds, Airship Caravan" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">August 26, 2022 Galactic Get Down 6 (New Richmond, WI)</h5>
-                    <a href="https://www.thegalacticgetdown.com/">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={GGD22} alt="Galactic Get Down Music Festival" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">July 15, 2022 Paperfest (Kimberly, WI)</h5>
-                    <a href="https://www.paperfest.com/">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Paper22} alt="Funk N Spuds at Paperfest 2022" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">May 20, 2022 Art-A-Whirl @ 612Brew (Minneapolis, MN)</h5>
-                    <a href="https://nemaa.org/art-a-whirl/">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={Art612} alt="Funk N Spuds at 612Brew for Art-A-Whirl 2022" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">April 29, 2022 Mid West Music Fest @ Eagles Club (Winona, MN)</h5>
-                    <a href="https://www.midwestmusicfest.org/">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={MWMF22} alt="Funk N Spuds at Mid West Music Fest 2022" />
-                    </a>
-
-                    <h5 className="spudsite mt-3">March 26, 2022 Spud County (Livestream - Youtube)</h5>
-                    <a href="https://youtu.be/MOTcyp4Lj64?t=5937">
-                        <img className="mt-2 mb-3 music-video-box" style={{ width: "30%", height: "auto", borderRadius: "4px" }} src={SpudCounty} alt="Spud County Livestream - Cook County and Funk N Spuds" />
-                    </a>
-
-                    <div className="text-end m-2">
-                        <div style={{ display: "inline-block" }}>
-                            {somethinCheck ? <SongCard songName="Somethin Sometimes" onSongCancel={onSomethinCancel} youtubeUrl="https://www.youtube.com/embed/OQuKGgxlRYk" songInfo={somethinDescription} />
-                                : <SongSymbols symbol={somethin} altText="Somethin Sometimes Song Symbol" onClick={onSomethinClick} />}
-                        </div>
-                    </div>
                     <footer className="container text-center">
                         <FooterLinks />
                         <div className="text-center">
                             <a href="https://lens.snapchat.com/9ab8073ff16547e5bd413f811fb3e513?sender_web_id=4a206bd0-61c0-4d01-9a1c-0db2f2654c50&device_type=desktop&is_copy_url=true">
-                                <img style={{ height: "10em", width: "15em" }} src={jumpingSpud} alt="Jumping Spud" />
+                                <img 
+                                    className="jumping-spud"
+                                    src={jumpingSpud} 
+                                    alt="Jumping Spud" 
+                                />
                             </a>
                         </div>
                     </footer>

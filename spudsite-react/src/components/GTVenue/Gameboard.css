@@ -1,0 +1,247 @@
+/* GameBoard.css */
+
+.game-container {
+  background-color: #1f2937; /* Equivalent to Tailwind's bg-gray-800 */
+  padding: 16px;
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+  
+  
+  .game-stats {
+    margin-bottom: 16px; /* 1rem */
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .game-grid {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(15, 30px); /* Adjust BOARD_SIZE and tile size */
+    margin: 0 auto; /* Center the grid */
+  }
+  
+  .game-tile {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #374151; /* Tailwind's gray-700 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .wall {
+    background-color: #4b5563; /* Tailwind's gray-600 */
+  }
+  
+  .floor {
+    background-color: #d1d5db; /* Tailwind's gray-300 */
+  }
+  
+  .target-venue {
+    background-color: #fbbf24; /* Tailwind's yellow-400 */
+  }
+  
+  .player {
+    animation: bounce 1s infinite;
+  }
+  
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Mobile Controls */
+  
+  .mobile-controls {
+    margin-top: 24px; /* 1.5rem */
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    gap: 8px; /* 0.5rem */
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .control-button {
+    width: 50px;
+    height: 50px;
+    background-color: #6b7280; /* Tailwind's gray-500 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .control-button:active {
+    background-color: #4b5563; /* Darker gray */
+  }
+  
+  .instructions {
+    margin-top: 16px; /* 1rem */
+    color: white;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Game Over Screen Styles */
+.game-over-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .game-over-title {
+    color: red;
+    margin-bottom: 16px;
+  }
+  
+  .play-again-button {
+    margin-top: 16px;
+    padding: 12px 24px;
+    background-color: #dc2626; /* Red color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .final-score {
+    font-size: 64px;
+    margin-top: 32px;
+    color: white;
+  }
+  
+  .play-again-button:hover {
+    background-color: #b91c1c; /* Darker red on hover */
+  }
+
+  .play-again-button {
+    /* ...existing styles... */
+    transition: background-color 0.3s ease;
+  }
+
+  .final-score {
+    font-size: 6vw; /* Adjusts font size based on viewport width */
+    margin-top: 32px;
+    color: white;
+  }
+
+  /* High Score Entry Styles */
+.high-score-entry {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .high-score-entry input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .high-score-entry button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .high-score-confirmation {
+    margin-top: 20px;
+    color: white;
+  }
+  
+  /* High Score Board Styles */
+  .high-score-board {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .high-score-board h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .high-score-board ol {
+    list-style: decimal;
+    font-size: 24px;
+    max-height: 50%;
+    overflow-y: auto;
+    padding: 0 20px;
+  }
+  
+  .high-score-board li {
+    margin-bottom: 10px;
+  }
+  
+  .high-score-board button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* View High Scores Button */
+  .view-high-scores-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+/* Add responsive styles for mobile */
+@media (max-width: 480px) {
+  .game-grid {
+    grid-template-columns: repeat(15, min(20px, 6vw)); /* Smaller tiles on mobile */
+  }
+
+  .game-tile {
+    width: min(20px, 6vw);
+    height: min(20px, 6vw);
+    font-size: 12px; /* Smaller emoji/text */
+  }
+}
+
+/* Ensure the game container doesn't overflow on small screens */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 8px;
+    width: 100%;
+  }
+
+  .game-stats {
+    width: 100%;
+    padding: 0 8px;
+    margin-bottom: 8px;
+  }
+}
+  
