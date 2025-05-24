@@ -40,6 +40,15 @@ import albumorb from "../img/Orbz/AlbumOrb.png"
 import bassorb from "../img/Orbz/BassOrb.png"
 import spgorb from "../img/Orbz/SPGOrb.png"
 import ewtrtworb from "../img/Orbz/EWTRTWOrb.png"
+import artAWhirlElias from "../img/ArtAWhirlElias.JPG"
+import tour25 from "../img/spudsTour25.png"
+import indeed from "../img/indeedLogo.png"
+import appleton from "../img/SpudsTourAppleton.jpg"
+import harriet from "../img/SpudsTourHarriet.jpg"
+import madison from "../img/SpudsTourUpNorth.jpg"
+import winona from "../img/SpudsTourNoname.jpg"
+import folknight from "../img/FolkNightSpudGarden.jpg"
+import caboozeWild from "../img/caboozeWild.JPG"
 
 const SONGS = {
     sunset: {
@@ -71,68 +80,111 @@ const SONGS = {
 };
 
 const SHOWS = {
-    upcoming: [
+    all: [
+        {
+            title: "Folk Night",
+            date: "2025-05-21",
+            location: "Spud Garden",
+            venue: "Minneapolis, MN",
+            image: folknight,
+            link: "http://www.madeleineroger.com",
+            alt: "You won't want to miss this night of music and fun at the Spud Garden"
+        },
+        {
+            title: "Music on the Mississippi",
+            date: "2025-08-13",
+            location: "Harriet Island",
+            venue: "St. Paul, MN",
+            image: albumorb,
+            link: "https://www.visitsaintpaul.com",
+            alt: "Catch you along the banks of the Mighty Mississippi"
+        },
+        {
+            title: "Art-A-Whirl",
+            date: "2025-05-16",
+            location: "Elias Metalworks",
+            venue: "Minneapolis, MN",
+            image: artAWhirlElias,
+            link: "https://lisaeliasmetalstudio.com/home",
+            alt: "The Spuds are excited to take the stage for Art-A-Whirl @ Elias Metal Studio"
+        },
+        {
+            title: "Off The Dock",
+            date: "2025-07-08",
+            location: "Indeed Brewing",
+            venue: "Minneapolis, MN",
+            image: indeed,
+            link: "https://indeedbrewing.com/events/list/?tribe_eventcategory[0]=11",
+            alt: "Again taking the stage at one of their favorite haunts, Funk N Spuds will be playing at Indeed Brewing for Off The Dock"
+        },
+        {
+            title: "Spring 2025 Mini Tour",
+            isMiniTour: true,
+            dateRange: {
+                start: "2025-05-28",
+                end: "2025-05-31"
+            },
+            headerImage: tour25,
+            shows: [
+                {
+                    title: "Music in the Parks",
+                    date: "2025-05-28",
+                    location: "Lake Harriet Bandshell",
+                    venue: "Minneapolis, MN",
+                    image: harriet,
+                    link: "https://www.minneapolisparks.org/activities-events/music-movies/",
+                    alt: "The Spuds are beyond excited to take the Lake Harriet Bandshell stage"
+                },
+                {
+                    title: "Appleton Funk",
+                    date: "2025-05-29",
+                    location: "Appleton Beer Factory",
+                    venue: "Appleton, WI",
+                    image: appleton,
+                    link: "https://app.showslinger.com/standalone_external_events/27787?from=/promo_widget/calendar_list?venue_id=46738&old_promo_widget_id=120",
+                    alt: "Back home to see some family, drink some beer, and be merry!"
+                },
+                {
+                    title: "Funk N Spuds with LOWBOY",
+                    date: "2025-05-30",
+                    location: "Up North Bar",
+                    venue: "Madison, WI",
+                    image: madison,
+                    link: "https://upnorthbarmadison.com",
+                    alt: "Can't wait to share the stage with these groovy doods!"
+                },
+                {
+                    title: "Desperate Electric",
+                    date: "2025-05-31",
+                    location: "NoName Bar",
+                    venue: "Winona, MN",
+                    image: winona,
+                    link: "https://www.facebook.com/nonamebarwinona/",
+                    alt: "A great finale to our first mini tour"
+                }
+            ]
+        },
+        {
+            title: "Dream Of The Wild Residency",
+            date: "2025-04-13",
+            location: "Cabooze",
+            venue: "Minneapolis, MN",
+            image: caboozeWild,
+            link: "https://cabooze.com/#/events",
+            alt: "The Spuds return to the Cabooze with old friends and fresh tunes"
+        },
         {
             title: "Matcha Spud Cabinet",
-            date: "March 27, 2025",
+            date: "2025-03-27",
             location: "White Squirrel Bar",
-            venue: "St Paul, MN",
+            venue: "St. Paul, MN",
             image: matcha,
             link: "https://whitesquirrelbar.com",
             alt: "The Spuds return to White Squirrel with new friends and fresh tunes"
         },
         {
-            title: "Dream Of The Wild Residency",
-            date: "April 13, 2025",
-            location: "Cabooze",
-            venue: "Minneapolis, MN",
-            image: lenjaorb,
-            link: "https://cabooze.com/#/events",
-            alt: "The Spuds return to the Cabooze with old friends and fresh tunes"
-        }
-    ],
-    miniTour: [
-        {
-            title: "Music in the Parks",
-            date: "May 28, 2025",
-            location: "Lake Harriet Bandshell",
-            venue: "Minneapolis, MN",
-            image: albumorb,
-            link: "https://www.minneapolisparks.org/activities-events/music-movies/",
-            alt: "The Spuds are beyond excited to take the Lake Harriet Bandshell stage"
-        },
-        {
-            title: "Appleton Funk",
-            date: "May 29, 2025",
-            location: "Appleton Beer Factory",
-            venue: "Appleton, WI",
-            image: bassorb,
-            link: "https://www.appletonbeerfactory.com",
-            alt: "Back home to see some family, drink some beer, and be merry!"
-        },
-        {
-            title: "Funk N Spuds with LOWBOY",
-            date: "May 30, 2025",
-            location: "Up North Bar",
-            venue: "Madison, WI",
-            image: spgorb,
-            link: "https://upnorthbarmadison.com",
-            alt: "Can't wait to share the stage with these groovy doods!"
-        },
-        {
-            title: "Desperate Electric",
-            date: "May 31, 2025",
-            location: "NoName Bar",
-            venue: "Winona, MN",
-            image: ewtrtworb,
-            link: "https://www.facebook.com/nonamebarwinona/",
-            alt: "A great finale to our first mini tour"
-        }
-    ],
-    past: [
-        {
             title: "Funk in the Ox",
-            date: "February 18th, 2025",
+            date: "2025-02-18",
             location: "Indeed Brewing",
             venue: "Minneapolis, MN",
             image: fnsindeed,
@@ -141,7 +193,7 @@ const SHOWS = {
         },
         {
             title: "Ice Block Winter Music Series",
-            date: "February 8th, 2025",
+            date: "2025-02-08",
             location: "Day Block Brewing",
             venue: "Minneapolis, MN",
             image: dayblockfeb8,
@@ -150,7 +202,7 @@ const SHOWS = {
         },
         {
             title: "Noname Bar with Maria and the Coins",
-            date: "December 14, 2024",
+            date: "2024-12-14",
             location: "Noname Bar",
             venue: "Winona, MN",
             image: nonamecoins,
@@ -159,7 +211,7 @@ const SHOWS = {
         },
         {
             title: "Pre-All Pints Hootenanny",
-            date: "July 26, 2024",
+            date: "2024-07-26",
             location: "Bent Paddle",
             venue: "Duluth, MN",
             image: bentPaddle,
@@ -168,7 +220,7 @@ const SHOWS = {
         },
         {
             title: "Justin's Family Reunion",
-            date: "July 19, 2024",
+            date: "2024-07-19",
             location: "Fort Halverson",
             venue: "Austin, MN",
             image: justinFest,
@@ -177,7 +229,7 @@ const SHOWS = {
         },
         {
             title: "Album Release Show",
-            date: "July 12, 2024",
+            date: "2024-07-12",
             location: "Day Block Brewing",
             venue: "Minneapolis, MN",
             image: albumReleaseShow,
@@ -186,7 +238,7 @@ const SHOWS = {
         },
         {
             title: "Meierfest",
-            date: "June 1, 2024",
+            date: "2024-06-01",
             location: "Fort Meier",
             venue: "Neenah, WI",
             image: fmFest,
@@ -195,7 +247,7 @@ const SHOWS = {
         },
         {
             title: "Tied In Knots - Single Release Show",
-            date: "April 26, 2024",
+            date: "2024-04-26",
             location: "Day Block Brewing",
             venue: "Minneapolis, MN",
             details: "with Brother Means Ally and Curly Jefferson",
@@ -205,7 +257,7 @@ const SHOWS = {
         },
         {
             title: "UW Stout",
-            date: "February 29, 2024",
+            date: "2024-02-29",
             location: "Memorial Student Center",
             venue: "Menomonie, WI",
             image: uwstout,
@@ -214,7 +266,7 @@ const SHOWS = {
         },
         {
             title: "Big Turn Music Festival",
-            date: "February 17, 2024",
+            date: "2024-02-17",
             location: "St. James Hotel, Port Side Room",
             venue: "Red Wing, MN",
             image: bigTurn,
@@ -223,7 +275,7 @@ const SHOWS = {
         },
         {
             title: "Hunny Bear Album Release Show",
-            date: "January 25, 2024",
+            date: "2024-01-25",
             location: "Can Can Wonderland",
             venue: "St. Paul, MN",
             image: hunnyAlbumRelease,
@@ -232,7 +284,7 @@ const SHOWS = {
         },
         {
             title: "Creatures from the Funk Lagoon",
-            date: "October 28, 2023",
+            date: "2023-10-28",
             location: "No Name Bar",
             venue: "Winona, MN",
             image: funkCreatures,
@@ -241,7 +293,7 @@ const SHOWS = {
         },
         {
             title: "Eagles #34",
-            date: "October 7, 2023",
+            date: "2023-10-07",
             location: "Eagles #34",
             venue: "Minneapolis, MN",
             image: pandEmfiSpuds,
@@ -250,7 +302,7 @@ const SHOWS = {
         },
         {
             title: "Highland Park Picnic Shelter",
-            date: "October 7, 2023",
+            date: "2023-10-07",
             location: "Highland Park Picnic Shelter",
             venue: "St. Paul, MN",
             image: HighlandHarmonies,
@@ -259,7 +311,7 @@ const SHOWS = {
         },
         {
             title: "Can Can Wonderland",
-            date: "September 28, 2023",
+            date: "2023-09-28",
             location: "Can Can Wonderland",
             venue: "St. Paul, MN",
             image: HunnyCan,
@@ -268,7 +320,7 @@ const SHOWS = {
         },
         {
             title: "Mid West Music Fest Main Stage",
-            date: "May 13, 2023",
+            date: "2023-05-13",
             location: "Mid West Music Fest Main Stage",
             venue: "Winona, MN",
             image: mwmf23,
@@ -277,7 +329,7 @@ const SHOWS = {
         },
         {
             title: "Underground Music Cafe",
-            date: "February 11, 2023",
+            date: "2023-02-11",
             location: "Underground Music Cafe",
             venue: "Minneapolis, MN",
             image: Underground,
@@ -286,7 +338,7 @@ const SHOWS = {
         },
         {
             title: "The White Squirrel Bar",
-            date: "February 4, 2023",
+            date: "2023-02-04",
             location: "The White Squirrel Bar",
             venue: "St. Paul, MN",
             image: whiteS,
@@ -295,7 +347,7 @@ const SHOWS = {
         },
         {
             title: "Appleton Beer Factory",
-            date: "January 20, 2023",
+            date: "2023-01-20",
             location: "Appleton Beer Factory",
             venue: "Appleton, WI",
             image: lowDown,
@@ -304,7 +356,7 @@ const SHOWS = {
         },
         {
             title: "No Name Bar",
-            date: "December 17, 2022",
+            date: "2022-12-17",
             location: "No Name Bar",
             venue: "Winona, MN",
             image: noName,
@@ -313,7 +365,7 @@ const SHOWS = {
         },
         {
             title: "Shoebox Episode XII",
-            date: "October 14, 2022",
+            date: "2022-10-14",
             location: "Shoebox",
             venue: "St. Paul, MN",
             image: Shoebox,
@@ -322,7 +374,7 @@ const SHOWS = {
         },
         {
             title: "Galactic Get Down 6",
-            date: "August 26, 2022",
+            date: "2022-08-26",
             location: "Galactic Get Down",
             venue: "New Richmond, WI",
             image: GGD22,
@@ -331,7 +383,7 @@ const SHOWS = {
         },
         {
             title: "Paperfest",
-            date: "July 15, 2022",
+            date: "2022-07-15",
             location: "Paperfest",
             venue: "Kimberly, WI",
             image: Paper22,
@@ -340,7 +392,7 @@ const SHOWS = {
         },
         {
             title: "Art-A-Whirl @ 612Brew",
-            date: "May 20, 2022",
+            date: "2022-05-20",
             location: "612Brew",
             venue: "Minneapolis, MN",
             image: Art612,
@@ -349,7 +401,7 @@ const SHOWS = {
         },
         {
             title: "Mid West Music Fest @ Eagles Club",
-            date: "April 29, 2022",
+            date: "2022-04-29",
             location: "Eagles Club",
             venue: "Winona, MN",
             image: MWMF22,
@@ -358,7 +410,7 @@ const SHOWS = {
         },
         {
             title: "Spud County",
-            date: "March 26, 2022",
+            date: "2022-03-26",
             location: "Livestream",
             venue: "Youtube",
             image: SpudCounty,
@@ -375,6 +427,39 @@ function Shows() {
         somethin: false
     });
 
+    const getCategorizedShows = () => {
+        const today = new Date();
+        const categorized = {
+            upcoming: [],
+            past: [],
+            miniTours: []
+        };
+
+        SHOWS.all.forEach(show => {
+            if (show.isMiniTour) {
+                const tourStart = new Date(show.dateRange.start);
+                if (tourStart > today) {
+                    categorized.miniTours.push(show);
+                }
+            } else {
+                const showDate = new Date(show.date);
+                if (showDate > today) {
+                    categorized.upcoming.push(show);
+                } else {
+                    categorized.past.push(show);
+                }
+            }
+        });
+
+        // Sort upcoming and past shows by date
+        categorized.upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+        categorized.past.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // Sort mini tours by start date
+        categorized.miniTours.sort((a, b) => new Date(a.dateRange.start) - new Date(b.dateRange.start));
+
+        return categorized;
+    };
+
     const toggleSong = (songKey) => {
         setSongStates(prev => ({
             ...prev,
@@ -386,7 +471,11 @@ function Shows() {
         <div className={`show-card ${isMiniTour ? 'mini-tour-card' : ''}`}>
             <h4 className="spudsite mb-2">{show.title}</h4>
             <h5 className="spudsite mb-3">
-                {show.date}<br/>
+                {new Date(show.date + 'T00:00:00').toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })}<br/>
                 {show.location}<br/>
                 {show.venue}
                 {show.details && <><br/>{show.details}</>}
@@ -400,6 +489,8 @@ function Shows() {
             </a>
         </div>
     );
+
+    const categorizedShows = getCategorizedShows();
 
     return (
         <div className="container">
@@ -438,23 +529,47 @@ function Shows() {
                         />
                     </div>
 
-                    <div className="upcoming-shows">
-                        {SHOWS.upcoming.map((show, index) => (
-                            <ShowCard key={index} show={show} />
-                        ))}
-                    </div>
+                    {categorizedShows.miniTours.map((tour, index) => (
+                        <div key={index}>
+                            <h2 className="spudsite mt-5 mb-4">Spring 2025 Mini Tour!</h2>
+                            <div className="text-center mb-4">
+                                <img 
+                                    src={tour.headerImage} 
+                                    alt="Mini Tour Header" 
+                                    className="mini-tour-header-image"
+                                    style={{ maxWidth: '60%', height: 'auto' }}
+                                />
+                            </div>
+                            <div className="text-center mb-4">
+                                <h4 className="spudsite">
+                                    {new Date(tour.dateRange.start + 'T00:00:00').toLocaleDateString('en-US', { 
+                                        month: 'long', 
+                                        day: 'numeric' 
+                                    })} - {new Date(tour.dateRange.end + 'T00:00:00').toLocaleDateString('en-US', { 
+                                        month: 'long', 
+                                        day: 'numeric',
+                                        year: 'numeric'
+                                    })}
+                                </h4>
+                            </div>
+                            <div className="mini-tour-shows">
+                                {tour.shows.map((show, index) => (
+                                    <ShowCard key={index} show={show} isMiniTour={true} />
+                                ))}
+                            </div>
+                        </div>
+                    ))}
 
-                    <h2 className="spudsite mt-5 mb-4">Spring 2025 Mini Tour!</h2>
-                    <div className="mini-tour-shows">
-                        {SHOWS.miniTour.map((show, index) => (
-                            <ShowCard key={index} show={show} isMiniTour={true} />
+                    <div className="upcoming-shows">
+                        {categorizedShows.upcoming.map((show, index) => (
+                            <ShowCard key={index} show={show} />
                         ))}
                     </div>
 
                     <h1 className="spudsite mt-5 mb-4">Past Shows</h1>
 
                     <div className="past-shows-grid">
-                        {SHOWS.past.map((show, index) => (
+                        {categorizedShows.past.map((show, index) => (
                             <ShowCard key={index} show={show} />
                         ))}
                     </div>
