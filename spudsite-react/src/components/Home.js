@@ -24,11 +24,18 @@ import cover11 from "../img/MWMF.jpg";
 import cover12 from "../img/A7S06448.jpeg";
 import cover13 from "../img/A7S06001.jpeg";
 import cover14 from "../img/A7S04769.jpeg";
+import cover15 from "../img/FunknSpuds-113.jpeg";
+import cover16 from "../img/IMG_5793.jpeg";
+import cover17 from "../img/IMG_5587.JPG";
+import cover18 from "../img/IMG_5229.jpeg";
+import cover19 from "../img/A7S09821.jpeg";
+import cover20 from "../img/A7S00995.jpeg";
 //import WanderingSpuddie from "./WanderingSpuddie"
 import spud5s from "../img/5spuds.PNG";
 //import TIK from "../img/IMG_4785.JPG";
 import TIKorb from "../img/Orbz/TIKOrb.png";
 import intoFocus from "../img/into focus 3.jpg"
+import tour25 from "../img/spudsTour25.png"
 
 const SONGS = {
     first1up: {
@@ -102,7 +109,7 @@ const VIDEO_LINKS = [
 ];
 
 export const GALLERY_IMAGES = [
-    cover1, cover2, cover4, cover6, cover9, cover10, cover11, cover12, cover13, cover14
+    cover1, cover2, cover4, cover6, cover9, cover10, cover11, cover12, cover13, cover14, cover15, cover16, cover17, cover18, cover19, cover20
 ];
 
 function Home() {
@@ -159,9 +166,9 @@ function Home() {
                     />
                 </div>
                 
-                <div className="frame-2">
+                <div className="">
                     <a href="https://voyageminnesota.com/interview/conversations-with-max-martin-justin-thomas-zach-meier-meier-halverson-hazlett-miller/">
-                        <img style={{width: "55%"}} src={spud5s} alt="5 spuds" className="img-header rotate" />
+                        <img style={{width: "55%"}} src={tour25} alt="5 spuds" className="" />
                     </a>
                 </div>
                 <br></br>

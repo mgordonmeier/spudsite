@@ -12,11 +12,11 @@ import mango from "../img/MangoJamSongSymbol.png";
 import cantStop from "../img/CantStopSongSymbol.png";
 import harm from "../img/HarmonizeSongSymbol.png";
 import jumpingSpud from "../img/FunkNJump.gif";
-import dalleJustin from "../img/ShaggyOnBass.jpg";
-import dalleMartin from "../img/LunaTunaOnTheDrums.jpg";
-import dalleThomas from "../img/TheHaze.jpg";
-import dalleMax from "../img/FunkySpudInSpace.jpg";
-import dalleChristian from "../img/ChristianDalle.jpg"
+import dalleJustin from "../img/band_pix/JustinElias.jpeg";
+import dalleMartin from "../img/band_pix/MartinUpNorth.jpeg";
+import dalleThomas from "../img/band_pix/ThomasAppleton.jpeg";
+import dalleMax from "../img/band_pix/MaxUpNorth.jpeg";
+import dalleChristian from "../img/band_pix/ChristianElias.jpeg"
 import MemberCard from "./MemberPanel";
 import SongSymbolWrapper from './SongSymbol';
 import { GALLERY_IMAGES } from './Home';
@@ -163,51 +163,44 @@ function Spuds() {
             
             {/* Main spuds circle container */}
             <div className="spuds-circle-container" style={{ position: 'relative', zIndex: 2 }}>
-                {/* Max */}
-                <div className={`spud-member-wrapper spud-top ${memberStates.max ? 'active' : ''}`}>
-                    <MemberCard 
-                        member={MEMBERS.max}
-                        isInfoShown={memberStates.max}
-                        onToggle={() => toggleMember('max')}
-                    />
-                </div>
-
-                {/* Right side members */}
-                <div className="spud-side-container spud-right">
-                    {/* Martin */}
-                    <div className={`spud-member-wrapper ${memberStates.martin ? 'active' : ''}`}>
+                {/* Top row: Max and Martin */}
+                <div className="spud-top">
+                    <div className={`spud-member-wrapper${memberStates.max ? ' active' : ''}`}>
+                        <MemberCard 
+                            member={MEMBERS.max}
+                            isInfoShown={memberStates.max}
+                            onToggle={() => toggleMember('max')}
+                        />
+                    </div>
+                    <div className={`spud-member-wrapper${memberStates.martin ? ' active' : ''}`}>
                         <MemberCard 
                             member={MEMBERS.martin}
                             isInfoShown={memberStates.martin}
                             onToggle={() => toggleMember('martin')}
                         />
                     </div>
-                    {/* Thomas */}
-                    <div className={`spud-member-wrapper ${memberStates.thomas ? 'active' : ''}`}>
+                </div>
+                {/* Bottom row: Thomas, Justin, Christian */}
+                <div className="spud-bottom">
+                    <div className={`spud-member-wrapper${memberStates.thomas ? ' active' : ''}`}>
                         <MemberCard 
                             member={MEMBERS.thomas}
                             isInfoShown={memberStates.thomas}
                             onToggle={() => toggleMember('thomas')}
                         />
                     </div>
-                </div>
-
-                {/* Left side members */}
-                <div className="spud-side-container spud-left">
-                    {/* Christian */}
-                    <div className={`spud-member-wrapper ${memberStates.christian ? 'active' : ''}`}>
-                        <MemberCard 
-                            member={MEMBERS.christian}
-                            isInfoShown={memberStates.christian}
-                            onToggle={() => toggleMember('christian')}
-                        />
-                    </div>
-                    {/* Justin */}
-                    <div className={`spud-member-wrapper ${memberStates.justin ? 'active' : ''}`}>
+                    <div className={`spud-member-wrapper${memberStates.justin ? ' active' : ''}`}>
                         <MemberCard 
                             member={MEMBERS.justin}
                             isInfoShown={memberStates.justin}
                             onToggle={() => toggleMember('justin')}
+                        />
+                    </div>
+                    <div className={`spud-member-wrapper${memberStates.christian ? ' active' : ''}`}>
+                        <MemberCard 
+                            member={MEMBERS.christian}
+                            isInfoShown={memberStates.christian}
+                            onToggle={() => toggleMember('christian')}
                         />
                     </div>
                 </div>

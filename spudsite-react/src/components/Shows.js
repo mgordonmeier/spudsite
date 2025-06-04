@@ -49,6 +49,28 @@ import madison from "../img/SpudsTourUpNorth.jpg"
 import winona from "../img/SpudsTourNoname.jpg"
 import folknight from "../img/FolkNightSpudGarden.jpg"
 import caboozeWild from "../img/caboozeWild.JPG"
+import whiskeyJunction from "../img/old_show_posters/WhiskeyWed212.jpg"
+import honeyMPLS from "../img/old_show_posters/BernItDown.JPG"
+import spudlympics from "../img/old_show_posters/Spudlympics2020.JPG"
+import hookladder from "../img/old_show_posters/GDEColdSweat.jpg"
+import VARBS from "../img/old_show_posters/VARBSFNSPoster.jpg"
+import blakesHouseParty from "../img/old_show_posters/BlakesHouseParty.JPG"
+import ggdv from "../img/old_show_posters/GGDV.JPG"
+import afnfvbs from "../img/old_show_posters/FunkNFalltasticVBS.jpg"
+import lbsots from "../img/old_show_posters/LBSotSPoster.JPG"
+import grenada815 from "../img/old_show_posters/Grenada815.JPG"
+import aaw2021 from "../img/old_show_posters/612AAW2021.JPG"
+import abf1016 from "../img/old_show_posters/ABF_1016_Poster.jpg"
+import comoPorchfest from "../img/old_show_posters/ComoPorchfest.jpg"
+import RACchicken from "../img/old_show_posters/RACchicken.JPG"
+import MortsAnnex from "../img/old_show_posters/MortsAnnex.jpg"
+import funkitup from "../img/old_show_posters/FunkItUp.jpg"
+import cabooze83 from "../img/old_show_posters/Cabooze83.JPG"
+import IVHFMG from "../img/old_show_posters/IVHFMG.JPG"
+import HighlandHarmonies2020 from "../img/old_show_posters/HighlandHarmonies2020.PNG"
+import GrenadaHunnySpuds from "../img/old_show_posters/GrenadaHunnySpuds.jpg"
+import BigVibesTuesdays from "../img/old_show_posters/BigVibesTuesdays.JPG"
+
 
 const SONGS = {
     sunset: {
@@ -82,10 +104,55 @@ const SONGS = {
 const SHOWS = {
     all: [
         {
+            title: "Highland Park Harmonies",
+            date: "2020-10-10",
+            venue: "Highland Park Picnic Shelter", 
+            location: "St. Paul, MN",
+            image: HighlandHarmonies2020,
+            link: "https://www.facebook.com/HighlandHarmonies/",
+            alt: "Highland Park Harmonies"
+        },
+        {
+            title: "Hunny Bear with Funk N Spuds",
+            date: "2021-06-27",
+            venue: "Grenada Theater", 
+            location: "Minneapolis, MN",
+            image: GrenadaHunnySpuds,
+            link: "https://hunnybearjazz.wixsite.com/hunny-bear",
+            alt: "Hunny Bear with Funk N Spuds"
+        },
+        {
+            title: "Big Vibes Tuesdays Presented by Socktopus",
+            date: "2021-06-22",
+            venue: "Cabooze", 
+            location: "Minneapolis, MN",
+            image: BigVibesTuesdays,
+            link: "https://socktopus.bandcamp.com/",
+            alt: "Big Vibes Tuesdays Presented by Socktopus"
+        },
+        {
+            title: "The Immaculate Virtual Halloween Full Moon Gala",
+            date: "2020-10-30",
+            venue: "Livestream", 
+            location: "Parallax",
+            image: IVHFMG,
+            link: "https://youtu.be/pGA-Teg6BpY?si=TCeQfeoTH8s1_rHa",
+            alt: "The Immaculate Virtual Halloween Full Moon Gala with Funk N Spuds and The Immaculate Beings"
+        },
+        {
+            title: "Elour, Funk N Spuds, and The Moonlight Community",
+            date: "2021-08-05",
+            venue: "Cabooze", 
+            location: "Minneapolis, MN",
+            image: cabooze83,
+            link: "https://elourmusic.com/home",
+            alt: "Elour, Funk N Spuds, and The Moonlight Community at Cabooze"
+        },
+        {
             title: "Folk Night",
             date: "2025-05-21",
-            location: "Spud Garden",
-            venue: "Minneapolis, MN",
+            venue: "Spud Garden",
+            location: "Minneapolis, MN",
             image: folknight,
             link: "http://www.madeleineroger.com",
             alt: "You won't want to miss this night of music and fun at the Spud Garden"
@@ -93,8 +160,8 @@ const SHOWS = {
         {
             title: "Music on the Mississippi",
             date: "2025-08-13",
-            location: "Harriet Island",
-            venue: "St. Paul, MN",
+            venue: "Harriet Island",
+            location: "St. Paul, MN",
             image: albumorb,
             link: "https://www.visitsaintpaul.com",
             alt: "Catch you along the banks of the Mighty Mississippi"
@@ -102,8 +169,8 @@ const SHOWS = {
         {
             title: "Art-A-Whirl",
             date: "2025-05-16",
-            location: "Elias Metalworks",
-            venue: "Minneapolis, MN",
+            venue: "Elias Metalworks",
+            location: "Minneapolis, MN",
             image: artAWhirlElias,
             link: "https://lisaeliasmetalstudio.com/home",
             alt: "The Spuds are excited to take the stage for Art-A-Whirl @ Elias Metal Studio"
@@ -111,8 +178,8 @@ const SHOWS = {
         {
             title: "Off The Dock",
             date: "2025-07-08",
-            location: "Indeed Brewing",
-            venue: "Minneapolis, MN",
+            venue: "Indeed Brewing",
+            location: "Minneapolis, MN",
             image: indeed,
             link: "https://indeedbrewing.com/events/list/?tribe_eventcategory[0]=11",
             alt: "Again taking the stage at one of their favorite haunts, Funk N Spuds will be playing at Indeed Brewing for Off The Dock"
@@ -129,8 +196,8 @@ const SHOWS = {
                 {
                     title: "Music in the Parks",
                     date: "2025-05-28",
-                    location: "Lake Harriet Bandshell",
-                    venue: "Minneapolis, MN",
+                    venue: "Lake Harriet Bandshell",
+                    location: "Minneapolis, MN",
                     image: harriet,
                     link: "https://www.minneapolisparks.org/activities-events/music-movies/",
                     alt: "The Spuds are beyond excited to take the Lake Harriet Bandshell stage"
@@ -138,8 +205,8 @@ const SHOWS = {
                 {
                     title: "Appleton Funk",
                     date: "2025-05-29",
-                    location: "Appleton Beer Factory",
-                    venue: "Appleton, WI",
+                    venue: "Appleton Beer Factory",
+                    location: "Appleton, WI",
                     image: appleton,
                     link: "https://app.showslinger.com/standalone_external_events/27787?from=/promo_widget/calendar_list?venue_id=46738&old_promo_widget_id=120",
                     alt: "Back home to see some family, drink some beer, and be merry!"
@@ -147,8 +214,8 @@ const SHOWS = {
                 {
                     title: "Funk N Spuds with LOWBOY",
                     date: "2025-05-30",
-                    location: "Up North Bar",
-                    venue: "Madison, WI",
+                    venue: "Up North Bar",
+                    location: "Madison, WI",
                     image: madison,
                     link: "https://upnorthbarmadison.com",
                     alt: "Can't wait to share the stage with these groovy doods!"
@@ -156,8 +223,8 @@ const SHOWS = {
                 {
                     title: "Desperate Electric",
                     date: "2025-05-31",
-                    location: "NoName Bar",
-                    venue: "Winona, MN",
+                    venue: "NoName Bar",
+                    location: "Winona, MN",
                     image: winona,
                     link: "https://www.facebook.com/nonamebarwinona/",
                     alt: "A great finale to our first mini tour"
@@ -167,8 +234,8 @@ const SHOWS = {
         {
             title: "Dream Of The Wild Residency",
             date: "2025-04-13",
-            location: "Cabooze",
-            venue: "Minneapolis, MN",
+            venue: "Cabooze",
+            location: "Minneapolis, MN",
             image: caboozeWild,
             link: "https://cabooze.com/#/events",
             alt: "The Spuds return to the Cabooze with old friends and fresh tunes"
@@ -176,8 +243,8 @@ const SHOWS = {
         {
             title: "Matcha Spud Cabinet",
             date: "2025-03-27",
-            location: "White Squirrel Bar",
-            venue: "St. Paul, MN",
+            venue: "White Squirrel Bar",
+            location: "St. Paul, MN",
             image: matcha,
             link: "https://whitesquirrelbar.com",
             alt: "The Spuds return to White Squirrel with new friends and fresh tunes"
@@ -185,8 +252,8 @@ const SHOWS = {
         {
             title: "Funk in the Ox",
             date: "2025-02-18",
-            location: "Indeed Brewing",
-            venue: "Minneapolis, MN",
+            venue: "Indeed Brewing",
+            location: "Minneapolis, MN",
             image: fnsindeed,
             link: "https://fb.me/e/9JB7mH6SS",
             alt: "Funk in the Ox Taproom"
@@ -194,8 +261,8 @@ const SHOWS = {
         {
             title: "Ice Block Winter Music Series",
             date: "2025-02-08",
-            location: "Day Block Brewing",
-            venue: "Minneapolis, MN",
+            venue: "Day Block Brewing",
+            location: "Minneapolis, MN",
             image: dayblockfeb8,
             link: "https://www.dayblockbrewing.com/live-events/ice-block-winter-concert-series-with-funk-n-spuds-the-confused-and-sunshine-the-night-walkers/",
             alt: "The Spuds return to Day Block Brewing to take the stage with Sunshine and the Night Walkers and the Confused"
@@ -203,8 +270,8 @@ const SHOWS = {
         {
             title: "Noname Bar with Maria and the Coins",
             date: "2024-12-14",
-            location: "Noname Bar",
-            venue: "Winona, MN",
+            venue: "Noname Bar",
+            location: "Winona, MN",
             image: nonamecoins,
             link: "https://www.facebook.com/nonamebarwinona/",
             alt: "The Spuds return to NoName Bar in Winona with Maria and the Coins"
@@ -212,8 +279,8 @@ const SHOWS = {
         {
             title: "Pre-All Pints Hootenanny",
             date: "2024-07-26",
-            location: "Bent Paddle",
-            venue: "Duluth, MN",
+            venue: "Bent Paddle",
+            location: "Duluth, MN",
             image: bentPaddle,
             link: "https://youtu.be/LWSKAxJGNH8?si=OrW1QbHW36miJlBf",
             alt: "Funk N Spuds will be performing at Bent Paddle for their pre-All Pints Hootenanny"
@@ -221,8 +288,8 @@ const SHOWS = {
         {
             title: "Justin's Family Reunion",
             date: "2024-07-19",
-            location: "Fort Halverson",
-            venue: "Austin, MN",
+            venue: "Fort Halverson",
+            location: "Austin, MN",
             image: justinFest,
             link: "https://youtu.be/LWSKAxJGNH8?si=OrW1QbHW36miJlBf",
             alt: "The spuds are heading to Austin, MN to celebrate family and friends with the Halversons"
@@ -230,8 +297,8 @@ const SHOWS = {
         {
             title: "Album Release Show",
             date: "2024-07-12",
-            location: "Day Block Brewing",
-            venue: "Minneapolis, MN",
+            venue: "Day Block Brewing",
+            location: "Minneapolis, MN",
             image: albumReleaseShow,
             link: "https://www.dayblockbrewing.com/live-events/funk-n-spuds-album-release-show/",
             alt: "Finally a new Funk N Spuds album"
@@ -239,8 +306,8 @@ const SHOWS = {
         {
             title: "Meierfest",
             date: "2024-06-01",
-            location: "Fort Meier",
-            venue: "Neenah, WI",
+            venue: "Fort Meier",
+            location: "Neenah, WI",
             image: fmFest,
             link: "https://youtu.be/_3mhGQWLZms?si=poel_2XAPMsxZ02a",
             alt: "The spuds are heading back home to perform for family and friends at Fort Meier"
@@ -248,8 +315,8 @@ const SHOWS = {
         {
             title: "Tied In Knots - Single Release Show",
             date: "2024-04-26",
-            location: "Day Block Brewing",
-            venue: "Minneapolis, MN",
+            venue: "Day Block Brewing",
+            location: "Minneapolis, MN",
             details: "with Brother Means Ally and Curly Jefferson",
             image: singleRelease,
             link: "https://www.dayblockbrewing.com/live-events/funk-n-spuds/",
@@ -258,8 +325,8 @@ const SHOWS = {
         {
             title: "UW Stout",
             date: "2024-02-29",
-            location: "Memorial Student Center",
-            venue: "Menomonie, WI",
+            venue: "Memorial Student Center",
+            location: "Menomonie, WI",
             image: uwstout,
             link: "https://connect.uwstout.edu/BDP/rsvp_boot?id=2259571",
             alt: "Funk N Spuds will be performing at UW Stout's Memorial Student Center"
@@ -267,8 +334,8 @@ const SHOWS = {
         {
             title: "Big Turn Music Festival",
             date: "2024-02-17",
-            location: "St. James Hotel, Port Side Room",
-            venue: "Red Wing, MN",
+            venue: "St. James Hotel, Port Side Room",
+            location: "Red Wing, MN",
             image: bigTurn,
             link: "https://www.bigturnmusicfest.com",
             alt: "A weekend that's full of sights and sounds in the middle of Febrrruary. This is a place of music and community and we just hope you packed a pair of stomping boots for your trip. This is the Big Turn Music Fest."
@@ -276,8 +343,8 @@ const SHOWS = {
         {
             title: "Hunny Bear Album Release Show",
             date: "2024-01-25",
-            location: "Can Can Wonderland",
-            venue: "St. Paul, MN",
+            venue: "Can Can Wonderland",
+            location: "St. Paul, MN",
             image: hunnyAlbumRelease,
             link: "https://www.cancanwonderland.com/entertainment",
             alt: "Hunny Bear Album Release Show with Funk N Spuds and Confucisaurus at Can Can Wonderland Jan 25, 2024"
@@ -285,8 +352,8 @@ const SHOWS = {
         {
             title: "Creatures from the Funk Lagoon",
             date: "2023-10-28",
-            location: "No Name Bar",
-            venue: "Winona, MN",
+            venue: "No Name Bar",
+            location: "Winona, MN",
             image: funkCreatures,
             link: "https://bandsintown.com/e/104727519",
             alt: "Lavendar Project, Funk N Spuds, and Curly Jefferson and the Jam Turkeys at No Name Bar Oct 28 2023"
@@ -294,8 +361,8 @@ const SHOWS = {
         {
             title: "Eagles #34",
             date: "2023-10-07",
-            location: "Eagles #34",
-            venue: "Minneapolis, MN",
+            venue: "Eagles #34",
+            location: "Minneapolis, MN",
             image: pandEmfiSpuds,
             link: "https://www.eagles34.org/events-entertainment.html",
             alt: "Efmi, Pandelion, and Funk N Spuds at Eagles #34 Oct 7 2023"
@@ -303,8 +370,8 @@ const SHOWS = {
         {
             title: "Highland Park Picnic Shelter",
             date: "2023-10-07",
-            location: "Highland Park Picnic Shelter",
-            venue: "St. Paul, MN",
+            venue: "Highland Park Picnic Shelter",
+            location: "St. Paul, MN",
             image: HighlandHarmonies,
             link: "https://www.bandsintown.com/e/104727822",
             alt: "Funk N Spuds at Highland Park for Highland"
@@ -312,8 +379,8 @@ const SHOWS = {
         {
             title: "Can Can Wonderland",
             date: "2023-09-28",
-            location: "Can Can Wonderland",
-            venue: "St. Paul, MN",
+            venue: "Can Can Wonderland",
+            location: "St. Paul, MN",
             image: HunnyCan,
             link: "https://www.cancanwonderland.com/events/the-hunny-pot",
             alt: "Funk N Spuds with Hunny Bear and Emery Snow at Can Can Wonderland"
@@ -321,17 +388,17 @@ const SHOWS = {
         {
             title: "Mid West Music Fest Main Stage",
             date: "2023-05-13",
-            location: "Mid West Music Fest Main Stage",
-            venue: "Winona, MN",
+            venue: "Mid West Music Fest Main Stage",
+            location: "Winona, MN",
             image: mwmf23,
-            link: "https://www.midwestmusicfest.org/",
+            link: "https://youtu.be/3AcNSV5UqUY?si=yVN0icDgwgLbgCEQ",
             alt: "Mid West Music Fest 2023 Lineup"
         },
         {
             title: "Underground Music Cafe",
             date: "2023-02-11",
-            location: "Underground Music Cafe",
-            venue: "Minneapolis, MN",
+            venue: "Underground Music Cafe",
+            location: "Minneapolis, MN",
             image: Underground,
             link: "https://www.undergroundmusicvenue.com",
             alt: "Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf"
@@ -339,8 +406,8 @@ const SHOWS = {
         {
             title: "The White Squirrel Bar",
             date: "2023-02-04",
-            location: "The White Squirrel Bar",
-            venue: "St. Paul, MN",
+            venue: "The White Squirrel Bar",
+            location: "St. Paul, MN",
             image: whiteS,
             link: "https://whitesquirrelbar.com",
             alt: "White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus"
@@ -348,8 +415,8 @@ const SHOWS = {
         {
             title: "Appleton Beer Factory",
             date: "2023-01-20",
-            location: "Appleton Beer Factory",
-            venue: "Appleton, WI",
+            venue: "Appleton Beer Factory",
+            location: "Appleton, WI",
             image: lowDown,
             link: "https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738",
             alt: "Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds"
@@ -357,8 +424,8 @@ const SHOWS = {
         {
             title: "No Name Bar",
             date: "2022-12-17",
-            location: "No Name Bar",
-            venue: "Winona, MN",
+            venue: "No Name Bar",
+            location: "Winona, MN",
             image: noName,
             link: "https://visitwinona.com/directory_entry/eds-no-name-bar/",
             alt: "No Name Bar Winona - Funk N Spuds and Sugar Lads"
@@ -366,8 +433,8 @@ const SHOWS = {
         {
             title: "Shoebox Episode XII",
             date: "2022-10-14",
-            location: "Shoebox",
-            venue: "St. Paul, MN",
+            venue: "Shoebox",
+            location: "St. Paul, MN",
             image: Shoebox,
             link: "https://www.airshipcaravan.com/",
             alt: "Shoebos Episode XII - Pandelion, Juniper Fly, Funk N Spuds, Airship Caravan"
@@ -375,8 +442,8 @@ const SHOWS = {
         {
             title: "Galactic Get Down 6",
             date: "2022-08-26",
-            location: "Galactic Get Down",
-            venue: "New Richmond, WI",
+            venue: "Galactic Get Down",
+            location: "New Richmond, WI",
             image: GGD22,
             link: "https://www.thegalacticgetdown.com/",
             alt: "Galactic Get Down Music Festival"
@@ -384,39 +451,184 @@ const SHOWS = {
         {
             title: "Paperfest",
             date: "2022-07-15",
-            location: "Paperfest",
-            venue: "Kimberly, WI",
+            venue: "Paperfest",
+            location: "Kimberly, WI",
             image: Paper22,
-            link: "https://www.paperfest.com/",
+            link: "https://youtu.be/jhiQB0x3ft4?si=Xb-E_RhCWfONoRkR",
             alt: "Funk N Spuds at Paperfest 2022"
         },
         {
             title: "Art-A-Whirl @ 612Brew",
             date: "2022-05-20",
-            location: "612Brew",
-            venue: "Minneapolis, MN",
+            venue: "612Brew",
+            location: "Minneapolis, MN",
             image: Art612,
-            link: "https://nemaa.org/art-a-whirl/",
+            link: "https://youtu.be/2OfxzjVljFo?si=cAeAwkXO3hoc-xRA",
             alt: "Funk N Spuds at 612Brew for Art-A-Whirl 2022"
         },
         {
             title: "Mid West Music Fest @ Eagles Club",
             date: "2022-04-29",
-            location: "Eagles Club",
-            venue: "Winona, MN",
+            venue: "Eagles Club",
+            location: "Winona, MN",
             image: MWMF22,
-            link: "https://www.midwestmusicfest.org/",
+            link: "https://youtu.be/CF8fYacBiv0?si=-4Yp7N4fTeNsI7aK",
             alt: "Funk N Spuds at Mid West Music Fest 2022"
         },
         {
             title: "Spud County",
             date: "2022-03-26",
-            location: "Livestream",
-            venue: "Youtube",
+            venue: "Livestream",
+            location: "Youtube",
             image: SpudCounty,
             link: "https://youtu.be/MOTcyp4Lj64?t=5937",
             alt: "Spud County Livestream - Cook County and Funk N Spuds"
-        }
+        },
+        {
+            title: "Whiskey Wednesdays",
+            date: "2020-02-12",
+            venue: "Whiskey Junction",
+            location: "Minneapolis, MN",
+            image: whiskeyJunction,
+            link: "",
+            alt: "Whiskey Wednesdays - Funk N Spuds"
+        },
+        {
+            title: "Bern It Down - Get Out the Vote",
+            date: "2020-03-02",
+            venue: "Honey MPLS",
+            location: "Minneapolis, MN",
+            image: honeyMPLS,
+            link: "https://berniesanders.com",
+            alt: "Bern It Down - Get Out the Vote - Honey MPLS"
+        },
+        {
+            title: "Spudlympics 2020",
+            date: "2020-04-11",
+            venue: "Someone's House",
+            location: "Minneapolis, MN",
+            image: spudlympics,
+            link: "",
+            alt: "Spudlympics 2020 - Psychedelic Egg Hunt"
+        },
+        {
+            title: "GDE Presents: Cold Sweat with Vibe Corp and Funk N Spuds",
+            date: "2020-03-27",
+            venue: "Hook & Ladder",
+            location: "Minneapolis, MN",
+            image: hookladder,
+            link: "https://thehookmpls.com/",
+            alt: "GDE Presents: Cold Sweat with Vibe Corp and Funk N Spuds"
+        },
+        {
+            title: "Virtual Album Release Balcony Show",
+            date: "2020-07-18",
+            venue: "Como Balcony",
+            location: "Minneapolis, MN",
+            image: VARBS,
+            link: "https://youtu.be/mtbByaGBAKU?si=PDinXPpuk7SNBWcK",
+            alt: "Virtual Album Release Balcony Show"
+        },
+        {
+            title: "Blake's House Party",
+            date: "2020-04-25",
+            venue: "Livestream",
+            location: "YouTube",
+            image: blakesHouseParty,
+            link: "https://funknspuds.bandcamp.com/album/blakes-house-party",
+            alt: "Blake's House Party"
+        },
+        {
+            title: "A Funk N Falltastic Virtual Balcony Show",
+            date: "2020-10-17",
+            venue: "Livestream",
+            location: "YouTube",
+            image: afnfvbs,
+            link: "https://www.youtube.com/live/JhUeem8WIbo?si=gxYMsvtBkHVCFVYx",
+            alt: "A Funk N Falltastic Virtual Balcony Show"
+        },
+        {
+            title: "Galactic Get Down: V(irtual)",
+            date: "2020-08-01",
+            venue: "Livestream",
+            location: "YouTube",
+            image: ggdv,
+            link: "https://youtu.be/s5aRktYIIVs?si=RBvkvsp1BV35Nc3i",
+            alt: "Galactic Get Down: V(irtual)"
+        },
+        {
+            title: "Live at the Grenada Theater",
+            date: "2021-08-15",
+            venue: "Grenada Theater",
+            location: "Minneapolis, MN",
+            image: grenada815,
+            link: "https://granadampls.com/",
+            alt: "Live at the Grenada Theater: Hunny Bear, Funk N Spuds, Jojo Green, and The Only"
+        },
+        {
+            title: "Last Balcony Show of the Summer",
+            date: "2020-08-27",
+            venue: "Livestream",
+            location: "Livestream",
+            image: lbsots,
+            link: "https://www.youtube.com/live/UHz4yRaNieo?si=TuQ8RrN9IRU043IG",
+            alt: "Last Balcony Show of the Summer"
+        },
+        {
+            title: "Art-A-Whirl 2021",
+            date: "2021-05-14",
+            venue: "612Brew",
+            location: "Minneapolis, MN",
+            image: aaw2021,
+            link: "https://nemaa.org/art-a-whirl/art-a-whirl-map/",
+            alt: "Art-A-Whirl 2021"
+        },
+        {
+            title: "Immaculate Spud Funk",
+            date: "2021-10-16",
+            venue: "Appleton Beer Factory", 
+            location: "Appleton, WI",
+            image: abf1016,
+            link: "https://appletonbeerfactory.com/live-shows/",
+            alt: "Appleton Beer Factory Presents: Immaculate Beings and Funk N Spuds"
+        },
+        {
+            title: "Como Porchfest",
+            date: "2021-07-24",
+            venue: "Como House/Livestream", 
+            location: "Minneapolis, MN/Youtube",
+            image: comoPorchfest,
+            link: "https://www.youtube.com/live/PRyNdlSUJJY?si=snIniz92EIIDeSTw",
+            alt: "Como Porchfest: Goon Tribune, Brandon Pulphus, Joe Bartel, The Personas, Funk N Spuds"
+        },
+        {
+            title: "Livestream EP Release Show",
+            date: "2021-04-02",
+            venue: "Livestream", 
+            location: "Youtube",
+            image: RACchicken,
+            link: "https://www.youtube.com/live/C5eFspyaYmc?si=QMCNdk74y_RH_KuY",
+            alt: "Ramsey's Adventure Cabin Release Show with Chicken Boys from Austin, TX"
+        },
+        {
+            title: "Mortimer's Presents: Annex Panda, Funk N Spuds, and PureShifter",
+            date: "2021-07-29",
+            venue: "Mortimer's", 
+            location: "Minneapolis, MN",
+            image: MortsAnnex,
+            link: "https://www.mortimersbar.com/",
+            alt: "Mortimer's Presents: Annex Panda, Funk N Spuds, and PureShifter"
+        },
+        {
+            title: "Funk It Up To Our Tempo",
+            date: "2021-12-09",
+            venue: "Part Wolf", 
+            location: "Minneapolis, MN",
+            image: funkitup,
+            link: "https://lavendermagazine.com/our-scene/clubs-music/natalie-fideler-releases-new-music-three-man-army/",
+            alt: "Funk It Up To Our Tempo: Jojo Green, Funk N Spuds, and Natalie Fideler"
+        },
+
     ]
 };
 
@@ -440,6 +652,11 @@ function Shows() {
                 const tourStart = new Date(show.dateRange.start);
                 if (tourStart > today) {
                     categorized.miniTours.push(show);
+                } else {
+                    // Add individual shows from past mini tours to past shows
+                    show.shows.forEach(show => {
+                        categorized.past.push(show);
+                    });
                 }
             } else {
                 const showDate = new Date(show.date);
@@ -470,14 +687,14 @@ function Shows() {
     const ShowCard = ({ show, isMiniTour }) => (
         <div className={`show-card ${isMiniTour ? 'mini-tour-card' : ''}`}>
             <h4 className="spudsite mb-2">{show.title}</h4>
-            <h5 className="spudsite mb-3">
+            <h5 className="show-details mb-3">
                 {new Date(show.date + 'T00:00:00').toLocaleDateString('en-US', { 
                     year: 'numeric', 
                     month: 'long', 
                     day: 'numeric' 
                 })}<br/>
-                {show.location}<br/>
-                {show.venue}
+                {show.venue}<br/>
+                {show.location}
                 {show.details && <><br/>{show.details}</>}
             </h5>
             <a href={show.link}>

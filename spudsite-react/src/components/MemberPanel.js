@@ -17,16 +17,28 @@ function MemberPanel({ member, isInfoShown, onToggle, top, isGallery, galleryIma
         const imageStyle = {
             width: "17em",
             height: "auto",
-            borderRadius: "7px"
+            borderRadius: "7px",
+            transition: "all 0.3s ease"
         };
 
         return (
-            <div className="card specialCard text-center m-2" style={{width: "19em"}}>
+            <div className="card specialCard text-center m-2" style={{
+                width: "19em",
+                transition: "all 0.3s ease",
+                transform: "scale(1)",
+                opacity: 1
+            }}>
                 <div className="card-header m-2">
                     <p className="d-inline spudsiteSm" style={{ fontSize: "1.4rem" }}>
                         <strong>{member.name}</strong>
                     </p>
-                    <button className="btn btn-danger btn-sm float-end" onClick={onToggle}>X</button>
+                    <button 
+                        className="btn btn-danger btn-sm float-end" 
+                        onClick={onToggle}
+                        style={{ transition: "all 0.3s ease" }}
+                    >
+                        X
+                    </button>
                 </div>
                 <div className="card-body beenie">
                     <p style={{ 
@@ -50,19 +62,22 @@ function MemberPanel({ member, isInfoShown, onToggle, top, isGallery, galleryIma
     }
 
     return (
-        <div onClick={handleClick}>
+        <div 
+            onClick={handleClick}
+            style={{
+                cursor: "pointer",
+                transition: "all 0.3s ease"
+            }}
+        >
             <img 
-                style={{display: "inline-block"}}
                 src={member.spuddie}
                 alt={member.alt}
-                className="spuddies m-2 col-6"
+                className="spuddies m-2"
+                style={{
+                    display: "block",
+                    margin: "0 auto"
+                }}
             />
-            {isInfoShown && !isGallery && (
-                <div className="member-info">
-                    <h3>{member.name}</h3>
-                    <p>{member.description}</p>
-                </div>
-            )}
             {showGallery && (
                 <PhotoGallery 
                     images={galleryImages} 

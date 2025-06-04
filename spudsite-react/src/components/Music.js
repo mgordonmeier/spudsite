@@ -135,42 +135,6 @@ function Music() {
                         />
                     </div>
 
-                    <h1 className="mb-5 spudsite">Livestream Central</h1>
-                    
-                    <div className="text-start m-2">
-                        <SongSymbolWrapper
-                            song={SONGS.litHouse}
-                            isOpen={songStates.litHouse}
-                            onToggle={() => toggleSong('litHouse')}
-                            shouldRotate={true}
-                        />
-                    </div>
-
-                    <div className="music-video-box">
-                        {youtubeVideos.map((video, index) => (
-                            <div key={index} className="ratio ratio-16x9 m-3" 
-                                 style={{ width: "65vw", display: "inline-block" }}>
-                                <iframe 
-                                    style={{ borderRadius: "4px" }}
-                                    src={video.url}
-                                    title={video.title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="text-start m-2">
-                        <SongSymbolWrapper
-                            song={SONGS.changes}
-                            isOpen={songStates.changes}
-                            onToggle={() => toggleSong('changes')}
-                            shouldRotate={false}
-                        />
-                    </div>
-
                     <h1 className="spudsite">Listen on Bandcamp</h1>
                     <div className="bandcamp-box">
                         <div className="singles-section">
@@ -218,6 +182,43 @@ function Music() {
                             ))}
                         </div>
                     </div>
+
+                    <div className="text-start m-2">
+                        <SongSymbolWrapper
+                            song={SONGS.litHouse}
+                            isOpen={songStates.litHouse}
+                            onToggle={() => toggleSong('litHouse')}
+                            shouldRotate={true}
+                        />
+                    </div>
+
+                    <h1 className="mb-5 spudsite">Livestream Central</h1>
+
+                    <div className="music-video-box">
+                        {youtubeVideos.map((video, index) => (
+                            <div key={index} className="ratio ratio-16x9 m-3" 
+                                 style={{ width: "65vw", display: "inline-block" }}>
+                                <iframe 
+                                    style={{ borderRadius: "4px" }}
+                                    src={video.url}
+                                    title={video.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="text-start m-2">
+                        <SongSymbolWrapper
+                            song={SONGS.changes}
+                            isOpen={songStates.changes}
+                            onToggle={() => toggleSong('changes')}
+                            shouldRotate={false}
+                        />
+                    </div>
+
                     <div className="text-end m-2">
                         <SongSymbolWrapper
                             song={SONGS.pentUp}

@@ -1,9 +1,12 @@
 .hover-grow {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), filter 0.3s cubic-bezier(.4,2,.6,1);
+    will-change: transform, filter;
+    filter: drop-shadow(2px 2px 4px #151515);
 }
 
 .hover-grow:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: drop-shadow(0 8px 24px #a17cff);
 }
 
 .email-btn {

@@ -1,7 +1,9 @@
 .spuddies {
     width: 19em;
     height: 19em;
-    filter: drop-shadow(2px 2px 4px #151515)
+    filter: drop-shadow(2px 2px 4px #151515);
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), filter 0.3s cubic-bezier(.4,2,.6,1);
+    will-change: transform, filter;
 }
 
 .spuddies img:before {
@@ -10,151 +12,83 @@
 }
 
 .spuddies:hover {
-    transform: scale(1.4);
-    transition: all 265ms ease;
+    transform: scale(1.08) rotate(-2deg);
+    filter: drop-shadow(0 8px 24px #a17cff);
 }
 
 .spuds-circle-container {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 1rem;
+    margin: 1rem auto;
+    padding: 0.5rem;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .spud-member-wrapper {
-    margin: 1rem;
+    margin: 0.5rem;
     position: relative;
     z-index: 1;
+    transition: box-shadow 0.3s cubic-bezier(.4,2,.6,1), transform 0.3s cubic-bezier(.4,2,.6,1), opacity 0.3s cubic-bezier(.4,2,.6,1);
+    animation: fadeScaleIn 0.5s cubic-bezier(.4,2,.6,1);
 }
 
 /* When member card is active (info shown), bring it to front */
 .spud-member-wrapper.active {
-    z-index: 100;  /* Much higher z-index to ensure it's above everything */
+    z-index: 100;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(80, 0, 120, 0.18), 0 1.5px 6px rgba(0,0,0,0.08);
+    transform: scale(1.04);
+    opacity: 1;
 }
 
 .spud-top {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.spud-side-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .spud-bottom {
-    margin-top: 2rem;
-    width: 100%;
     display: flex;
     justify-content: center;
+    gap: 1rem;
 }
 
 /* Desktop layout */
 @media (min-width: 992px) {
     .spuds-circle-container {
-        height: 800px;
-        margin-bottom: -200px;
+        min-height: 600px;
     }
 
     .spud-member-wrapper {
-        position: absolute;
-    }
-
-    /* Fix Max's positioning */
-    .spud-top {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        margin-bottom: 0;
-    }
-
-    .spud-top .spud-member-wrapper {
-        position: relative; /* Override absolute positioning for Max */
-        z-index: 1;
-    }
-
-    /* Ensure top member (Max) is above others when active */
-    .spud-top .spud-member-wrapper.active {
-        z-index: 100;
-    }
-
-    /* Right side members */
-    .spud-right .spud-member-wrapper:nth-child(1) {
-        right: 5%;
-        top: 20%;
-        z-index: 1;
-    }
-    .spud-right .spud-member-wrapper:nth-child(1).active {
-        z-index: 100;
-    }
-
-    .spud-right .spud-member-wrapper:nth-child(2) {
-        right: 20%;
-        bottom: 20%;
-        z-index: 1;
-    }
-    .spud-right .spud-member-wrapper:nth-child(2).active {
-        z-index: 100;
-    }
-
-    /* Left side members */
-    .spud-left .spud-member-wrapper:nth-child(1) {
-        left: 5%;
-        top: 20%;
-        z-index: 1;
-    }
-    .spud-left .spud-member-wrapper:nth-child(1).active {
-        z-index: 100;
-    }
-
-    .spud-left .spud-member-wrapper:nth-child(2) {
-        left: 20%;
-        bottom: 20%;
-        z-index: 1;
-    }
-    .spud-left .spud-member-wrapper:nth-child(2).active {
-        z-index: 100;
-    }
-
-    .spud-bottom {
-        position: relative;
-        margin-top: -200px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        z-index: 2;
-    }
-
-    .krystal-container {
-        margin-top: -150px;
-        margin-bottom: 8rem;
+        margin: 0.5rem;
     }
 }
 
 /* Tablet layout */
 @media (min-width: 768px) and (max-width: 991px) {
-    .spud-side-container {
-        justify-content: space-around;
+    .spud-top, .spud-bottom {
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
 
 /* Mobile layout */
 @media (max-width: 767px) {
-    .spud-side-container {
+    .spud-top, .spud-bottom {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
 }
 
 /* Update footer spacing */
 footer {
-    margin-top: 4rem;
+    margin-top: 2rem;
     position: relative;
     z-index: 2;
     clear: both;
@@ -172,7 +106,7 @@ footer {
     display: flex;
     justify-content: center;
     padding: 0;
-    margin: -50px auto 12rem;
+    margin: 1rem auto 6rem;
     position: relative;
     z-index: 1;
 }
@@ -187,10 +121,44 @@ footer {
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 99;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 19em;
 }
 
 /* Song symbols should stay below member cards */
 .song-symbol-wrapper {
     position: relative;
     z-index: 1;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Song Card Animation --- */
+.specialCard, .card {
+  transition: box-shadow 0.3s cubic-bezier(.4,2,.6,1), transform 0.3s cubic-bezier(.4,2,.6,1), opacity 0.3s cubic-bezier(.4,2,.6,1);
+  animation: fadeScaleIn 0.5s cubic-bezier(.4,2,.6,1);
+  box-shadow: 0 2px 12px rgba(80, 0, 120, 0.10), 0 1.5px 6px rgba(0,0,0,0.08);
+  will-change: transform, box-shadow, opacity;
+}
+
+.specialCard:active, .card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(80, 0, 120, 0.10);
+}
+
+.specialCard:hover, .card:hover {
+  box-shadow: 0 8px 32px rgba(80, 0, 120, 0.18), 0 1.5px 6px rgba(0,0,0,0.08);
+  transform: scale(1.03);
 }
