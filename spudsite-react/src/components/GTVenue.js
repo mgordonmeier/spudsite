@@ -20,6 +20,7 @@ const GameBoard = () => {
   const [showHighScores, setShowHighScores] = useState(false);
   const [playerName, setPlayerName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
 
   // Constants
   const MIN_INTERVAL_DURATION = 300;
@@ -50,6 +51,7 @@ const GameBoard = () => {
     setShowHighScores(false);
     setPlayerName('');
     setSubmitted(false);
+    setGameWon(false);
   }, []);
 
   // Close notification
@@ -125,9 +127,7 @@ const GameBoard = () => {
                 "Banana Bread! You've reached all 5 venues! Get some sleep so we can do it again tomorrow!",
               type: 'success',
             });
-            setTimeout(() => {
-              resetGame('Starting a new game...', 'success');
-            }, 3000);
+            setGameWon(true);
           } else {
             setNotification({
               message: `You made it to ${currentVenue.name}! +50 points (${newVenuesReached}/5)`,
@@ -184,6 +184,59 @@ const GameBoard = () => {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [movePlayer]);
+
+  // Victory Screen
+  if (gameWon) {
+    return (
+      <div className="game-container game-over-screen">
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={onCloseNotification}
+            duration={3000}
+          />
+        )}
+        <h2 className="game-over-title">You Win!</h2>
+        <h1 className="final-score">Score: {score}</h1>
+        {isHighScore && !submitted ? (
+          <div className="high-score-entry">
+            <p>Congratulations! You made it to the top 10 high scores.</p>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value)}
+            />
+            <button onClick={handleNameSubmit}>Submit</button>
+          </div>
+        ) : submitted ? (
+          <div className="high-score-confirmation">
+            <p>Thank you, {playerName}! Your score has been saved.</p>
+          </div>
+        ) : null}
+        <button onClick={() => setShowHighScores(true)} className="view-high-scores-button">
+          View High Scores
+        </button>
+        <button onClick={() => resetGame('Starting a new game...')} className="play-again-button">
+          Play Again
+        </button>
+        {showHighScores && (
+          <div className="high-score-board">
+            <h2>High Scores</h2>
+            <ol>
+              {highScores.map((entry, index) => (
+                <li key={index}>
+                  {entry.name}: {entry.score}
+                </li>
+              ))}
+            </ol>
+            <button onClick={() => setShowHighScores(false)}>Close</button>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   // Game Over Screen
   if (health <= 0) {
