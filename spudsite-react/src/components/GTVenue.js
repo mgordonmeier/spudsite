@@ -152,6 +152,7 @@ const GameBoard = () => {
       venuesReached,
       setNewVenue,
       setObstacleIntervalDuration,
+      resetGame,
     ]
   );
 
