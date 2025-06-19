@@ -104,6 +104,33 @@ const SONGS = {
 const SHOWS = {
     all: [
         {
+            title: "Live with Hunny Bear \n (Max's Birthday)",
+            date: "2025-11-05",
+            venue: "White Squirrel Bar",
+            location: "St. Paul, MN",
+            image: ewtrtworb,
+            link: "https://whitesquirrelbar.com",
+            alt: "The Spuds return to White Squirrel on Max's Birthday!"
+        },
+        {
+            title: "Highland Park Harmonies",
+            date: "2025-10-04",
+            venue: "Highland Park Picnic Shelter", 
+            location: "St. Paul, MN",
+            image: lenjaorb,
+            link: "https://www.facebook.com/HighlandHarmonies/",
+            alt: "Highland Park Harmonies"
+        },
+        {
+            title: "Logan Park Community Meeting",
+            date: "2025-07-16",
+            venue: "Logan Park Gazebo", 
+            location: "Minneapolis MN, MN",
+            image: spgorb,
+            link: "https://www.minneapolisparks.org/parks-destinations/parks-lakes/logan_park/",
+            alt: "Live at Logan Park"
+        },
+        {
             title: "Highland Park Harmonies",
             date: "2020-10-10",
             venue: "Highland Park Picnic Shelter", 
