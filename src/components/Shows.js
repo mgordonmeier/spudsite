@@ -104,7 +104,7 @@ const SONGS = {
 const SHOWS = {
     all: [
         {
-            title: "Live with Hunny Bear \n (Max's Birthday)",
+            title: "Hunny Bear \n (Max's Birthday)",
             date: "2025-11-05",
             venue: "White Squirrel Bar",
             location: "St. Paul, MN",
