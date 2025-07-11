@@ -30,7 +30,7 @@ function App() {
       >
         <ShaderGradient
           control='query'
-          urlString='https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=180&cDistance=3.3&cPolarAngle=90&cameraZoom=1&color1=%2359ffdb&color2=%23dbba95&color3=%23cc9ee1&embedMode=off&envPreset=city&fov=45&gizmoHelper=hide&grain=on&lightType=3d&pixelDensity=1.2&positionX=-1.4&positionY=0&positionZ=0&range=disabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=0&rotationY=10&rotationZ=-30&shader=defaults&type=plane&uDensity=1.6&uFrequency=5.5&uSpeed=0.2&uStrength=4.3&uTime=0&wireframe=false&zoomOut=false'
+          urlString='https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=180&cDistance=3.5&cPolarAngle=90&cameraZoom=1&color1=%23ff6bda&color2=%2385ffa9&color3=%2354ffff&destination=onCanvas&embedMode=off&envPreset=lobby&format=gif&fov=50&frameRate=10&gizmoHelper=hide&grain=off&lightType=env&pixelDensity=2&positionX=0.2&positionY=0.1&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=10&rotationY=-10&rotationZ=-110&shader=defaults&toggleAxis=false&type=waterPlane&uDensity=1.3&uFrequency=5.5&uSpeed=0.01&uStrength=3.5&uTime=0&wireframe=false&zoomOut=false'
         />
       </ShaderGradientCanvas>
       {/*<WanderingSpuddie />*/}
