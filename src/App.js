@@ -17,9 +17,6 @@ import * as fiber from '@react-three/fiber'
 function App() {
   return (
     <BrowserRouter>
-    <div style={{ color: 'red', position: 'absolute', zIndex: 9999 }}>
-      <p>React loaded</p>
-    </div>
       <ShaderGradientCanvas
         importedFiber={{ ...fiber, ...drei, ...reactSpring }}
         style={{
