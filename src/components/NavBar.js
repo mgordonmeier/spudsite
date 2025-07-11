@@ -29,6 +29,9 @@ function NavBar() {
                                 <Link to="/shows" className="nav-link active navLink">Shows</Link>
                             </li>
                             <li className="nav-item m-1">
+                                <Link to="/merch" className="nav-link active navLink">Merch</Link>
+                            </li>
+                            <li className="nav-item m-1">
                                 <Link to="/contact" className="nav-link active navLink lastLink">Contact</Link>
                             </li>
                         </ul>

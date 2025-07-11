@@ -6,6 +6,7 @@ import Spuds from './components/Spuds';
 import Music from './components/Music';
 import Games from './components/Games';
 import Shows from './components/Shows';
+import Merch from './components/Merch';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 //import WanderingSpuddie from './components/WanderingSpuddie';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/music" element={<Music />} />
           <Route path="/games" element={<Games />} />
           <Route path="/shows" element={<Shows />} />
+          <Route path="/merch" element={<Merch />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

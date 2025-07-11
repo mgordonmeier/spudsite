@@ -70,7 +70,7 @@ function Chatbox({ onClose, style }) {
     <div className="card specialCard text-center" style={style}>
       <div className="card-header d-flex justify-content-between align-items-center p-3">
         <strong>Chat with Spuddie</strong>
-        <button className="btn btn-danger btn-sm" onClick={onClose}>×</button>
+        <button className="btn btn-danger btn-sm chatbox-close-btn" onClick={onClose}>×</button>
       </div>
       <div className="card-body" style={{ height: '300px', overflowY: 'auto' }}>
         <div className="chat-messages">

@@ -98,8 +98,8 @@ const MEMBERS = {
         spuddie: spuddieChristian,
         dalle: dalleChristian,
         alt: "Spuddie Buddie - Christian on Bass",
-        description: "Fresh off a tear with the Immaculate Beings, Christian is a graduate of Lawrence University's jazz program " +
-            "and really knows how to funk it up. Though a recent addition to the group, his chops and soul have cracked the spuds' sound wide open!"
+        description: "Fresh off a tear with the Immaculate Beings, Christian is a graduate of Lawrence University where he studied religion and jazz " +
+            "and really knows how to funk it up. His chops and soul have cracked the spuds' sound wide open!"
     },
     krystal: {
         name: "Krystal Spud",

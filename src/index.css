@@ -5,7 +5,7 @@
   font-family: 'Space Grotesk', sans-serif !important;
 }
 
-.navLink, .navbar-brand, .spudNavBar, .spudsite, .rocksalt {
+.navLink, .navbar-brand, .spudNavBar, .spudsite, .rocksalt, .merch-close-btn, .cart-close-btn, .gallery-close, .chatbox-close-btn, button.btn.chatbox-close-btn, button.btn.merch-close-btn, button.btn.song-close-btn, button.btn.member-close-btn, button.btn.cart-close-btn, .cart-remove-btn {
   font-family: 'Rock Salt', cursive !important;
 }
 
@@ -44,3 +44,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

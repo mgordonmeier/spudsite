@@ -33,11 +33,11 @@ function MemberPanel({ member, isInfoShown, onToggle, top, isGallery, galleryIma
                         <strong>{member.name}</strong>
                     </p>
                     <button 
-                        className="btn btn-danger btn-sm float-end" 
+                        className="btn btn-danger btn-sm float-end member-close-btn" 
                         onClick={onToggle}
                         style={{ transition: "all 0.3s ease" }}
                     >
-                        X
+                        ×
                     </button>
                 </div>
                 <div className="card-body beenie">

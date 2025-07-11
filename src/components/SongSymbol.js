@@ -15,7 +15,7 @@ function SongSymbol({ song, isOpen, onToggle, shouldRotate = false, alignRight =
                 <div className="card specialCard text-center m-2" style={{width: "20rem"}}>
                     <div className="card-header m-2">
                         <p className="d-inline"><strong>{song.name}</strong></p>
-                        <button className="btn btn-danger btn-sm float-end" onClick={onToggle}>X</button>
+                        <button className="btn btn-danger btn-sm float-end song-close-btn" onClick={onToggle}>×</button>
                     </div>
                     <div className="text-center">
                         <iframe 

@@ -21,7 +21,7 @@ const PhotoGallery = ({ images, onClose }) => {
             <div className="gallery-overlay" onClick={onClose}>
                 <div className="gallery-content" onClick={e => e.stopPropagation()}>
                     <div className="gallery-header">
-                        <button className="gallery-close" onClick={onClose}>&times;</button>
+                        <button className="gallery-close" onClick={onClose}>×</button>
                     </div>
                     <img 
                         src={images[currentIndex]} 
