@@ -8,7 +8,7 @@ import Games from './components/Games';
 import Shows from './components/Shows';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
-import WanderingSpuddie from './components/WanderingSpuddie';
+//import WanderingSpuddie from './components/WanderingSpuddie';
 import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient'
 import * as reactSpring from '@react-spring/three'
 import * as drei from '@react-three/drei'
@@ -17,6 +17,9 @@ import * as fiber from '@react-three/fiber'
 function App() {
   return (
     <BrowserRouter>
+    <div style={{ color: 'red', position: 'absolute', zIndex: 9999 }}>
+      <p>React loaded</p>
+    </div>
       <ShaderGradientCanvas
         importedFiber={{ ...fiber, ...drei, ...reactSpring }}
         style={{

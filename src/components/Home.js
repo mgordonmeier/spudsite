@@ -31,7 +31,7 @@ import cover18 from "../img/IMG_5229.jpeg";
 import cover19 from "../img/A7S09821.jpeg";
 import cover20 from "../img/A7S00995.jpeg";
 //import WanderingSpuddie from "./WanderingSpuddie"
-import spud5s from "../img/5spuds.PNG";
+//import spud5s from "../img/5spuds.PNG";
 //import TIK from "../img/IMG_4785.JPG";
 import TIKorb from "../img/Orbz/TIKOrb.png";
 import intoFocus from "../img/into focus 3.jpg"
@@ -191,10 +191,10 @@ function Home() {
                     <h3 className="spudsite m-4">Check us out on YouTube</h3>
                 </div>
                 <div className="intro-video ratio ratio-16x9 mt-2" style={{width: "65vw", display: "inline-block"}}>
-                    <iFrame style={{ borderRadius: "4px" }} src={selectedVideo} title="YouTube Vids"
+                    <iframe style={{ borderRadius: "4px" }} src={selectedVideo} title="YouTube Vids"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen></iFrame>
+                        allowFullScreen></iframe>
                 </div>
                 
                 <div className="text-end m-2">
