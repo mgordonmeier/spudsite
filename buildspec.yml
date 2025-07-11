@@ -12,6 +12,7 @@ phases:
   post_build:
     commands:
       - aws s3 sync build/ s3://funknspuds.com --delete
+      - aws cloudfront create-invalidation --distribution-id E383BVPARI1ABH --paths "/*"
 
 artifacts:
   files:
