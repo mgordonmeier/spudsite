@@ -1,81 +1,77 @@
 import React, { useState } from "react";
-import SongSymbolWrapper from "./SongSymbol";
-import FooterLinks from "./FooterLinks";
-import jumpingSpud from "../img/FunkNJump.gif";
-import sunset from "../img/HillsideSunsetSongSymbol.png";
-import somethin from "../img/SomethinSometimesSongSymbol.png";
-import lowDown from "../img/LowDownFNS-Appleton.jpg";
-import noName from "../img/NoNameDec17SpudsAndLads.jpg";
-import whiteS from "../img/FnSatWhiteS.jpg";
-import mwmf23 from "../img/MWMF2023.png"
-import Art612 from "../img/ArtAWhirl612Spudsite.jpg"
-import GGD22 from "../img/GGD2022Spudsite.jpg"
-import MWMF22 from "../img/MWMFSpudsite.jpg"
-import Paper22 from "../img/PaperfestPromoSpudsite.jpg"
-import Shoebox from "../img/ShoeboxEpisodeXiiSpudsite.jpg"
-import SpudCounty from "../img/SpudCountySpudsite.jpg"
-import Underground from "../img/UndergroundClamsVelvetFns.jpg"
-import HighlandHarmonies from "../img/HighlandHarmonies.PNG"
-import HunnyCan from "../img/HoneyCan.jpg"
-import pandEmfiSpuds from "../img/pandEmfiSpuds.JPG"
-import funkCreatures from "../img/NoNameOct28Final.jpg"
-import hunnyAlbumRelease from "../img/HunnyAlbumRelease.jpg"
-//import spud5s from "../img/5spuds.PNG"
-import bigTurn from "../img/bigTurn.JPG"
-import uwstout from "../img/UWStout.png"
-import singleRelease from "../img/messin.v3.jpg"
-//import albumArt from "../img/HillsideSunsetArtBackground.jpg"
-//import meierFest from "../img/BassIntroArtBackground.jpg"
-import justinFest from "../img/LithouseArtBackground.jpg"
-import albumReleaseShow from "../img/DayBlockShowPosterv6.jpg"
-import fmFest from "../img/FMfest.jpeg"
-import bentPaddle from "../img/BentPaddle.png"
-import HillSunOrb from "../img/Orbz/HillsideSunsetOrb.png"
-import nonamecoins from "../img/NoName1214posterv3.jpg"
-import dayblockfeb8 from "../img/dayblockfeb8.JPG"
-import fnsindeed from "../img/Funk_In_The_Ox.jpg"
-import matcha from "../img/Matcha.png"
-import lenjaorb from "../img/Orbz/LenjaminOrb.png"
-import albumorb from "../img/Orbz/AlbumOrb.png"
-import bassorb from "../img/Orbz/BassOrb.png"
-import spgorb from "../img/Orbz/SPGOrb.png"
-import ewtrtworb from "../img/Orbz/EWTRTWOrb.png"
-import artAWhirlElias from "../img/ArtAWhirlElias.JPG"
-import tour25 from "../img/spudsTour25.png"
-import indeed from "../img/indeedLogo.png"
-import appleton from "../img/SpudsTourAppleton.jpg"
-import harriet from "../img/SpudsTourHarriet.jpg"
-import madison from "../img/SpudsTourUpNorth.jpg"
-import winona from "../img/SpudsTourNoname.jpg"
-import folknight from "../img/FolkNightSpudGarden.jpg"
-import caboozeWild from "../img/caboozeWild.JPG"
-import whiskeyJunction from "../img/old_show_posters/WhiskeyWed212.jpg"
-import honeyMPLS from "../img/old_show_posters/BernItDown.JPG"
-import spudlympics from "../img/old_show_posters/Spudlympics2020.JPG"
-import hookladder from "../img/old_show_posters/GDEColdSweat.jpg"
-import VARBS from "../img/old_show_posters/VARBSFNSPoster.jpg"
-import blakesHouseParty from "../img/old_show_posters/BlakesHouseParty.JPG"
-import ggdv from "../img/old_show_posters/GGDV.JPG"
-import afnfvbs from "../img/old_show_posters/FunkNFalltasticVBS.jpg"
-import lbsots from "../img/old_show_posters/LBSotSPoster.JPG"
-import grenada815 from "../img/old_show_posters/Grenada815.JPG"
-import aaw2021 from "../img/old_show_posters/612AAW2021.JPG"
-import abf1016 from "../img/old_show_posters/ABF_1016_Poster.jpg"
-import comoPorchfest from "../img/old_show_posters/ComoPorchfest.jpg"
-import RACchicken from "../img/old_show_posters/RACchicken.JPG"
-import MortsAnnex from "../img/old_show_posters/MortsAnnex.jpg"
-import funkitup from "../img/old_show_posters/FunkItUp.jpg"
-import cabooze83 from "../img/old_show_posters/Cabooze83.JPG"
-import IVHFMG from "../img/old_show_posters/IVHFMG.JPG"
-import HighlandHarmonies2020 from "../img/old_show_posters/HighlandHarmonies2020.PNG"
-import GrenadaHunnySpuds from "../img/old_show_posters/GrenadaHunnySpuds.jpg"
-import BigVibesTuesdays from "../img/old_show_posters/BigVibesTuesdays.JPG"
+import SongSymbolWrapper from "../ui/SongSymbol";
+import FooterLinks from "../ui/FooterLinks";
+import jumpingSpud from "../../img/FunkNJump.gif";
+import hillsideSunset from "../../img/HillsideSunsetSongSymbol.png";
+import somethinSometimes from "../../img/SomethinSometimesSongSymbol.png";
+import lowDownFNS from "../../img/LowDownFNS-Appleton.jpg";
+import noNameDec17 from "../../img/NoNameDec17SpudsAndLads.jpg";
+import fnSatWhiteS from "../../img/FnSatWhiteS.jpg";
+import mwmf2023 from "../../img/MWMF2023.png";
+import artAWhirl from "../../img/ArtAWhirl612Spudsite.jpg";
+import ggd2022 from "../../img/GGD2022Spudsite.jpg";
+import mwmfSpudsite from "../../img/MWMFSpudsite.jpg";
+import paperfestPromo from "../../img/PaperfestPromoSpudsite.jpg";
+import shoeboxEpisodeXii from "../../img/ShoeboxEpisodeXiiSpudsite.jpg";
+import spudCounty from "../../img/SpudCountySpudsite.jpg";
+import undergroundClamsVelvetFns from "../../img/UndergroundClamsVelvetFns.jpg";
+import highlandHarmonies from "../../img/HighlandHarmonies.PNG";
+import honeyCan from "../../img/HoneyCan.jpg";
+import pandEmfiSpuds from "../../img/pandEmfiSpuds.JPG";
+import noNameOct28 from "../../img/NoNameOct28Final.jpg";
+import hunnyAlbumRelease from "../../img/HunnyAlbumRelease.jpg";
+import bigTurn from "../../img/bigTurn.JPG";
+import uwStout from "../../img/UWStout.png";
+import messinV3 from "../../img/messin.v3.jpg";
+import lithouseArtBackground from "../../img/LithouseArtBackground.jpg";
+import dayBlockShowPoster from "../../img/DayBlockShowPosterv6.jpg";
+import fmfest from "../../img/FMfest.jpeg";
+import bentPaddle from "../../img/BentPaddle.png";
+import hillsideSunsetOrb from "../../img/Orbz/HillsideSunsetOrb.png";
+import noName1214poster from "../../img/NoName1214posterv3.jpg";
+import dayblockFeb8 from "../../img/dayblockfeb8.JPG";
+import funkInTheOx from "../../img/Funk_In_The_Ox.jpg";
+import matcha from "../../img/Matcha.png";
+import lenjaminOrb from "../../img/Orbz/LenjaminOrb.png";
+import albumOrb from "../../img/Orbz/AlbumOrb.png";
+import spgOrb from "../../img/Orbz/SPGOrb.png";
+import ewtrtwOrb from "../../img/Orbz/EWTRTWOrb.png";
+import artAWhirlElias from "../../img/ArtAWhirlElias.JPG";
+import spudsTour25 from "../../img/spudsTour25.png";
+import indeedLogo from "../../img/indeedLogo.png";
+import spudsTourAppleton from "../../img/SpudsTourAppleton.jpg";
+import spudsTourHarriet from "../../img/SpudsTourHarriet.jpg";
+import spudsTourUpNorth from "../../img/SpudsTourUpNorth.jpg";
+import spudsTourNoname from "../../img/SpudsTourNoname.jpg";
+import folkNightSpudGarden from "../../img/FolkNightSpudGarden.jpg";
+import caboozeWild from "../../img/caboozeWild.JPG";
+import whiskeyWed212 from "../../img/old_show_posters/WhiskeyWed212.jpg";
+import bernItDown from "../../img/old_show_posters/BernItDown.JPG";
+import spudlympics2020 from "../../img/old_show_posters/Spudlympics2020.JPG";
+import gdeColdSweat from "../../img/old_show_posters/GDEColdSweat.jpg";
+import varbsfnsPoster from "../../img/old_show_posters/VARBSFNSPoster.jpg";
+import blakesHouseParty from "../../img/old_show_posters/BlakesHouseParty.JPG";
+import ggdv from "../../img/old_show_posters/GGDV.JPG";
+import funkNFalltasticVBS from "../../img/old_show_posters/FunkNFalltasticVBS.jpg";
+import lbSotsPoster from "../../img/old_show_posters/LBSotSPoster.JPG";
+import grenada815 from "../../img/old_show_posters/Grenada815.JPG";
+import aaw2021 from "../../img/old_show_posters/612AAW2021.JPG";
+import abf1016Poster from "../../img/old_show_posters/ABF_1016_Poster.jpg";
+import comoPorchfest from "../../img/old_show_posters/ComoPorchfest.jpg";
+import racChicken from "../../img/old_show_posters/RACchicken.JPG";
+import mortsAnnex from "../../img/old_show_posters/MortsAnnex.jpg";
+import funkItUp from "../../img/old_show_posters/FunkItUp.jpg";
+import cabooze83 from "../../img/old_show_posters/Cabooze83.JPG";
+import ivhfmg from "../../img/old_show_posters/IVHFMG.JPG";
+import highlandHarmonies2020 from "../../img/old_show_posters/HighlandHarmonies2020.PNG";
+import grenadaHunnySpuds from "../../img/old_show_posters/GrenadaHunnySpuds.jpg";
+import bigVibesTuesdays from "../../img/old_show_posters/BigVibesTuesdays.JPG";
 
 
 const SONGS = {
     sunset: {
         name: "Hillside Sunset",
-        symbol: sunset,
+        symbol: hillsideSunset,
         altText: "Hillside Sunset Song Symbol",
         youtubeUrl: "https://www.youtube.com/embed/_zHxvUMYBuU",
         description: "Max wrote this song while living in his friend Mary's attic in 2019. " +
@@ -84,7 +80,7 @@ const SONGS = {
     },
     HSunset: {
         name: "Hillside Sunset",
-        symbol: HillSunOrb,
+        symbol: hillsideSunsetOrb,
         altText: "Hillside Sunset Orb",
         youtubeUrl: "https://www.youtube.com/embed/E8EWJwCbcg0",
         description: "The band recorded the studio version of Hillside Sunset in March of 2023, " +
@@ -92,7 +88,7 @@ const SONGS = {
     },
     somethin: {
         name: "Somethin Sometimes",
-        symbol: somethin,
+        symbol: somethinSometimes,
         altText: "Somethin Sometimes Song Symbol",
         youtubeUrl: "https://www.youtube.com/embed/OQuKGgxlRYk",
         description: "Inspired by Jack Johnson, in search of hope, Somethin Sometimes was written by " +
@@ -108,7 +104,7 @@ const SHOWS = {
             date: "2025-11-05",
             venue: "White Squirrel Bar",
             location: "St. Paul, MN",
-            image: ewtrtworb,
+            image: ewtrtwOrb,
             link: "https://whitesquirrelbar.com",
             alt: "The Spuds return to White Squirrel on Max's Birthday!"
         },
@@ -117,7 +113,7 @@ const SHOWS = {
             date: "2025-10-04",
             venue: "Highland Park Picnic Shelter", 
             location: "St. Paul, MN",
-            image: lenjaorb,
+            image: lenjaminOrb,
             link: "https://www.facebook.com/HighlandHarmonies/",
             alt: "Highland Park Harmonies"
         },
@@ -126,7 +122,7 @@ const SHOWS = {
             date: "2025-07-16",
             venue: "Logan Park Gazebo", 
             location: "Minneapolis MN, MN",
-            image: spgorb,
+            image: spgOrb,
             link: "https://www.minneapolisparks.org/parks-destinations/parks-lakes/logan_park/",
             alt: "Live at Logan Park"
         },
@@ -135,7 +131,7 @@ const SHOWS = {
             date: "2020-10-10",
             venue: "Highland Park Picnic Shelter", 
             location: "St. Paul, MN",
-            image: HighlandHarmonies2020,
+            image: highlandHarmonies2020,
             link: "https://www.facebook.com/HighlandHarmonies/",
             alt: "Highland Park Harmonies"
         },
@@ -144,7 +140,7 @@ const SHOWS = {
             date: "2021-06-27",
             venue: "Grenada Theater", 
             location: "Minneapolis, MN",
-            image: GrenadaHunnySpuds,
+            image: grenadaHunnySpuds,
             link: "https://hunnybearjazz.wixsite.com/hunny-bear",
             alt: "Hunny Bear with Funk N Spuds"
         },
@@ -153,7 +149,7 @@ const SHOWS = {
             date: "2021-06-22",
             venue: "Cabooze", 
             location: "Minneapolis, MN",
-            image: BigVibesTuesdays,
+            image: bigVibesTuesdays,
             link: "https://socktopus.bandcamp.com/",
             alt: "Big Vibes Tuesdays Presented by Socktopus"
         },
@@ -162,7 +158,7 @@ const SHOWS = {
             date: "2020-10-30",
             venue: "Livestream", 
             location: "Parallax",
-            image: IVHFMG,
+            image: ivhfmg,
             link: "https://youtu.be/pGA-Teg6BpY?si=TCeQfeoTH8s1_rHa",
             alt: "The Immaculate Virtual Halloween Full Moon Gala with Funk N Spuds and The Immaculate Beings"
         },
@@ -180,7 +176,7 @@ const SHOWS = {
             date: "2025-05-21",
             venue: "Spud Garden",
             location: "Minneapolis, MN",
-            image: folknight,
+            image: folkNightSpudGarden,
             link: "http://www.madeleineroger.com",
             alt: "You won't want to miss this night of music and fun at the Spud Garden"
         },
@@ -189,7 +185,7 @@ const SHOWS = {
             date: "2025-08-13",
             venue: "Harriet Island",
             location: "St. Paul, MN",
-            image: albumorb,
+            image: albumOrb,
             link: "https://www.visitsaintpaul.com",
             alt: "Catch you along the banks of the Mighty Mississippi"
         },
@@ -207,7 +203,7 @@ const SHOWS = {
             date: "2025-07-08",
             venue: "Indeed Brewing",
             location: "Minneapolis, MN",
-            image: indeed,
+            image: indeedLogo,
             link: "https://indeedbrewing.com/events/list/?tribe_eventcategory[0]=11",
             alt: "Again taking the stage at one of their favorite haunts, Funk N Spuds will be playing at Indeed Brewing for Off The Dock"
         },
@@ -218,14 +214,14 @@ const SHOWS = {
                 start: "2025-05-28",
                 end: "2025-05-31"
             },
-            headerImage: tour25,
+            headerImage: spudsTour25,
             shows: [
                 {
                     title: "Music in the Parks",
                     date: "2025-05-28",
                     venue: "Lake Harriet Bandshell",
                     location: "Minneapolis, MN",
-                    image: harriet,
+                    image: spudsTourHarriet,
                     link: "https://www.minneapolisparks.org/activities-events/music-movies/",
                     alt: "The Spuds are beyond excited to take the Lake Harriet Bandshell stage"
                 },
@@ -234,7 +230,7 @@ const SHOWS = {
                     date: "2025-05-29",
                     venue: "Appleton Beer Factory",
                     location: "Appleton, WI",
-                    image: appleton,
+                    image: spudsTourAppleton,
                     link: "https://app.showslinger.com/standalone_external_events/27787?from=/promo_widget/calendar_list?venue_id=46738&old_promo_widget_id=120",
                     alt: "Back home to see some family, drink some beer, and be merry!"
                 },
@@ -243,7 +239,7 @@ const SHOWS = {
                     date: "2025-05-30",
                     venue: "Up North Bar",
                     location: "Madison, WI",
-                    image: madison,
+                    image: spudsTourUpNorth,
                     link: "https://upnorthbarmadison.com",
                     alt: "Can't wait to share the stage with these groovy doods!"
                 },
@@ -252,7 +248,7 @@ const SHOWS = {
                     date: "2025-05-31",
                     venue: "NoName Bar",
                     location: "Winona, MN",
-                    image: winona,
+                    image: spudsTourNoname,
                     link: "https://www.facebook.com/nonamebarwinona/",
                     alt: "A great finale to our first mini tour"
                 }
@@ -281,7 +277,7 @@ const SHOWS = {
             date: "2025-02-18",
             venue: "Indeed Brewing",
             location: "Minneapolis, MN",
-            image: fnsindeed,
+            image: funkInTheOx,
             link: "https://fb.me/e/9JB7mH6SS",
             alt: "Funk in the Ox Taproom"
         },
@@ -290,7 +286,7 @@ const SHOWS = {
             date: "2025-02-08",
             venue: "Day Block Brewing",
             location: "Minneapolis, MN",
-            image: dayblockfeb8,
+            image: dayblockFeb8,
             link: "https://www.dayblockbrewing.com/live-events/ice-block-winter-concert-series-with-funk-n-spuds-the-confused-and-sunshine-the-night-walkers/",
             alt: "The Spuds return to Day Block Brewing to take the stage with Sunshine and the Night Walkers and the Confused"
         },
@@ -299,7 +295,7 @@ const SHOWS = {
             date: "2024-12-14",
             venue: "Noname Bar",
             location: "Winona, MN",
-            image: nonamecoins,
+            image: noName1214poster,
             link: "https://www.facebook.com/nonamebarwinona/",
             alt: "The Spuds return to NoName Bar in Winona with Maria and the Coins"
         },
@@ -317,7 +313,7 @@ const SHOWS = {
             date: "2024-07-19",
             venue: "Fort Halverson",
             location: "Austin, MN",
-            image: justinFest,
+            image: lithouseArtBackground,
             link: "https://youtu.be/LWSKAxJGNH8?si=OrW1QbHW36miJlBf",
             alt: "The spuds are heading to Austin, MN to celebrate family and friends with the Halversons"
         },
@@ -326,7 +322,7 @@ const SHOWS = {
             date: "2024-07-12",
             venue: "Day Block Brewing",
             location: "Minneapolis, MN",
-            image: albumReleaseShow,
+            image: dayBlockShowPoster,
             link: "https://www.dayblockbrewing.com/live-events/funk-n-spuds-album-release-show/",
             alt: "Finally a new Funk N Spuds album"
         },
@@ -335,7 +331,7 @@ const SHOWS = {
             date: "2024-06-01",
             venue: "Fort Meier",
             location: "Neenah, WI",
-            image: fmFest,
+            image: fmfest,
             link: "https://youtu.be/_3mhGQWLZms?si=poel_2XAPMsxZ02a",
             alt: "The spuds are heading back home to perform for family and friends at Fort Meier"
         },
@@ -345,7 +341,7 @@ const SHOWS = {
             venue: "Day Block Brewing",
             location: "Minneapolis, MN",
             details: "with Brother Means Ally and Curly Jefferson",
-            image: singleRelease,
+            image: messinV3,
             link: "https://www.dayblockbrewing.com/live-events/funk-n-spuds/",
             alt: "Tied In Knots single release at Day Block with soop light show and Brother Means Ally and Curly Jefferson"
         },
@@ -354,7 +350,7 @@ const SHOWS = {
             date: "2024-02-29",
             venue: "Memorial Student Center",
             location: "Menomonie, WI",
-            image: uwstout,
+            image: uwStout,
             link: "https://connect.uwstout.edu/BDP/rsvp_boot?id=2259571",
             alt: "Funk N Spuds will be performing at UW Stout's Memorial Student Center"
         },
@@ -381,7 +377,7 @@ const SHOWS = {
             date: "2023-10-28",
             venue: "No Name Bar",
             location: "Winona, MN",
-            image: funkCreatures,
+            image: noNameOct28,
             link: "https://bandsintown.com/e/104727519",
             alt: "Lavendar Project, Funk N Spuds, and Curly Jefferson and the Jam Turkeys at No Name Bar Oct 28 2023"
         },
@@ -399,7 +395,7 @@ const SHOWS = {
             date: "2023-10-07",
             venue: "Highland Park Picnic Shelter",
             location: "St. Paul, MN",
-            image: HighlandHarmonies,
+            image: highlandHarmonies,
             link: "https://www.bandsintown.com/e/104727822",
             alt: "Funk N Spuds at Highland Park for Highland"
         },
@@ -408,7 +404,7 @@ const SHOWS = {
             date: "2023-09-28",
             venue: "Can Can Wonderland",
             location: "St. Paul, MN",
-            image: HunnyCan,
+            image: honeyCan,
             link: "https://www.cancanwonderland.com/events/the-hunny-pot",
             alt: "Funk N Spuds with Hunny Bear and Emery Snow at Can Can Wonderland"
         },
@@ -417,7 +413,7 @@ const SHOWS = {
             date: "2023-05-13",
             venue: "Mid West Music Fest Main Stage",
             location: "Winona, MN",
-            image: mwmf23,
+            image: mwmf2023,
             link: "https://youtu.be/3AcNSV5UqUY?si=yVN0icDgwgLbgCEQ",
             alt: "Mid West Music Fest 2023 Lineup"
         },
@@ -426,7 +422,7 @@ const SHOWS = {
             date: "2023-02-11",
             venue: "Underground Music Cafe",
             location: "Minneapolis, MN",
-            image: Underground,
+            image: undergroundClamsVelvetFns,
             link: "https://www.undergroundmusicvenue.com",
             alt: "Underground Music Cafe Minneapolis, MN - Clams, Funk N Spuds, and Velvetwolf"
         },
@@ -435,7 +431,7 @@ const SHOWS = {
             date: "2023-02-04",
             venue: "The White Squirrel Bar",
             location: "St. Paul, MN",
-            image: whiteS,
+            image: fnSatWhiteS,
             link: "https://whitesquirrelbar.com",
             alt: "White Squirrel Bar St. Paul, MN - Funk N Spuds and Confucisaurus"
         },
@@ -444,7 +440,7 @@ const SHOWS = {
             date: "2023-01-20",
             venue: "Appleton Beer Factory",
             location: "Appleton, WI",
-            image: lowDown,
+            image: lowDownFNS,
             link: "https://app.showslinger.com/ticket_payment/9259/checkout_ticket?from=%2Fpromo_widget%2Fcalendar_list%3Fvenue_id%3D46738",
             alt: "Appleton Beer Factory - Lowdown Brass Band wsg Funk N Spuds"
         },
@@ -453,7 +449,7 @@ const SHOWS = {
             date: "2022-12-17",
             venue: "No Name Bar",
             location: "Winona, MN",
-            image: noName,
+            image: noNameDec17,
             link: "https://visitwinona.com/directory_entry/eds-no-name-bar/",
             alt: "No Name Bar Winona - Funk N Spuds and Sugar Lads"
         },
@@ -462,7 +458,7 @@ const SHOWS = {
             date: "2022-10-14",
             venue: "Shoebox",
             location: "St. Paul, MN",
-            image: Shoebox,
+            image: shoeboxEpisodeXii,
             link: "https://www.airshipcaravan.com/",
             alt: "Shoebos Episode XII - Pandelion, Juniper Fly, Funk N Spuds, Airship Caravan"
         },
@@ -471,7 +467,7 @@ const SHOWS = {
             date: "2022-08-26",
             venue: "Galactic Get Down",
             location: "New Richmond, WI",
-            image: GGD22,
+            image: ggd2022,
             link: "https://www.thegalacticgetdown.com/",
             alt: "Galactic Get Down Music Festival"
         },
@@ -480,7 +476,7 @@ const SHOWS = {
             date: "2022-07-15",
             venue: "Paperfest",
             location: "Kimberly, WI",
-            image: Paper22,
+            image: paperfestPromo,
             link: "https://youtu.be/jhiQB0x3ft4?si=Xb-E_RhCWfONoRkR",
             alt: "Funk N Spuds at Paperfest 2022"
         },
@@ -489,7 +485,7 @@ const SHOWS = {
             date: "2022-05-20",
             venue: "612Brew",
             location: "Minneapolis, MN",
-            image: Art612,
+            image: artAWhirl,
             link: "https://youtu.be/2OfxzjVljFo?si=cAeAwkXO3hoc-xRA",
             alt: "Funk N Spuds at 612Brew for Art-A-Whirl 2022"
         },
@@ -498,7 +494,7 @@ const SHOWS = {
             date: "2022-04-29",
             venue: "Eagles Club",
             location: "Winona, MN",
-            image: MWMF22,
+            image: mwmfSpudsite,
             link: "https://youtu.be/CF8fYacBiv0?si=-4Yp7N4fTeNsI7aK",
             alt: "Funk N Spuds at Mid West Music Fest 2022"
         },
@@ -507,7 +503,7 @@ const SHOWS = {
             date: "2022-03-26",
             venue: "Livestream",
             location: "Youtube",
-            image: SpudCounty,
+            image: spudCounty,
             link: "https://youtu.be/MOTcyp4Lj64?t=5937",
             alt: "Spud County Livestream - Cook County and Funk N Spuds"
         },
@@ -516,7 +512,7 @@ const SHOWS = {
             date: "2020-02-12",
             venue: "Whiskey Junction",
             location: "Minneapolis, MN",
-            image: whiskeyJunction,
+            image: whiskeyWed212,
             link: "",
             alt: "Whiskey Wednesdays - Funk N Spuds"
         },
@@ -525,7 +521,7 @@ const SHOWS = {
             date: "2020-03-02",
             venue: "Honey MPLS",
             location: "Minneapolis, MN",
-            image: honeyMPLS,
+            image: bernItDown,
             link: "https://berniesanders.com",
             alt: "Bern It Down - Get Out the Vote - Honey MPLS"
         },
@@ -534,7 +530,7 @@ const SHOWS = {
             date: "2020-04-11",
             venue: "Someone's House",
             location: "Minneapolis, MN",
-            image: spudlympics,
+            image: spudlympics2020,
             link: "",
             alt: "Spudlympics 2020 - Psychedelic Egg Hunt"
         },
@@ -543,7 +539,7 @@ const SHOWS = {
             date: "2020-03-27",
             venue: "Hook & Ladder",
             location: "Minneapolis, MN",
-            image: hookladder,
+            image: gdeColdSweat,
             link: "https://thehookmpls.com/",
             alt: "GDE Presents: Cold Sweat with Vibe Corp and Funk N Spuds"
         },
@@ -552,7 +548,7 @@ const SHOWS = {
             date: "2020-07-18",
             venue: "Como Balcony",
             location: "Minneapolis, MN",
-            image: VARBS,
+            image: varbsfnsPoster,
             link: "https://youtu.be/mtbByaGBAKU?si=PDinXPpuk7SNBWcK",
             alt: "Virtual Album Release Balcony Show"
         },
@@ -570,7 +566,7 @@ const SHOWS = {
             date: "2020-10-17",
             venue: "Livestream",
             location: "YouTube",
-            image: afnfvbs,
+            image: funkNFalltasticVBS,
             link: "https://www.youtube.com/live/JhUeem8WIbo?si=gxYMsvtBkHVCFVYx",
             alt: "A Funk N Falltastic Virtual Balcony Show"
         },
@@ -597,7 +593,7 @@ const SHOWS = {
             date: "2020-08-27",
             venue: "Livestream",
             location: "Livestream",
-            image: lbsots,
+            image: lbSotsPoster,
             link: "https://www.youtube.com/live/UHz4yRaNieo?si=TuQ8RrN9IRU043IG",
             alt: "Last Balcony Show of the Summer"
         },
@@ -615,7 +611,7 @@ const SHOWS = {
             date: "2021-10-16",
             venue: "Appleton Beer Factory", 
             location: "Appleton, WI",
-            image: abf1016,
+            image: abf1016Poster,
             link: "https://appletonbeerfactory.com/live-shows/",
             alt: "Appleton Beer Factory Presents: Immaculate Beings and Funk N Spuds"
         },
@@ -633,7 +629,7 @@ const SHOWS = {
             date: "2021-04-02",
             venue: "Livestream", 
             location: "Youtube",
-            image: RACchicken,
+            image: racChicken,
             link: "https://www.youtube.com/live/C5eFspyaYmc?si=QMCNdk74y_RH_KuY",
             alt: "Ramsey's Adventure Cabin Release Show with Chicken Boys from Austin, TX"
         },
@@ -642,7 +638,7 @@ const SHOWS = {
             date: "2021-07-29",
             venue: "Mortimer's", 
             location: "Minneapolis, MN",
-            image: MortsAnnex,
+            image: mortsAnnex,
             link: "https://www.mortimersbar.com/",
             alt: "Mortimer's Presents: Annex Panda, Funk N Spuds, and PureShifter"
         },
@@ -651,7 +647,7 @@ const SHOWS = {
             date: "2021-12-09",
             venue: "Part Wolf", 
             location: "Minneapolis, MN",
-            image: funkitup,
+            image: funkItUp,
             link: "https://lavendermagazine.com/our-scene/clubs-music/natalie-fideler-releases-new-music-three-man-army/",
             alt: "Funk It Up To Our Tempo: Jojo Green, Funk N Spuds, and Natalie Fideler"
         },

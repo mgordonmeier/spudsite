@@ -1,11 +1,12 @@
 // src/components/GameBoard.js
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './GTVenue/Gameboard.css';
+import './GTVenue/Notification.css';
 import Notification from './GTVenue/Notification';
 import { generateBoard } from './GTVenue/gameUtils';
-import { useObstacles } from './hooks/useObstacles';
-import { useVenue } from './hooks/useVenue';
+import { useObstacles } from '../shared/hooks/useObstacles';
+import { useVenue } from '../shared/hooks/useVenue';
 
 const GameBoard = () => {
   // State variables

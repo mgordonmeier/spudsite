@@ -1,6 +1,6 @@
 import React from "react";
 import FooterLinks from "./FooterLinks";
-import jumpingSpud from "../img/FunkNJump.gif";
+import jumpingSpud from "../../img/FunkNJump.gif";
 
 function NotFound() {
     return (

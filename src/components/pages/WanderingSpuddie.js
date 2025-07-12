@@ -4,7 +4,7 @@ import spudFront from '../img/SpudFront.png';
 import spudBack from '../img/SpudBack.png';
 import spudRight from '../img/SpudRight.png';
 import spudLeft from '../img/SpudLeft.png';
-import Chatbox from './Chatbox';
+import Chatbox from '../ui/Chatbox';
 import { useLocation } from 'react-router-dom';
 
 const MOVEMENT_CONFIG = {

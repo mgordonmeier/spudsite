@@ -1,6 +1,6 @@
 import { useBox } from "@react-three/cannon"
 import { useStore } from "./hooks/useStore"
-import * as textures from "../images/textures"
+import { dirtTexture, grassTexture, glassTexture, woodTexture, logTexture } from "../../shared/images/textures"
 import { useState } from "react"
 
 export const Cube = ({ position, texture }) => {
@@ -12,6 +12,13 @@ export const Cube = ({ position, texture }) => {
 
     const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
+    const textures = {
+        dirt: dirtTexture,
+        grass: grassTexture,
+        glass: glassTexture,
+        wood: woodTexture,
+        log: logTexture
+    }
 
     const activeTexture = textures[texture + 'Texture']
     // console.log('activeTexture', activeTexture)

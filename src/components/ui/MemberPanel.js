@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PhotoGallery from './PhotoGallery';
+import PhotoGallery from '../pages/PhotoGallery';
 
 function MemberPanel({ member, isInfoShown, onToggle, top, isGallery, galleryImages }) {
     const [showGallery, setShowGallery] = useState(false);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { generateRandomPosition } from '../GTVenue/gameUtils';
-import { VENUES } from '../GTVenue/constants';
+import { generateRandomPosition } from '../../games/GTVenue/gameUtils';
+import { VENUES } from '../../games/GTVenue/constants';
 
 
 export const useVenue = (board, playerPos) => {
@@ -29,7 +29,7 @@ export const useVenue = (board, playerPos) => {
     if (board && board.length > 0) {
       setNewVenue();
     }
-  }, [board]);
+  }, [board, playerPos, lastVenueName]);
 
   return { currentVenue, setNewVenue };
 };

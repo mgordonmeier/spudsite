@@ -1,41 +1,34 @@
 import React, { useState, useEffect } from "react";
 import './Home.css';
-// import background from "../img/pour4.JPG";
-import jumpingSpud from "../img/FunkNJump.gif";
-//import spudCover from "../img/FreshSpudsCover.jpg";
-import envelope from "../img/EnvelopeSongSymbol.png";
-import lhc from "../img/LHCSongSymbol.png";
-import ahem from "../img/AhemSongSymbol.png";
-import h2ku from "../img/Happy2KnowUSongSymbol.png"
-import first1up from "../img/FirstOneUpSongSymbol.png"
-import FooterLinks from "./FooterLinks";
-import SongSymbolWrapper from "./SongSymbol";
-import cover1 from "../img/IMG_0245.JPG";
-import cover2 from "../img/IMG_0249.JPG";
-//import cover3 from "../img/IMG_2236.jpeg";
-import cover4 from "../img/IMG_3587.jpeg";
-//import cover5 from "../img/IMG_3596.jpeg";
-import cover6 from "../img/IMG_3890-2.jpeg";
-//import cover7 from "../img/IMG_3928.jpeg";
-//import cover8 from "../img/IMG_7533.JPG";
-import cover9 from "../img/IMG_20230616_200358246_HDR.jpg";
-import cover10 from "../img/IMGP1954.JPG";
-import cover11 from "../img/MWMF.jpg";
-import cover12 from "../img/A7S06448.jpeg";
-import cover13 from "../img/A7S06001.jpeg";
-import cover14 from "../img/A7S04769.jpeg";
-import cover15 from "../img/FunknSpuds-113.jpeg";
-import cover16 from "../img/IMG_5793.jpeg";
-import cover17 from "../img/IMG_5587.JPG";
-import cover18 from "../img/IMG_5229.jpeg";
-import cover19 from "../img/A7S09821.jpeg";
-import cover20 from "../img/A7S00995.jpeg";
+import jumpingSpud from "../../img/FunkNJump.gif";
+import FooterLinks from "../ui/FooterLinks";
+import SongSymbolWrapper from "../ui/SongSymbol";
+import intoFocus3 from "../../img/into focus 3.jpg";
+import TIKorb from "../../img/Orbz/TIKOrb.png";
+import tour25 from "../../img/spudsTour25.png";
+// Additional imports needed for SONGS and GALLERY_IMAGES
+import first1up from "../../img/FirstOneUpSongSymbol.png";
+import h2ku from "../../img/Happy2KnowUSongSymbol.png";
+import envelope from "../../img/EnvelopeSongSymbol.png";
+import lhc from "../../img/LHCSongSymbol.png";
+import ahem from "../../img/AhemSongSymbol.png";
+import cover1 from "../../img/IMG_0245.JPG";
+import cover2 from "../../img/IMG_0249.JPG";
+import cover4 from "../../img/IMG_3587.jpeg";
+import cover6 from "../../img/IMG_3890-2.jpeg";
+import cover9 from "../../img/IMG_20230616_200358246_HDR.jpg";
+import cover10 from "../../img/IMGP1954.JPG";
+import cover11 from "../../img/MWMF.jpg";
+import cover12 from "../../img/A7S06448.jpeg";
+import cover13 from "../../img/A7S06001.jpeg";
+import cover14 from "../../img/A7S04769.jpeg";
+import cover15 from "../../img/FunknSpuds-113.jpeg";
+import cover16 from "../../img/IMG_5793.jpeg";
+import cover17 from "../../img/IMG_5587.JPG";
+import cover18 from "../../img/IMG_5229.jpeg";
+import cover19 from "../../img/A7S09821.jpeg";
+import cover20 from "../../img/A7S00995.jpeg";
 //import WanderingSpuddie from "./WanderingSpuddie"
-//import spud5s from "../img/5spuds.PNG";
-//import TIK from "../img/IMG_4785.JPG";
-import TIKorb from "../img/Orbz/TIKOrb.png";
-import intoFocus from "../img/into focus 3.jpg"
-import tour25 from "../img/spudsTour25.png"
 
 const SONGS = {
     first1up: {
@@ -177,7 +170,7 @@ function Home() {
                     <h1 className="spudsite">Into Focus</h1>
                     <h4>Available now on all streaming services</h4>
                     <a href="https://funknspuds.bandcamp.com/album/into-focus">
-                        <img style={{width: "60%"}} src={intoFocus} alt="Into Focus Album art" className="img-header frame-2"/>
+                        <img style={{width: "60%"}} src={intoFocus3} alt="Into Focus Album art" className="img-header frame-2"/>
                     </a>
                 </div>
                 <div className="text-start " >

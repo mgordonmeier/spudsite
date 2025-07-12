@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import MApp from "./MApp";
-import spudcraftLogo from "../img/Spudcraft.png"
-import FooterLinks from "./FooterLinks";
-import jumpingSpud from "../img/FunkNJump.gif";
+import './MApp.css';
+import FooterLinks from "../ui/FooterLinks";
+import './GTVenue/Gameboard.css';
 import GameBoard from "./GTVenue";
-import bandventureLogo from "../img/BandventureLogo.png";
+import spudcraftLogo from "../../img/Spudcraft.png"
+import jumpingSpud from "../../img/FunkNJump.gif";
+import bandventureLogo from "../../img/BandventureLogo.png";
 
 const GAMES = {
     spudcraft: {

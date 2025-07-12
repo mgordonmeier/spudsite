@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import FooterLinks from "./FooterLinks";
+import FooterLinks from "../ui/FooterLinks";
 import "./Spuds.css";
-import spuddieMax from "../img/spuddie-max.PNG";
-import spuddieMarty from "../img/spuddie-marty.PNG";
-import spuddieThomas from "../img/spuddie-thomas.PNG";
-import spuddieJustin from "../img/spuddie-justin2.PNG";
-import spuddieChristian from "../img/spuddie-christian.PNG"
-import spuddieKrystal from "../img/spuddie-krystal.PNG"
-import mtnSong from "../img/MountainSongSymbol.png";
-import mango from "../img/MangoJamSongSymbol.png";
-import cantStop from "../img/CantStopSongSymbol.png";
-import harm from "../img/HarmonizeSongSymbol.png";
-import jumpingSpud from "../img/FunkNJump.gif";
-import dalleJustin from "../img/band_pix/JustinElias.jpeg";
-import dalleMartin from "../img/band_pix/MartinUpNorth.jpeg";
-import dalleThomas from "../img/band_pix/ThomasAppleton.jpeg";
-import dalleMax from "../img/band_pix/MaxUpNorth.jpeg";
-import dalleChristian from "../img/band_pix/ChristianElias.jpeg"
-import MemberCard from "./MemberPanel";
-import SongSymbolWrapper from './SongSymbol';
+import jumpingSpud from "../../img/FunkNJump.gif";
+import christian from "../../img/spuddie-christian.PNG";
+import justin2 from "../../img/spuddie-justin2.PNG";
+import krystal from "../../img/spuddie-krystal.PNG";
+import marty from "../../img/spuddie-marty.PNG";
+import max from "../../img/spuddie-max.PNG";
+import thomas from "../../img/spuddie-thomas.PNG";
+import MemberCard from "../ui/MemberPanel";
+import SongSymbolWrapper from '../ui/SongSymbol';
 import { GALLERY_IMAGES } from './Home';
+import mountainSymbol from "../../img/MountainSongSymbol.png";
+import mangoJamSymbol from "../../img/MangoJamSongSymbol.png";
+import cantStopSymbol from "../../img/CantStopSongSymbol.png";
+import harmonizeSymbol from "../../img/HarmonizeSongSymbol.png";
+import dalleJustin from "../../img/band_pix/JustinElias.jpeg";
+import dalleMartin from "../../img/band_pix/MartinUpNorth.jpeg";
+import dalleThomas from "../../img/band_pix/ThomasAppleton.jpeg";
+import dalleMax from "../../img/band_pix/MaxUpNorth.jpeg";
+import dalleChristian from "../../img/band_pix/ChristianElias.jpeg"
 
 const SONGS = {
     mountainSong: {
         name: "The Mountain Song",
-        symbol: mtnSong,
+        symbol: mountainSymbol,
         altText: "Mountain Song Symbol",
         youtubeUrl: "https://www.youtube.com/embed/2O8G22vrpRw",
         description: "The Mountain Song was written by Max after an roadtrip to Colorado where he and a few " +
@@ -34,7 +34,7 @@ const SONGS = {
     },
     mangoJam: {
         name: "Mango Jam",
-        symbol: mango,
+        symbol: mangoJamSymbol,
         altText: "Mango Jam Song Symbol",
         youtubeUrl: "https://www.youtube.com/embed/9783gZaMlZU",
         description: "Max threw together Mango Jam on garageband in his bedroom over the summer of 2019. He brought in " +
@@ -43,7 +43,7 @@ const SONGS = {
     },
     cantStop: {
         name: "Can't Stop",
-        symbol: cantStop,
+        symbol: cantStopSymbol,
         altText: "Can't Stop Song Symbol",
         youtubeUrl: "https://www.youtube.com/embed/Et9OYk7XIM8",
         description: "With origins dating back to bedroom recordings of 2013, Can't Stop might be the oldest FnS original still in tact. " +
@@ -51,7 +51,7 @@ const SONGS = {
     },
     harmonize: {
         name: "Harmonize",
-        symbol: harm,
+        symbol: harmonizeSymbol,
         altText: "Harmonize Song Symbol",
         youtubeUrl: "https://www.youtube.com/embed/tGncFGhEAY0",
         description: "Harmonize was written in the fall of 2016 after a double dose of inspiration from Bon Iver's recent 22 A Million album " +
@@ -63,7 +63,7 @@ const SONGS = {
 const MEMBERS = {
     max: {
         name: "Max Meier",
-        spuddie: spuddieMax,
+        spuddie: max,
         dalle: dalleMax,
         alt: "Spuddie Buddie - Max on Flugel",
         description: "Born and raised in Neenah Wisconsin, Max grew up playing music with and enjoying the company of his " +
@@ -71,7 +71,7 @@ const MEMBERS = {
     },
     martin: {
         name: "Martin Meier",
-        spuddie: spuddieMarty,
+        spuddie: marty,
         dalle: dalleMartin,
         alt: "Spuddie Buddie - Marty on drums",
         description: "Martin grew up in Neenah Wisconsin with his brother Max, playing music together in school bands and getting into trouble. " +
@@ -79,7 +79,7 @@ const MEMBERS = {
     },
     thomas: {
         name: "Thomas Hazlett",
-        spuddie: spuddieThomas,
+        spuddie: thomas,
         dalle: dalleThomas,
         alt: "Spuddie Buddie - Thomas on Guitar",
         description: "Hailing from the Wild Wild Midwest, Thomas is Funk 'N Spuds' six string slinger. When the encore ends he trades in his " + 
@@ -87,7 +87,7 @@ const MEMBERS = {
     },
     justin: {
         name: "Justin Halverson",
-        spuddie: spuddieJustin,
+        spuddie: justin2,
         dalle: dalleJustin,
         alt: "Spuddie Buddie - Justin on Guitar",
         description: "Justin was born and raised in Prior Lake, Minnesota, to a family who loves water, wind, and music. " +
@@ -95,7 +95,7 @@ const MEMBERS = {
     },
     christian: {
         name: "Christian Rasmussen",
-        spuddie: spuddieChristian,
+        spuddie: christian,
         dalle: dalleChristian,
         alt: "Spuddie Buddie - Christian on Bass",
         description: "Fresh off a tear with the Immaculate Beings, Christian is a graduate of Lawrence University where he studied religion and jazz " +
@@ -103,7 +103,7 @@ const MEMBERS = {
     },
     krystal: {
         name: "Krystal Spud",
-        spuddie: spuddieKrystal,
+        spuddie: krystal,
         dalle: null,
         alt: "Spuddie Buddie - Krystal the Gallery Spud",
         description: "Click to view our photo gallery!"

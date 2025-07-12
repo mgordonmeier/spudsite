@@ -1,29 +1,21 @@
-// Merchandise data file - update inventory here
-// Add new items by copying the structure and updating the details
+// Merchandise data and categories
 
-// Import images
-import hillsideSunsetSymbol from "../img/HillsideSunsetSongSymbol.png";
-import hillsideSunsetArt from "../img/HillsideSunsetArtBackground.jpg";
-import funkNJump from "../img/FunkNJump.gif";
-import freshSpudsCover from "../img/FreshSpudsCover.jpg";
-import spuddieMax from "../img/spuddie-max.PNG";
-import spuddieMarty from "../img/spuddie-marty.PNG";
-import spuddieThomas from "../img/spuddie-thomas.PNG";
-import spuddieJustin from "../img/spuddie-justin2.PNG";
-import spuddieChristian from "../img/spuddie-christian.PNG";
-import spuddieKrystal from "../img/spuddie-krystal.PNG";
-import spuddieNick from "../img/spuddie-nick.PNG";
-import spuddieKeys from "../img/spuddie-keys.PNG";
-import harmonizeSymbol from "../img/HarmonizeSongSymbol.png";
-import mountainSongSymbol from "../img/MountainSongSymbol.png";
-import mangoJamSymbol from "../img/MangoJamSongSymbol.png";
-import intoFocus3 from "../img/into focus 3.jpg";
-import ramseyAdventureCabin from "../img/RamseyAdventureCabin.jpg";
-import harmonizeAlbumArt from "../img/HarmonizeAlbumArt.jpeg";
-import spudsTour25 from "../img/spudsTour25.png";
-import worldTourShirts from "../img/WorldTourShirts.JPEG";
-import worldTourPatch from "../img/WorldTourPatch.JPG";
-import handwrittenLyrics from "../img/HandwrittenLyrics.jpeg";
+// Import all merchandise images
+import spuddieMax from "../../img/spuddie-max.PNG";
+import spuddieMarty from "../../img/spuddie-marty.PNG";
+import spuddieThomas from "../../img/spuddie-thomas.PNG";
+import spuddieJustin2 from "../../img/spuddie-justin2.PNG";
+import spuddieChristian from "../../img/spuddie-christian.PNG";
+import spuddieKrystal from "../../img/spuddie-krystal.PNG";
+import spuddieNick from "../../img/spuddie-nick.PNG";
+import spuddieKeys from "../../img/spuddie-keys.PNG";
+import intoFocus from "../../img/into focus 3.jpg";
+import ramseyAdventureCabin from "../../img/RamseyAdventureCabin.jpg";
+import harmonizeAlbumArt from "../../img/HarmonizeAlbumArt.jpeg";
+import spudsTour25 from "../../img/spudsTour25.png";
+import worldTourShirts from "../../img/WorldTourShirts.JPEG";
+import worldTourPatch from "../../img/WorldTourPatch.JPG";
+import handwrittenLyrics from "../../img/HandwrittenLyrics.jpeg";
 
 export const MERCH_CATEGORIES = {
     shirts: "Shirts",
@@ -50,7 +42,7 @@ export const MERCH_ITEMS = {
             }
         ],
         featured: false,
-        comingSoon: true
+        comingSoon: false
     },
     
     worldTourShirtChinaBlue: {
@@ -69,7 +61,7 @@ export const MERCH_ITEMS = {
             }
         ],
         featured: false,
-        comingSoon: true
+        comingSoon: false
     },
     
     worldTourShirtIvory: {
@@ -88,7 +80,7 @@ export const MERCH_ITEMS = {
             }
         ],
         featured: false,
-        comingSoon: true
+        comingSoon: false
     },
     
 
@@ -109,7 +101,7 @@ export const MERCH_ITEMS = {
             }
         ],
         featured: false,
-        comingSoon: true
+        comingSoon: false
     },
 
     // CDs
@@ -121,7 +113,7 @@ export const MERCH_ITEMS = {
         description: "Our latest album 'Into Focus' featuring the newest of your favorite spud tunes. Includes digital download code.",
         images: [
             {
-                src: intoFocus3,
+                src: intoFocus,
                 alt: "Into Focus CD",
                 isPrimary: true
             }
@@ -267,7 +259,7 @@ export const MERCH_ITEMS = {
         description: "Vinyl sticker featuring Justin's spuddie design. Collect all the spuddies!",
         images: [
             {
-                src: spuddieJustin,
+                src: spuddieJustin2,
                 alt: "Justin Spuddie Sticker",
                 isPrimary: true
             }

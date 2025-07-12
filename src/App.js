@@ -1,19 +1,20 @@
-import './App.css';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import Spuds from './components/Spuds';
-import Music from './components/Music';
-import Games from './components/Games';
-import Shows from './components/Shows';
-import Merch from './components/Merch';
-import Contact from './components/Contact';
-import NotFound from './components/NotFound';
-//import WanderingSpuddie from './components/WanderingSpuddie';
+import NavBar from './components/ui/NavBar';
+import Home from './components/pages/Home';
+import Spuds from './components/pages/Spuds';
+import Music from './components/pages/Music';
+import Games from './components/games/Games';
+import Shows from './components/pages/Shows';
+import Merch from './components/merch/Merch';
+import Contact from './components/pages/Contact';
+import NotFound from './components/ui/NotFound';
+//import WanderingSpuddie from './components/pages/WanderingSpuddie';
 import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient'
 import * as reactSpring from '@react-spring/three'
 import * as drei from '@react-three/drei'
 import * as fiber from '@react-three/fiber'
+import './App.css';
 
 function App() {
   return (

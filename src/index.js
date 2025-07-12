@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-//import WanderingSpuddie from './components/WanderingSpuddie';
+//import WanderingSpuddie from './components/pages/WanderingSpuddie';
+import './index.css';
 
 // Type check for root element
 const rootElement = document.getElementById('root');

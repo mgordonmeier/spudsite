@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import FooterLinks from "./FooterLinks";
-import jumpingSpud from "../img/FunkNJump.gif";
-import hippie from "../img/HippieHillSongSymbol.png";
-import rollOn from "../img/RollOnSongSymbol.png";
-import fnsLogo from "../img/fns-logo.png"
-import myFriends from "../img/AllMyFriendsSongSymbol.png"
-import discord from "../img/fnsDiscord.png"
-import SongSymbolWrapper from "./SongSymbol";
-import '../styles/Contact.css';
+import FooterLinks from "../ui/FooterLinks";
+import jumpingSpud from "../../img/FunkNJump.gif";
+import hippie from "../../img/HippieHillSongSymbol.png";
+import rollOn from "../../img/RollOnSongSymbol.png";
+import fnsLogo from "../../img/fns-logo.png";
+import myFriends from "../../img/AllMyFriendsSongSymbol.png"
+import discord from "../../img/fnsDiscord.png"
+import SongSymbolWrapper from "../ui/SongSymbol";
+import '../../styles/Contact.css';
 
 const SONGS = {
     hippieHill: {

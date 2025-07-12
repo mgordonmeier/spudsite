@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import FooterLinks from "./FooterLinks";
+import FooterLinks from "../ui/FooterLinks";
 import MerchCard from "./MerchCard";
 import { MERCH_ITEMS, MERCH_CATEGORIES, getItemsByCategory, getFeaturedItems } from "./merchData";
 import "./Merch.css";
-import jumpingSpud from "../img/FunkNJump.gif";
+import jumpingSpud from "../../img/FunkNJump.gif";
 
 // Cart context to share cart state across components
 export const CartContext = React.createContext();

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { generateRandomPosition } from '../GTVenue/gameUtils';
-import { CRAZY_EMOJIS } from '../GTVenue/constants';
-import { findShortestPath } from '../GTVenue/pathfinding';
+import { generateRandomPosition } from '../../games/GTVenue/gameUtils';
+import { CRAZY_EMOJIS } from '../../games/GTVenue/constants';
+import { findShortestPath } from '../../games/GTVenue/pathfinding';
 
 const getRandomCrazyEmoji = () => {
   return CRAZY_EMOJIS[Math.floor(Math.random() * CRAZY_EMOJIS.length)];
@@ -121,7 +121,7 @@ export const useObstacles = (board, playerPos, obstacleIntervalDuration) => {
         ]);
       }
     }
-  }, [board]);
+  }, [board, playerPos]);
 
   return { obstacles };
 };

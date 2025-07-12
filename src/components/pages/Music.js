@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Music.css";
-import FooterLinks from "./FooterLinks";
-import jumpingSpud from "../img/FunkNJump.gif";
-import changes from "../img/ChangesSongSymbol.png";
-import pentUp from "../img/PentUpSongSymbol.png";
-import beenGone from "../img/BeenGoneSongSymbol.png";
-import lithouse from "../img/Orbz/LithouseOrb.png";
-import SongSymbolWrapper from './SongSymbol';
+import FooterLinks from "../ui/FooterLinks";
+import './Music.css';
+import SongSymbolWrapper from '../ui/SongSymbol';
+import jumpingSpud from "../../img/FunkNJump.gif";
+import changes from "../../img/ChangesSongSymbol.png";
+import pentUp from "../../img/PentUpSongSymbol.png";
+import beenGone from "../../img/BeenGoneSongSymbol.png";
+import lithouse from "../../img/Orbz/LithouseOrb.png";
 
 const SONGS = {
     beenGone: {
