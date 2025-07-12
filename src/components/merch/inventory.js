@@ -67,35 +67,35 @@ export const INVENTORY = {
     },
     
     "spuddieSticker-max": {
-        default: 25
+        default: 100
     },
     
     "spuddieSticker-martin": {
-        default: 0
+        default: 100
     },
     
     "spuddieSticker-thomas": {
-        default: 0
+        default: 100
     },
     
     "spuddieSticker-justin": {
-        default: 0
+        default: 100
     },
     
     "spuddieSticker-christian": {
-        default: 0
+        default: 100
     },
     
     "spuddieSticker-krystal": {
-        default: 0
+        default: 100
     },
     
     "spuddieSticker-nick": {
-        default: 1
+        default: 100
     },
     
     "spuddieSticker-keys": {
-        default: 0
+        default: 100
     },
     
     "worldTourPatch": {
