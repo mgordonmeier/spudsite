@@ -102,8 +102,9 @@ export const useObstacles = (board, playerPos, obstacleIntervalDuration) => {
   // Initialize obstacles when the board is ready
   useEffect(() => {
     if (board && board.length > 0) {
-      const pos1 = generateRandomPosition(board, playerPos);
-      const pos2 = generateRandomPosition(board, playerPos);
+      console.log('Initializing obstacles...');
+      const pos1 = generateRandomPosition(board, { x: 1, y: 1 }); // Use starting position
+      const pos2 = generateRandomPosition(board, { x: 1, y: 1 }); // Use starting position
 
       if (pos1 && pos2) {
         setObstacles([
@@ -119,9 +120,10 @@ export const useObstacles = (board, playerPos, obstacleIntervalDuration) => {
             emoji: getRandomCrazyEmoji(),
           },
         ]);
+        console.log('Obstacles set at positions:', pos1, pos2);
       }
     }
-  }, [board, playerPos]);
+  }, [board]); // Remove playerPos dependency
 
   return { obstacles };
 };

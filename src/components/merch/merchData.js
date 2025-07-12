@@ -87,12 +87,12 @@ export const MERCH_ITEMS = {
     
     worldTourShirtTerracotta: {
         id: "worldTourShirt-terracotta",
-        name: "World Tour Shirt 2025 - Terracotta",
+        name: "World Tour Shirt 2025 - Yam",
         category: MERCH_CATEGORIES.shirts,
         price: 25,
-        description: "Comfortable cotton t-shirt featuring the 2025 World Tour design in terracotta. Perfect for showing your spud love on the road!",
+        description: "Comfortable cotton t-shirt featuring the 2025 World Tour design in yam. Perfect for showing your spud love on the road!",
         sizes: ["S", "M", "L", "XL", "XXL"],
-        color: "Terracotta",
+        color: "Yam",
         images: [
             {
                 src: worldTourShirts,

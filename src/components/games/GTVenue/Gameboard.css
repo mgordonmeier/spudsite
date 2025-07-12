@@ -184,6 +184,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1001; /* Higher than the close button's z-index of 1000 */
   }
   
   .high-score-board h2 {
@@ -196,7 +200,10 @@
     font-size: 24px;
     max-height: 50%;
     overflow-y: auto;
-    padding: 0 20px;
+    padding: 0 20px 0 40px;
+    margin: 0;
+    width: 100%;
+    max-width: 400px;
   }
   
   .high-score-board li {
@@ -228,6 +235,20 @@
     width: min(20px, 6vw);
     height: min(20px, 6vw);
     font-size: 12px; /* Smaller emoji/text */
+  }
+
+  .high-score-board {
+    padding: 10px;
+  }
+
+  .high-score-board h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .high-score-board ol {
+    font-size: 18px;
+    padding: 0 10px 0 30px;
   }
 }
 

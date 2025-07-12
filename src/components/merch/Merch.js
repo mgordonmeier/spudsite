@@ -107,8 +107,6 @@ function Merch() {
             return Object.values(MERCH_ITEMS);
         } else if (selectedCategory === "featured") {
             return getFeaturedItems();
-        } else if (selectedCategory === "comingSoon") {
-            return Object.values(MERCH_ITEMS).filter(item => item.comingSoon);
         } else {
             return getItemsByCategory(selectedCategory);
         }
@@ -172,12 +170,6 @@ function Merch() {
                         onClick={() => handleCategoryChange(MERCH_CATEGORIES.lyrics)}
                     >
                         Handwritten Lyrics
-                    </button>
-                    <button
-                        className={`category-btn ${selectedCategory === "comingSoon" ? "active" : ""}`}
-                        onClick={() => handleCategoryChange("comingSoon")}
-                    >
-                        Coming Soon
                     </button>
 
                 </div>

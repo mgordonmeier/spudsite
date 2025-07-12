@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Notification.css';
 
-const Notification = ({ message, type = 'info', onClose, duration = 3000 }) => {
+const Notification = ({ message, type = 'info', onClose, duration = 3000, position = 'left' }) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Notification = ({ message, type = 'info', onClose, duration = 3000 }) => {
   }, [onClose, duration]);
 
   return (
-    <div className={`notification ${type} ${fadeOut ? 'fade-out' : ''}`}>
+    <div className={`notification ${type} ${fadeOut ? 'fade-out' : ''} ${position}`}>
       {message}
     </div>
   );

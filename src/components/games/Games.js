@@ -55,32 +55,37 @@ function Games() {
                         />
                     </div>
                 ) : (
-                    <div>
-                        <div style={{ display: "inline-block" }}>
-                            <h1 className="m-4 spudsite rocksalt">{game.title}</h1>
-                            <div
-                                className="m-2 text-center"
-                                style={{
-                                    border: "10px solid black",
-                                    borderRadius: "5px",
-                                    maxWidth: "800px",
-                                    margin: "0 auto",
-                                    overflow: "auto",
-                                    ...(game.name === "Spudcraft" && {
-                                        height: "550px",
-                                        width: "700px"
-                                    })
-                                }}
-                            >
-                                <GameComponent />
-                            </div>
-                        </div>
-                        <button
-                            className="btn btn-danger rocksalt"
-                            onClick={() => toggleGame(gameKey)}
+                    <div style={{ display: "inline-block" }}>
+                        <h1 className="m-4 spudsite rocksalt">{game.title}</h1>
+                        <div
+                            className="m-2 text-center"
+                            style={{
+                                border: "10px solid black",
+                                borderRadius: "5px",
+                                maxWidth: "800px",
+                                margin: "0 auto",
+                                overflow: "auto",
+                                position: "relative",
+                                ...(game.name === "Spudcraft" && {
+                                    height: "550px",
+                                    width: "700px"
+                                })
+                            }}
                         >
-                            X
-                        </button>
+                            <GameComponent />
+                            <button
+                                className="btn btn-danger rocksalt"
+                                style={{
+                                    position: "absolute",
+                                    top: "10px",
+                                    right: "10px",
+                                    zIndex: 1000
+                                }}
+                                onClick={() => toggleGame(gameKey)}
+                            >
+                                X
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>
