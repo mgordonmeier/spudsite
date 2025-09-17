@@ -66,7 +66,9 @@ import ivhfmg from "../../img/old_show_posters/IVHFMG.JPG";
 import highlandHarmonies2020 from "../../img/old_show_posters/HighlandHarmonies2020.PNG";
 import grenadaHunnySpuds from "../../img/old_show_posters/GrenadaHunnySpuds.jpg";
 import bigVibesTuesdays from "../../img/old_show_posters/BigVibesTuesdays.JPG";
-
+import HighlandHarmonies25 from "../../img/HighlandHarmonies25.JPG";
+import hunnyBearWhiteSquirrel from "../../img/HunnyBearWhiteSquirrel25.JPG";
+import halloweenSpuds from "../../img/IMG_5793.jpeg"
 
 const SONGS = {
     sunset: {
@@ -100,11 +102,20 @@ const SONGS = {
 const SHOWS = {
     all: [
         {
+            title: "Halloween",
+            date: "2025-10-31",
+            venue: "Spud Garden",
+            location: "Minneapolis, MN",
+            image: halloweenSpuds,
+            link: "https://whitesquirrelbar.com",
+            alt: "Join us Halloween Night for some groovy tunes and a pumpkin smashing party"
+        },
+        {
             title: "Hunny Bear feat. Max's Birthday",
             date: "2025-11-05",
             venue: "White Squirrel Bar",
             location: "St. Paul, MN",
-            image: ewtrtwOrb,
+            image: hunnyBearWhiteSquirrel,
             link: "https://whitesquirrelbar.com",
             alt: "The Spuds return to White Squirrel on Max's Birthday!"
         },
@@ -113,7 +124,7 @@ const SHOWS = {
             date: "2025-10-04",
             venue: "Highland Park Picnic Shelter", 
             location: "St. Paul, MN",
-            image: lenjaminOrb,
+            image: HighlandHarmonies25,
             link: "https://www.facebook.com/HighlandHarmonies/",
             alt: "Highland Park Harmonies"
         },
