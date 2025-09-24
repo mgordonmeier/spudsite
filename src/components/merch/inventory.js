@@ -55,7 +55,7 @@ export const INVENTORY = {
     
     // Stickers
     "worldTourSticker": {
-        default: 2
+        default: 75
     },
     
     "harmonizeSticker": {

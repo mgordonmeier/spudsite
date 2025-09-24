@@ -32,10 +32,10 @@ import noName1214poster from "../../img/NoName1214posterv3.jpg";
 import dayblockFeb8 from "../../img/dayblockfeb8.JPG";
 import funkInTheOx from "../../img/Funk_In_The_Ox.jpg";
 import matcha from "../../img/Matcha.png";
-import lenjaminOrb from "../../img/Orbz/LenjaminOrb.png";
+//import lenjaminOrb from "../../img/Orbz/LenjaminOrb.png";
 import albumOrb from "../../img/Orbz/AlbumOrb.png";
 import spgOrb from "../../img/Orbz/SPGOrb.png";
-import ewtrtwOrb from "../../img/Orbz/EWTRTWOrb.png";
+//import ewtrtwOrb from "../../img/Orbz/EWTRTWOrb.png";
 import artAWhirlElias from "../../img/ArtAWhirlElias.JPG";
 import spudsTour25 from "../../img/spudsTour25.png";
 import indeedLogo from "../../img/indeedLogo.png";
@@ -69,6 +69,7 @@ import bigVibesTuesdays from "../../img/old_show_posters/BigVibesTuesdays.JPG";
 import HighlandHarmonies25 from "../../img/HighlandHarmonies25.JPG";
 import hunnyBearWhiteSquirrel from "../../img/HunnyBearWhiteSquirrel25.JPG";
 import halloweenSpuds from "../../img/IMG_5793.jpeg"
+import fsmnfallfest  from "../../img/IMG_5587.JPG"
 
 const SONGS = {
     sunset: {
@@ -101,6 +102,15 @@ const SONGS = {
 
 const SHOWS = {
     all: [
+        {
+            title: "FSMN Fall Fest",
+            date: "2025-10-04",
+            venue: "Friends School of Minnesota",
+            location: "St. Paul, MN",
+            image: fsmnfallfest,
+            link: "https://fsmn.org",
+            alt: "The Spuds are overjoyed to be back at FSMN for their Fall Fest"
+        },
         {
             title: "Halloween",
             date: "2025-10-31",
