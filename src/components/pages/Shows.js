@@ -68,8 +68,9 @@ import grenadaHunnySpuds from "../../img/old_show_posters/GrenadaHunnySpuds.jpg"
 import bigVibesTuesdays from "../../img/old_show_posters/BigVibesTuesdays.JPG";
 import HighlandHarmonies25 from "../../img/HighlandHarmonies25.JPG";
 import hunnyBearWhiteSquirrel from "../../img/HunnyBearWhiteSquirrel25.JPG";
-import halloweenSpuds from "../../img/IMG_5793.jpeg"
-import fsmnfallfest  from "../../img/IMG_5587.JPG"
+import halloweenSpuds from "../../img/IMG_5793.jpeg";
+import fsmnfallfest  from "../../img/IMG_5587.JPG";
+import menagerie from "../../img/TheMenagerie.jpg";
 
 const SONGS = {
     sunset: {
@@ -102,6 +103,24 @@ const SONGS = {
 
 const SHOWS = {
     all: [
+        {
+            title: "The Menagerie",
+            date: "2025-12-17",
+            venue: "7th Street Entry",
+            location: "Minneapolis, MN",
+            image: menagerie,
+            link: "https://first-avenue.com/event/2025-12-the-menagerie/",
+            alt: "The Spuds are overjoyed to be taking the stage at 7th Street Entry for the first time supporting The Menagerie, Anything You Want, and Alpine Shepherd Boy"
+        },
+        {
+            title: "Spuds In The Ox",
+            date: "2025-12-09",
+            venue: "Indeed Brewing",
+            location: "Minneapolis, MN",
+            image: indeedLogo,
+            link: "https://indeedbrewing.com/events/",
+            alt: "The Spuds are overjoyed to be back at Indeed Brewing for Spuds In The Ox"
+        },
         {
             title: "FSMN Fall Fest",
             date: "2025-10-04",
