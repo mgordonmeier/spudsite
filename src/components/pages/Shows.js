@@ -71,6 +71,8 @@ import hunnyBearWhiteSquirrel from "../../img/HunnyBearWhiteSquirrel25.JPG";
 import halloweenSpuds from "../../img/IMG_5793.jpeg";
 import fsmnfallfest  from "../../img/IMG_5587.JPG";
 import menagerie from "../../img/TheMenagerie.jpg";
+import greenwayRecordingSession from "../../img/IMG_5587.JPG";
+import mikiFiki from "../../img/MikiFikiFunky.jpg";
 
 const SONGS = {
     sunset: {
@@ -103,6 +105,24 @@ const SONGS = {
 
 const SHOWS = {
     all: [
+        {
+            title: "Greenway Recording Session",
+            date: "2026-03-25",
+            venue: "Greenway Recording Studio",
+            location: "Minneapolis, MN",
+            image: greenwayRecordingSession,
+            link: "https://partiful.com/e/TgLL4zsuBfaXQtj9UH1a?c=8pCZx4yX",
+            alt: "We've seen some of the best talent in town play some killer sets and we are excited to show what we've got."
+        },
+        {
+            title: "Miki Fiki with Funk N Spuds",
+            date: "2026-03-21",
+            venue: "Appleton Beer Factory",
+            location: "Appleton, WI",
+            image: mikiFiki,
+            link: "https://app.showslinger.com/e/miki-fiki-with-funk-spuds ",
+            alt: "We have been big fans of Miki Fiki for a while and it is an honor to get to share the stage with them!"
+        },
         {
             title: "The Menagerie",
             date: "2025-12-17",
