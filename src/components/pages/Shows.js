@@ -32,10 +32,10 @@ import noName1214poster from "../../img/NoName1214posterv3.jpg";
 import dayblockFeb8 from "../../img/dayblockfeb8.JPG";
 import funkInTheOx from "../../img/Funk_In_The_Ox.jpg";
 import matcha from "../../img/Matcha.png";
-//import lenjaminOrb from "../../img/Orbz/LenjaminOrb.png";
+import lenjaminOrb from "../../img/Orbz/LenjaminOrb.png";
 import albumOrb from "../../img/Orbz/AlbumOrb.png";
 import spgOrb from "../../img/Orbz/SPGOrb.png";
-//import ewtrtwOrb from "../../img/Orbz/EWTRTWOrb.png";
+import ewtrtwOrb from "../../img/Orbz/EWTRTWOrb.png";
 import artAWhirlElias from "../../img/ArtAWhirlElias.JPG";
 import spudsTour25 from "../../img/spudsTour25.png";
 import indeedLogo from "../../img/indeedLogo.png";
@@ -73,6 +73,9 @@ import fsmnfallfest  from "../../img/IMG_5587.JPG";
 import menagerie from "../../img/TheMenagerie.jpg";
 import greenwayRecordingSession from "../../img/IMG_5587.JPG";
 import mikiFiki from "../../img/MikiFikiFunky.jpg";
+import fnslowboyppp from "../../img/FnS-lowboy-ppp-noname.jpeg";
+import silverwood from "../../img/Silverwood_on_Stage.jpg";
+import eckers from "../../img/EckersAppleFarm.png";
 
 const SONGS = {
     sunset: {
@@ -105,6 +108,60 @@ const SONGS = {
 
 const SHOWS = {
     all: [
+        {
+            title: "Ecker's Hootenanny",
+            date: "2026-10-10",
+            venue: "Ecker's Apple Farm",
+            location: "Trempealeau, WI",
+            image: eckers,
+            link: "https://www.eckersapplefarm.com",
+            alt: "Funk N Spuds are excited to be taking the stage at Ecker's Apple Farm for their Hootenanny on October 10, 2026"
+        },
+        {
+            title: "Silverwood Onstage Concert Series",
+            date: "2026-09-12",
+            venue: "Silverwood Ampitheater",
+            location: "St. Anthony, MN",
+            image: silverwood,
+            link: "https://www.threeriversparks.org/page/silverwood-onstage",
+            alt: "Funk N Spuds are excited to be taking the stage at Silverwood for their Onstage Concert Series on September 12, 2026"
+        },
+        {
+            title: "Off the Dock",
+            date: "2026-08-25",
+            venue: "Indeed Brewing",
+            location: "Minneapolis, MN",
+            image: indeedLogo,
+            link: "https://indeedbrewing.com/",
+            alt: "Our favorite hang in town is hosting us for Off the Dock on August 25, 2026"
+        },
+        {
+            title: "St. Paul's Melodies on the Mississippi",
+            date: "2026-08-19",
+            venue: "Harriet Island",
+            location: "St. Paul, MN",
+            image: ewtrtwOrb,
+            link: "https://www.stpaul.gov/departments/parks-and-recreation/activities-events/summer-activities-events/music-parks#melodies-on-the-mississippi",
+            alt: "The Spuds are excited to be taking the stage at Harriet Island for St. Paul's Melodies on the Mississippi on August 19, 2026"
+        },
+        {
+            title: "Minneapolis Music in the Parks",
+            date: "2026-07-11",
+            venue: "Water Works Park",
+            location: "Minneapolis, MN",
+            image: lenjaminOrb,
+            link: "https://www.minneapolisparks.org/event-calendar/funk-n-spuds-2/",
+            alt: "Catch the Spuds at Water Works Park for Minneapolis Music in the Parks on July 11, 2026"
+        },
+        {
+            title: "Funk N Spuds, Lowboy, and Perfect Pair of Pants",
+            date: "2026-05-22",
+            venue: "No Name Bar",
+            location: "Winona, MN",
+            image: fnslowboyppp,
+            link: "https://www.facebook.com/share/18anBrKz5k/",
+            alt: "Funk N Spuds teams up with Madison WI's Lowboy and Winona MN'sPerfect Pair of Pants for a night of funk, soul, and good times at No Name Bar in Winona, MN"
+        },
         {
             title: "Greenway Recording Session",
             date: "2026-03-25",

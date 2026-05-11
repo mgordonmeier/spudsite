@@ -64,16 +64,24 @@ function Music() {
 
     const youtubeVideos = [
         {
+            url: "https://www.youtube.com/embed/UP3HcJexDOE?si=c8WpKH1aBHPJTg-Z",
+            title: "Flavor World Presents: Funk N Spuds Live at Greenway Recording"
+        },
+        {
+            url: "https://www.youtube.com/embed/0Z5PQY-aa8o?si=7-EIzz8-N9CWpLGb",
+            title: "Five Years Of Funk N Spuds"
+        },
+        {
             url: "https://www.youtube.com/embed/MOTcyp4Lj64?start=5907",
-            title: "YouTube - Spud County"
+            title: "Spud County"
         },
         {
             url: "https://www.youtube.com/embed/PRyNdlSUJJY?start=19666",
-            title: "YouTube - Porchfest"
+            title: "Como Porchfest"
         },
         {
             url: "https://www.youtube.com/embed/C5eFspyaYmc?start=267",
-            title: "YouTube - RAC EP Release"
+            title: "Ramsey's Adventure Cabin EP Release"
         }
     ];
 
