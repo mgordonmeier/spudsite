@@ -10,6 +10,24 @@ function Background({ spuddieEnabled = true, onToggleSpuddie }) {
   const [shaderParams, setShaderParams] = useState(DEFAULT_SHADER_GRADIENT_PARAMS);
 
   useEffect(() => {
+    const setViewportHeight = () => {
+      const viewportHeight = window.visualViewport?.height || window.innerHeight;
+      document.documentElement.style.setProperty('--app-viewport-height', `${viewportHeight}px`);
+    };
+
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+    window.visualViewport?.addEventListener('resize', setViewportHeight);
+
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+      window.removeEventListener('orientationchange', setViewportHeight);
+      window.visualViewport?.removeEventListener('resize', setViewportHeight);
+    };
+  }, []);
+
+  useEffect(() => {
     let mounted = true;
     Promise.all([
       import('shadergradient'),
@@ -40,11 +58,12 @@ function Background({ spuddieEnabled = true, onToggleSpuddie }) {
         importedFiber={importedFiber}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
+          inset: 0,
+          width: '100vw',
+          height: 'var(--app-viewport-height, 100vh)',
+          minHeight: '100vh',
           zIndex: 0,
+          pointerEvents: 'none',
         }}
       >
         <ShaderGradient
