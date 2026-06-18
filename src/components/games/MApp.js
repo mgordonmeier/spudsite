@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Ground } from './MApp-components/Ground';
 import { Player } from './MApp-components/Player';

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Music.css";
 import SongSymbolWrapper from "../ui/SongSymbol";
 import FooterLinks from "../ui/FooterLinks";
 import jumpingSpud from "../../img/FunkNJump.gif";

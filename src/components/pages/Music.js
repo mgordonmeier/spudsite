@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Music.css";
 import FooterLinks from "../ui/FooterLinks";
-import './Music.css';
 import SongSymbolWrapper from '../ui/SongSymbol';
+import LazyIframe from '../ui/LazyIframe';
 import jumpingSpud from "../../img/FunkNJump.gif";
 import changes from "../../img/ChangesSongSymbol.png";
 import pentUp from "../../img/PentUpSongSymbol.png";
 import beenGone from "../../img/BeenGoneSongSymbol.png";
+import envelope from "../../img/EnvelopeSongSymbol.png";
 import lithouse from "../../img/Orbz/LithouseOrb.png";
 
 const SONGS = {
@@ -44,16 +45,45 @@ const SONGS = {
         description: "LitHouse is a song that Justin brought to the group over the summer of 2021. Upon the cyclical piano " +
             "intro Zach threw some ambient sax, Max transformed into a singing whale with the help of his flugelhorn, and the rest of the Spuds " +
             "helped to build this soaring atmospheric sonic tome."
+    },
+    envelope: {
+        name: "The Envelope",
+        symbol: envelope,
+        altText: "The Envelope Song Symbol",
+        youtubeUrl: "https://www.youtube.com/embed/0dsg35UWTeA",
+        description: "Justin brought this song to Max and Martin on a random Saturday in October 2020 when " +
+            "the three were gathered to record a track called Show Up by Joe Davis. The magic that is The Envelope was the trio's third " +
+            "take playing through the loose and jammy form. Justin doubles on bass and 12 string."
     }
 };
 
+const FEATURED_VIDEO_LINKS = [
+    'https://www.youtube.com/embed/kIhJc4kovKI?si=fWFWN4pML-KEzmti',
+    'https://www.youtube.com/embed/KMAOT2d1tXI',
+    'https://www.youtube.com/embed/Et9OYk7XIM8?si=6QkB0ERDrG-L24N2',
+    'https://www.youtube.com/embed/pIDOSohb8jI?si=UhPYXR0LZo9K1JSF',
+    'https://www.youtube.com/embed/2O8G22vrpRw?si=ZuXUKsBQSalX-z45',
+    'https://www.youtube.com/embed/q6x-OIfsgRg?si=Zkst6Qz3Po3_3hDZ',
+    'https://www.youtube.com/embed/OQuKGgxlRYk?si=YIimR7ixwhMyjSvW',
+    'https://www.youtube.com/embed/9783gZaMlZU?si=vTYGS6pBVvXj9LjC',
+    'https://www.youtube.com/embed/MjuEEClLuDQ?si=M-tN-qUeB7Gwqvnx',
+    'https://www.youtube.com/embed/wMLpBWudGPk?si=NqAokb70KMisDBMm',
+    'https://www.youtube.com/embed/3AcNSV5UqUY?si=Rm1JmLMZR7-LecxX'
+];
+
 function Music() {
+    const [featuredVideo, setFeaturedVideo] = useState('');
     const [songStates, setSongStates] = useState({
         beenGone: false,
         changes: false,
         pentUp: false,
-        litHouse: false
+        litHouse: false,
+        envelope: false
     });
+
+    useEffect(() => {
+        setFeaturedVideo(FEATURED_VIDEO_LINKS[Math.floor(Math.random() * FEATURED_VIDEO_LINKS.length)]);
+    }, []);
 
     const toggleSong = (songKey) => {
         setSongStates(prev => ({
@@ -148,23 +178,15 @@ function Music() {
                     <div className="bandcamp-box">
                         <div className="singles-section">
                             {bandcampSingles.map((single, index) => (
-                                <iframe 
+                                <LazyIframe
                                     key={index}
                                     className="m-3"
                                     title={`${single.title} Bandcamp`}
-                                    style={{ 
-                                        border: "8em",
-                                        width: "200px",
-                                        height: "200px",
-                                        borderRadius: "4px"
-                                    }}
+                                    style={{ display: 'inline-block' }}
                                     src={`https://bandcamp.com/EmbeddedPlayer/track=${single.trackId}/size=large/bgcol=ffffff/linkcol=${single.linkColor || '0687f5'}/tracklist=false/transparent=true/`}
-                                    seamless
-                                >
-                                    <a href={`https://funknspuds.bandcamp.com/track/${single.link}`}>
-                                        {single.title} by Funk N Spuds
-                                    </a>
-                                </iframe>
+                                    width="200px"
+                                    height="200px"
+                                />
                             ))}
                         </div>
 
@@ -172,21 +194,14 @@ function Music() {
                             {bandcampAlbums.map((album, index) => (
                                 <div key={index} className={index === 0 ? "" : "text-center align-top"} 
                                      style={index !== 0 ? {display: "inline-block"} : undefined}>
-                                    <iframe 
+                                    <LazyIframe
                                         className="m-3 align-top"
                                         title={`${album.title} Bandcamp`}
-                                        style={{
-                                            border: "4em",
-                                            width: album.width,
-                                            height: album.height
-                                        }}
+                                        style={{ display: 'inline-block' }}
                                         src={`https://bandcamp.com/EmbeddedPlayer/album=${album.albumId}/size=large/bgcol=ffffff/linkcol=0687f5/${album.showTracklist ? 'tracklist=true/' : ''}transparent=true/`}
-                                        seamless
-                                    >
-                                        <a href={`https://funknspuds.bandcamp.com/album/${album.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                                            {album.title} by Funk N Spuds
-                                        </a>
-                                    </iframe>
+                                        width={album.width}
+                                        height={album.height}
+                                    />
                                 </div>
                             ))}
                         </div>
@@ -201,19 +216,42 @@ function Music() {
                         />
                     </div>
 
+                    <section className="youtube-feature-section" aria-label="Featured YouTube video">
+                        <h1 className="spudsite mb-5">Check us out on YouTube</h1>
+                        {featuredVideo && (
+                            <div className="youtube-feature-video ratio ratio-16x9 mt-3">
+                                <LazyIframe
+                                    src={featuredVideo}
+                                    title="Funk N Spuds YouTube video"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
+                        )}
+                        <div className="text-end youtube-feature-symbol">
+                            <SongSymbolWrapper
+                                song={SONGS.envelope}
+                                isOpen={songStates.envelope}
+                                onToggle={() => toggleSong('envelope')}
+                            />
+                        </div>
+                    </section>
+
                     <h1 className="mb-5 spudsite">Livestream Central</h1>
 
                     <div className="music-video-box">
                         {youtubeVideos.map((video, index) => (
                             <div key={index} className="ratio ratio-16x9 m-3" 
                                  style={{ width: "65vw", display: "inline-block" }}>
-                                <iframe 
-                                    style={{ borderRadius: "4px" }}
+                                <LazyIframe
                                     src={video.url}
                                     title={video.title}
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
+                                    width="100%"
+                                    height="100%"
                                 />
                             </div>
                         ))}
@@ -241,7 +279,8 @@ function Music() {
                         <div className="text-center">
                             <a href="https://lens.snapchat.com/9ab8073ff16547e5bd413f811fb3e513?sender_web_id=4a206bd0-61c0-4d01-9a1c-0db2f2654c50&device_type=desktop&is_copy_url=true">
                                 <img 
-                                    className="jumping-spud"
+                                    loading="lazy"
+                                    className="jumping-spud center-img"
                                     src={jumpingSpud}
                                     alt="Jumping Spud"
                                 />

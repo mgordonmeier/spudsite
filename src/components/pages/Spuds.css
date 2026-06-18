@@ -106,9 +106,39 @@ footer {
     display: flex;
     justify-content: center;
     padding: 0;
-    margin: 1rem auto 6rem;
+    margin: 1rem auto 3rem;
     position: relative;
     z-index: 1;
+}
+
+.about-spuds-section {
+    margin: 1rem auto 2rem;
+}
+
+.about-spuds-symbol {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 1rem auto;
+}
+
+.about-spuds-card {
+    width: min(75vw, 900px);
+    display: inline-block;
+    text-align: center;
+}
+
+.about-spuds-card h4 {
+    line-height: 1.35;
+}
+
+@media (max-width: 767px) {
+    .about-spuds-card {
+        width: 90vw;
+    }
+
+    .about-spuds-symbol {
+        width: 100%;
+    }
 }
 
 .member-card {

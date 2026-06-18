@@ -8,6 +8,8 @@ import { generateBoard } from './GTVenue/gameUtils';
 import { useObstacles } from '../shared/hooks/useObstacles';
 import { useVenue } from '../shared/hooks/useVenue';
 
+const API_BASE_URL = 'https://wok5wtifbi.execute-api.us-east-2.amazonaws.com/foReal';
+
 const GameBoard = () => {
   // State variables
   const [playerPos, setPlayerPos] = useState({ x: 1, y: 1 });
@@ -35,48 +37,8 @@ const GameBoard = () => {
   const { obstacles } = useObstacles(board, playerPos, obstacleIntervalDuration);
   const { currentVenue, setNewVenue } = useVenue(board, playerPos);
 
-  // Initialize board and load high scores
-  useEffect(() => {
-    console.log('Initializing game board...');
-    const newBoard = generateBoard();
-    console.log('Generated board:', newBoard);
-    setBoard(newBoard);
-    fetchHighScores(); // Load high scores from API
-  }, []);
-
-  // Close notification
-  const onCloseNotification = useCallback(() => {
-    setNotification(null);
-  }, []);
-
-  // Set notification with alternating position
-  const setNotificationWithPosition = useCallback((message, type = 'info') => {
-    setNotification({ message, type });
-    setNotificationPosition(prev => prev === 'left' ? 'right' : 'left');
-  }, []);
-
-  // Reset game function
-  const resetGame = useCallback((message, type = 'success') => {
-    console.log('Resetting game with message:', message);
-    const newBoard = generateBoard();
-    setBoard(newBoard);
-    setPlayerPos({ x: 1, y: 1 });
-    setHealth(100);
-    setVenuesReached(0);
-    setScore(0);
-    setRoundNumber(1);
-    setObstacleIntervalDuration(1000);
-    setNotificationWithPosition(message, type);
-    setShowHighScores(false);
-    setPlayerName('');
-    setSubmitted(false);
-  }, [setNotificationWithPosition]);
-
-  // API endpoints
-  const API_BASE_URL = 'https://wok5wtifbi.execute-api.us-east-2.amazonaws.com/foReal';
-  
   // Fetch high scores from API
-  const fetchHighScores = async () => {
+  const fetchHighScores = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -95,10 +57,10 @@ const GameBoard = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   // Submit high score to API
-  const submitHighScore = async (name, playerScore) => {
+  const submitHighScore = useCallback(async (name, playerScore) => {
     try {
       setIsLoading(true);
       setError(null);
@@ -139,7 +101,44 @@ const GameBoard = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [fetchHighScores]);
+
+  // Initialize board and load high scores
+  useEffect(() => {
+    console.log('Initializing game board...');
+    const newBoard = generateBoard();
+    console.log('Generated board:', newBoard);
+    setBoard(newBoard);
+    fetchHighScores(); // Load high scores from API
+  }, [fetchHighScores]);
+
+  // Close notification
+  const onCloseNotification = useCallback(() => {
+    setNotification(null);
+  }, []);
+
+  // Set notification with alternating position
+  const setNotificationWithPosition = useCallback((message, type = 'info') => {
+    setNotification({ message, type });
+    setNotificationPosition(prev => prev === 'left' ? 'right' : 'left');
+  }, []);
+
+  // Reset game function
+  const resetGame = useCallback((message, type = 'success') => {
+    console.log('Resetting game with message:', message);
+    const newBoard = generateBoard();
+    setBoard(newBoard);
+    setPlayerPos({ x: 1, y: 1 });
+    setHealth(100);
+    setVenuesReached(0);
+    setScore(0);
+    setRoundNumber(1);
+    setObstacleIntervalDuration(1000);
+    setNotificationWithPosition(message, type);
+    setShowHighScores(false);
+    setPlayerName('');
+    setSubmitted(false);
+  }, [setNotificationWithPosition]);
 
   // Check if current score is a high score
   const isHighScore =
@@ -176,7 +175,7 @@ const GameBoard = () => {
       setSubmitted(true);
       setShowHighScores(true); // Automatically show high score board after successful submission
     }
-  }, [playerName, score]);
+  }, [playerName, score, submitHighScore]);
 
   // Move player function
   const movePlayer = useCallback(

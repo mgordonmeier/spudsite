@@ -25,6 +25,17 @@
     transform: translateY(-2px);
 }
 
+.contact-logo-link {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.contact-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .jumping-spud {
     border-radius: 10px;
 } 

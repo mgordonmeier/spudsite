@@ -4,6 +4,27 @@
     margin: 2rem 0;
 }
 
+.youtube-feature-section {
+    margin: 2.5rem auto 3rem;
+    text-align: center;
+}
+
+.youtube-feature-section .spudsite {
+    margin-bottom: 2rem;
+}
+
+.youtube-feature-video {
+    width: min(65vw, 900px);
+    margin: 0 auto;
+    filter: drop-shadow(5px 5px 5px #151515);
+}
+
+.youtube-feature-symbol {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.75rem auto 0;
+}
+
 .bandcamp-box {
     padding: 2rem;
     text-align: center;
@@ -45,6 +66,14 @@
 }
 
 @media (max-width: 768px) {
+    .youtube-feature-video {
+        width: 90vw;
+    }
+
+    .youtube-feature-symbol {
+        width: 100%;
+    }
+
     .music-video-box .ratio {
         width: 90vw !important;
     }
@@ -90,7 +119,7 @@
 }
 
 .show-image {
-    width: 100%;
+    width: min(100%, 300px);
     max-width: 300px;
     height: auto;
     border-radius: 4px;
@@ -113,7 +142,8 @@
 }
 
 .upcoming-shows .show-image {
-    max-width: 500px;
+    width: min(100%, 375px);
+    max-width: 375px;
 }
 
 .past-shows-grid .show-image {

@@ -1,53 +1,52 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/ui/NavBar';
-import Home from './components/pages/Home';
-import Spuds from './components/pages/Spuds';
-import Music from './components/pages/Music';
-import Games from './components/games/Games';
-import Shows from './components/pages/Shows';
-import Merch from './components/merch/Merch';
-import Contact from './components/pages/Contact';
-import NotFound from './components/ui/NotFound';
-//import WanderingSpuddie from './components/pages/WanderingSpuddie';
-import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient'
-import * as reactSpring from '@react-spring/three'
-import * as drei from '@react-three/drei'
-import * as fiber from '@react-three/fiber'
 import './App.css';
+import Background from './components/ui/Background';
+import WanderingSpuddie from './components/spuddie/WanderingSpuddie';
+
+const Home = lazy(() => import('./components/pages/Home'));
+const Spuds = lazy(() => import('./components/pages/Spuds'));
+const Music = lazy(() => import('./components/pages/Music'));
+const Games = lazy(() => import('./components/games/Games'));
+const Shows = lazy(() => import('./components/pages/Shows'));
+const Merch = lazy(() => import('./components/merch/Merch'));
+const Contact = lazy(() => import('./components/pages/Contact'));
+const NotFound = lazy(() => import('./components/ui/NotFound'));
+
+const SPUDDIE_ENABLED_STORAGE_KEY = 'spuddie-enabled';
 
 function App() {
+  const [spuddieEnabled, setSpuddieEnabled] = useState(() => {
+    const savedPreference = window.localStorage.getItem(SPUDDIE_ENABLED_STORAGE_KEY);
+    return savedPreference === null ? true : savedPreference === 'true';
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(SPUDDIE_ENABLED_STORAGE_KEY, String(spuddieEnabled));
+  }, [spuddieEnabled]);
+
   return (
     <BrowserRouter>
-      <ShaderGradientCanvas
-        importedFiber={{ ...fiber, ...drei, ...reactSpring }}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '105%',
-          height: '100%',
-          zIndex: 0,
-        }}
-      >
-        <ShaderGradient
-          control='query'
-          urlString='https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=200&cDistance=2.8&cPolarAngle=90&cameraZoom=1&color1=%23ff6bda&color2=%2385ffa9&color3=%2354ffff&destination=onCanvas&embedMode=off&envPreset=lobby&format=gif&fov=50&frameRate=10&gizmoHelper=hide&grain=off&lightType=env&pixelDensity=2&positionX=0.2&positionY=0.1&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=10&rotationY=-10&rotationZ=-110&shader=defaults&toggleAxis=false&type=waterPlane&uDensity=1.3&uFrequency=5.5&uSpeed=0.01&uStrength=3.5&uTime=0&wireframe=false&zoomOut=false'
-        />
-      </ShaderGradientCanvas>
-      {/*<WanderingSpuddie />*/}
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <Background
+        spuddieEnabled={spuddieEnabled}
+        onToggleSpuddie={() => setSpuddieEnabled((enabled) => !enabled)}
+      />
+      <div id="main-content" style={{ position: 'relative' }}>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/spuds" element={<Spuds />} />
-          <Route path="/music" element={<Music />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/shows" element={<Shows />} />
-          <Route path="/merch" element={<Merch />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <WanderingSpuddie enabled={spuddieEnabled} />
+        <Suspense fallback={<div style={{padding: '2rem', textAlign: 'center'}}>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/spuds" element={<Spuds />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/shows" element={<Shows />} />
+            <Route path="/merch" element={<Merch />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </div>
     </BrowserRouter>
   );

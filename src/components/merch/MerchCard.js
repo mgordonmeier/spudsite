@@ -1,22 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import "./MerchCard.css";
-import { getStockLevel, isInStock, getAvailableSizes, decrementStock, getAvailabilityStatus } from "./inventory";
+import { isInStock, getAvailableSizes, decrementStock, getAvailabilityStatus } from "./inventory";
 
 function MerchCard({ item, isOpen, onToggle, onAddToCart }) {
+    const [shouldRenderModal, setShouldRenderModal] = useState(isOpen);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [selectedSize, setSelectedSize] = useState(null);
     const [selectedSong, setSelectedSong] = useState("");
+    const cardRef = useRef(null);
+    const wasOpenRef = useRef(isOpen);
     
     // Get available sizes from inventory
-    const availableSizes = item.sizes ? getAvailableSizes(item.id) : [];
+    const availableSizes = useMemo(
+        () => item.sizes ? getAvailableSizes(item.id) : [],
+        [item.id, item.sizes]
+    );
     
     // Set initial selected size to first available size
-    React.useEffect(() => {
+    useEffect(() => {
         if (availableSizes.length > 0 && !selectedSize) {
             setSelectedSize(availableSizes[0]);
         }
     }, [availableSizes, selectedSize]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setShouldRenderModal(true);
+            return undefined;
+        }
+
+        const closeTimer = setTimeout(() => {
+            setShouldRenderModal(false);
+        }, 280);
+
+        return () => clearTimeout(closeTimer);
+    }, [isOpen]);
+
+    useEffect(() => {
+        const wasOpen = wasOpenRef.current;
+        wasOpenRef.current = isOpen;
+
+        if (wasOpen && !isOpen) {
+            window.dispatchEvent(new CustomEvent("spuddie:song-card-close", {
+                detail: { songName: item.name }
+            }));
+            return undefined;
+        }
+
+        if (!isOpen || !shouldRenderModal) {
+            return undefined;
+        }
+
+        const frameId = window.requestAnimationFrame(() => {
+            const rect = cardRef.current?.getBoundingClientRect();
+
+            if (!rect) {
+                return;
+            }
+
+            window.dispatchEvent(new CustomEvent("spuddie:song-card-open", {
+                detail: {
+                    songName: item.name,
+                    rect: {
+                        left: rect.left,
+                        right: rect.right,
+                        top: rect.top,
+                        bottom: rect.bottom,
+                        width: rect.width,
+                        height: rect.height
+                    }
+                }
+            }));
+        });
+
+        return () => window.cancelAnimationFrame(frameId);
+    }, [isOpen, shouldRenderModal, item.name]);
 
     const handleImageClick = (index) => {
         setSelectedImageIndex(index);
@@ -45,15 +104,28 @@ function MerchCard({ item, isOpen, onToggle, onAddToCart }) {
         onToggle();
     };
 
-    if (isOpen) {
+    if (shouldRenderModal) {
         return createPortal(
-            <div className="merch-card-expanded">
-                <div className="merch-modal-backdrop" onClick={onToggle}></div>
-                <div className="merch-modal-content">
-                    <div className="card specialCard text-center" style={{ width: "35rem", maxWidth: "95vw" }}>
-                    <div className="card-header m-2 d-flex justify-content-between align-items-center">
-                        <h4 className="mb-0"><strong>{item.name}</strong></h4>
-                        <button className="btn btn-danger btn-sm merch-close-btn" onClick={onToggle}>×</button>
+            <div className={`song-card-overlay merch-card-expanded ${isOpen ? "is-open" : "is-closing"}`} role="presentation">
+                <div className="song-card-backdrop merch-modal-backdrop" onClick={onToggle} aria-hidden="true"></div>
+                <div
+                    ref={cardRef}
+                    className={`card specialCard text-center song-card-modal merch-modal-content ${isOpen ? "is-opening" : "is-closing"}`}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={item.name}
+                    data-spuddie-interest="song-card"
+                >
+                    <div className="card-header m-2 song-card-header merch-card-header">
+                        <p className="d-inline rocksalt song-card-title merch-card-title"><strong>{item.name}</strong></p>
+                        <button
+                            className="btn btn-danger btn-sm song-close-btn merch-close-btn"
+                            type="button"
+                            onClick={onToggle}
+                            aria-label={`Close ${item.name}`}
+                        >
+                            ×
+                        </button>
                     </div>
                     
                     {/* Image Gallery */}
@@ -170,7 +242,6 @@ function MerchCard({ item, isOpen, onToggle, onAddToCart }) {
                         </button>
                     </div>
                 </div>
-            </div>
         </div>,
         document.body
         );

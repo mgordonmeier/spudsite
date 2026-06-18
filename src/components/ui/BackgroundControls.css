@@ -1,0 +1,272 @@
+.shader-gradient-control {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 4500;
+  color: #17121f;
+}
+
+.shader-gradient-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.shader-gradient-toggle,
+.shader-gradient-spuddie-toggle {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 18px 13px 20px 14px;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 204, 112, 0.42), transparent 34%),
+    radial-gradient(circle at 80% 18%, rgba(133, 255, 169, 0.34), transparent 36%),
+    rgba(255, 255, 255, 0.58);
+  box-shadow: 0 8px 18px rgba(21, 21, 21, 0.16), 0 1px 10px rgba(255, 255, 255, 0.24) inset;
+  color: #151515;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
+  backdrop-filter: blur(18px) saturate(1.35);
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.shader-gradient-toggle:hover,
+.shader-gradient-toggle:focus-visible,
+.shader-gradient-spuddie-toggle:hover,
+.shader-gradient-spuddie-toggle:focus-visible {
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 10px 22px rgba(21, 21, 21, 0.18);
+}
+
+.shader-gradient-spuddie-toggle::after {
+  content: "";
+  position: absolute;
+  right: 0.26rem;
+  bottom: 0.26rem;
+  width: 0.58rem;
+  height: 0.58rem;
+  border: 1px solid rgba(21, 21, 21, 0.35);
+  border-radius: 50%;
+  background: #d6d6d6;
+}
+
+.shader-gradient-spuddie-toggle.is-enabled {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 204, 112, 0.32), transparent 34%),
+    radial-gradient(circle at 80% 18%, rgba(133, 255, 169, 0.44), transparent 36%),
+    rgba(133, 255, 169, 0.38);
+}
+
+.shader-gradient-spuddie-toggle.is-enabled::after {
+  background: #55e982;
+}
+
+.shader-gradient-spuddie-icon {
+  display: block;
+  width: 2.08rem;
+  height: auto;
+  filter: drop-shadow(1px 2px 2px rgba(21, 21, 21, 0.26));
+}
+
+.shader-gradient-menu {
+  position: absolute;
+  isolation: isolate;
+  right: 0;
+  bottom: 3.85rem;
+  width: min(92vw, 23rem);
+  max-height: min(74vh, 42rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 24px 18px 28px 20px;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 204, 112, 0.42), transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(133, 255, 169, 0.32), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.42));
+  box-shadow: 0 18px 44px rgba(21, 21, 21, 0.22), 0 1px 10px rgba(255, 255, 255, 0.25) inset;
+  backdrop-filter: blur(18px) saturate(1.35);
+}
+
+.shader-gradient-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0.28rem;
+  z-index: 0;
+  border-radius: 20px 16px 24px 18px;
+  background: linear-gradient(43deg, rgba(65, 88, 208, 0.18), rgba(200, 80, 192, 0.16), rgba(255, 204, 112, 0.18));
+  pointer-events: none;
+}
+
+.shader-gradient-menu-content {
+  position: relative;
+  z-index: 1;
+  max-height: inherit;
+  overflow-y: auto;
+}
+
+.shader-gradient-menu-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem 0.75rem;
+  border-bottom: 1px solid rgba(21, 21, 21, 0.1);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(16px);
+}
+
+.shader-gradient-menu-header h2 {
+  margin: 0;
+  color: #151515;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
+}
+
+.shader-gradient-menu-header button {
+  min-height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 18px 14px 18px 13px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #151515;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 5px 14px rgba(21, 21, 21, 0.12);
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.shader-gradient-menu-header button:hover,
+.shader-gradient-menu-header button:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 8px 18px rgba(21, 21, 21, 0.16);
+}
+
+.shader-gradient-groups {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.9rem;
+}
+
+.shader-gradient-group {
+  display: grid;
+  gap: 0.62rem;
+  padding: 0;
+}
+
+.shader-gradient-group h3 {
+  margin: 0;
+  color: rgba(23, 18, 31, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.shader-gradient-field {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 0.75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.25rem;
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.shader-gradient-field span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.shader-gradient-field input,
+.shader-gradient-field select {
+  width: 100%;
+  min-width: 0;
+}
+
+.shader-gradient-field select,
+.shader-gradient-range-row input[type='number'] {
+  min-height: 2rem;
+  border: 1px solid rgba(21, 21, 21, 0.16);
+  border-radius: 14px 10px 14px 11px;
+  background: rgba(255, 255, 255, 0.66);
+  color: #151515;
+  font-size: 0.86rem;
+}
+
+.shader-gradient-range-row input[type='number'] {
+  padding: 0 0.35rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.shader-gradient-field input[type='color'] {
+  height: 2rem;
+  padding: 0.14rem;
+  border: 1px solid rgba(21, 21, 21, 0.16);
+  border-radius: 14px 10px 14px 11px;
+  background: rgba(255, 255, 255, 0.66);
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.shader-gradient-field input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 11px 8px 11px 8px;
+}
+
+.shader-gradient-field input[type='color']::-webkit-color-swatch {
+  border: 0;
+  border-radius: 11px 8px 11px 8px;
+}
+
+.shader-gradient-field input[type='color']::-moz-color-swatch {
+  border: 0;
+  border-radius: 11px 8px 11px 8px;
+}
+
+.shader-gradient-range-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.3rem;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.shader-gradient-range-row input[type='range'] {
+  accent-color: #c850c0;
+}
+
+.shader-gradient-preview {
+  padding: 0 0.9rem 0.9rem;
+  color: rgba(21, 21, 21, 0.62);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+@media (max-width: 520px) {
+  .shader-gradient-control {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .shader-gradient-field {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}

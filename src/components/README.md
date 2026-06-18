@@ -29,9 +29,15 @@ All main page-level components:
 - `Music.js` - Music page component
 - `Spuds.js` - Band members page component
 - `Contact.js` - Contact page component
-- `WanderingSpuddie.js` - Interactive spuddie component
 - `PhotoGallery.js` - Photo gallery component
 - Associated CSS files for each component
+
+### `/spuddie/` - Site Companion Components
+All files related to the site-wide wandering Spuddie companion:
+- `WanderingSpuddie.js` - Interactive companion component
+- `WanderingSpuddie.css` - Companion positioning and animation styles
+- `spuddieEvents.js` - Custom event names and dispatch helpers
+- `spuddieGeometry.js` - Movement and geometry helpers
 
 ### `/ui/` - Reusable UI Components
 Shared UI components used across multiple pages:
@@ -60,6 +66,7 @@ Shared utilities, hooks, and assets:
 After reorganization, import paths follow this pattern:
 - `../ui/ComponentName` - For UI components
 - `../pages/ComponentName` - For page components
+- `../spuddie/ComponentName` - For Spuddie companion components
 - `../merch/ComponentName` - For merchandise components
 - `../games/ComponentName` - For game components
 - `../shared/hooks/useHookName` - For shared hooks

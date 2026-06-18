@@ -51,7 +51,7 @@ function MemberPanel({ member, isInfoShown, onToggle, top, isGallery, galleryIma
                     <div className="text-center">
                         <img 
                             src={member.dalle} 
-                            alt="Image created via Dall-E OpenAI" 
+                            alt="Created via Dall-E OpenAI" 
                             className={imageClassName} 
                             style={imageStyle} 
                         />

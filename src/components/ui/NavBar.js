@@ -1,44 +1,46 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import anotherLogo from "../../img/AnotherLogo.png";
+import "./NavBar.css";
+
+const links = [
+    { to: "/spuds", label: "Spuds" },
+    { to: "/music", label: "Music" },
+    { to: "/games", label: "Games" },
+    { to: "/shows", label: "Shows" },
+    { to: "/merch", label: "Merch" },
+    { to: "/contact", label: "Contact" },
+];
 
 function NavBar() {
 
     return (
-        <div className="container text-center" >
-            <nav className="navbar navbar-expand-lg navbar-light justify-content-between specialCard" style={{ borderRadius: "20px", display: "inline-block" }}>
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">
-                        <img src={anotherLogo} alt="Fresh Spuds Logo" className="img-responsive headerLink ms-1" style={{height: "auto", width: "100px"}}/>
-                        </Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+        <header className="site-nav-shell">
+            <nav className="navbar navbar-expand-lg navbar-light site-nav" aria-label="Primary navigation">
+                <div className="container-fluid site-nav-inner">
+                    <Link className="navbar-brand site-nav-brand" to="/" aria-label="Funk N Spuds home">
+                        <img src={anotherLogo} alt="" className="site-nav-logo" />
+                    </Link>
+                    <button className="navbar-toggler site-nav-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon" />
                     </button>
-                    <div className="collapse navbar-collapse m-1" id="navbarTogglerDemo02">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 spudNavBar">
-                            <li className="nav-item m-1">
-                                <Link to="/spuds" className="nav-link active navLink">Spuds</Link>
-                            </li>
-                            <li className="nav-item m-1">
-                                <Link to="/music" className="nav-link active navLink">Music</Link>
-                            </li>
-                            {<li className="nav-item m-1">
-                                <Link to="/games" className="nav-link active navLink">Games</Link>
-                            </li>}
-                            <li className="nav-item m-1">
-                                <Link to="/shows" className="nav-link active navLink">Shows</Link>
-                            </li>
-                            <li className="nav-item m-1">
-                                <Link to="/merch" className="nav-link active navLink">Merch</Link>
-                            </li>
-                            <li className="nav-item m-1">
-                                <Link to="/contact" className="nav-link active navLink lastLink">Contact</Link>
-                            </li>
+                    <div className="collapse navbar-collapse site-nav-collapse" id="primaryNav">
+                        <ul className="navbar-nav site-nav-list">
+                            {links.map((link) => (
+                                <li className="nav-item site-nav-item" key={link.to}>
+                                    <NavLink
+                                        to={link.to}
+                                        className={({ isActive }) => `nav-link site-nav-link${isActive ? " is-active" : ""}`}
+                                    >
+                                        {link.label}
+                                    </NavLink>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
             </nav>
-        </div>
+        </header>
     );
 }
 

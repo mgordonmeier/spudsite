@@ -15,6 +15,7 @@ import mountainSymbol from "../../img/MountainSongSymbol.png";
 import mangoJamSymbol from "../../img/MangoJamSongSymbol.png";
 import cantStopSymbol from "../../img/CantStopSongSymbol.png";
 import harmonizeSymbol from "../../img/HarmonizeSongSymbol.png";
+import ahem from "../../img/AhemSongSymbol.png";
 import dalleJustin from "../../img/band_pix/JustinElias.jpeg";
 import dalleMartin from "../../img/band_pix/MartinUpNorth.jpeg";
 import dalleThomas from "../../img/band_pix/ThomasAppleton.jpeg";
@@ -57,6 +58,15 @@ const SONGS = {
         description: "Harmonize was written in the fall of 2016 after a double dose of inspiration from Bon Iver's recent 22 A Million album " +
             "and a colorful fall drive drenched in late afternoon autumn sun. After studying Yeat's poem 'The Second Coming' and Joan Didion's 'Slouching Towards Bethlehem', " +
             "Max felt some sense of impending doom. His response: Harmonize."
+    },
+    ahem: {
+        name: "Ahem",
+        symbol: ahem,
+        altText: "Ahem Song Symbol",
+        youtubeUrl: "https://www.youtube.com/embed/MjuEEClLuDQ",
+        description: "In late 2017 Max sat down behind his computer and popped out an early version of this song out " +
+            "in a couple hours. After that it did little more than gather dust until he brought it to the newly formed Funk N Spuds in early 2020. " +
+            "From there it turned into an utter soul jam and another favorite of the group."
     }
 };
 
@@ -115,7 +125,8 @@ function Spuds() {
         mountainSong: false,
         mangoJam: false,
         cantStop: false,
-        harmonize: false
+        harmonize: false,
+        ahem: false
     });
 
     const [memberStates, setMemberStates] = useState({
@@ -217,6 +228,23 @@ function Spuds() {
                     />
                 </div>
             </div>
+            <section className="about-spuds-section text-center" style={{ position: 'relative', zIndex: 1 }}>
+                <div className="text-start m-2 about-spuds-symbol">
+                    <SongSymbolWrapper
+                        song={SONGS.ahem}
+                        isOpen={songStates.ahem}
+                        onToggle={() => toggleSong('ahem')}
+                    />
+                </div>
+                <h1 className="spudsite mb-3">About Funk N Spuds</h1>
+                <div className="card container specialCard beenie about-spuds-card mt-3">
+                    <h4 className="m-3">Funk N Spuds started in Minneapolis in early 2020, mostly as an excuse for brothers Martin and Max to make music together and take a potato joke farther than anyone probably needed to. Since then, it's grown into a full band of friends and musicians bringing together bits of jazz, rock, pop, funk, and jam music.</h4>
+                    <h4 className="m-3">The sound is built around groove, melody, and a lot of trust between players. Flugelhorn, guitar, bass, keys, drums, and percussion all find their way into the mix, with songs that move between upbeat, danceable sections and more reflective moments. Some tunes stretch out, some stay tight, but the goal is usually the same: play something honest, warm, and worth sharing.</h4>
+                    <h4 className="m-3">At the center of the band is friendship - the kind that comes from basements, backyards, late-night rehearsals, and loading gear through the snow because that's just how it goes here. Funk N Spuds is serious about the music, but not too serious about themselves.</h4>
+                    <h4 className="m-3">Whether they're playing a local venue, a festival stage, or a neighborhood event, the band tries to bring people in and leave the room feeling a little lighter than they found it.</h4>
+                    <h3 className="m-3 spudsite">Music is hope.</h3>
+                </div>
+            </section>
             <div className="text-start m-2" style={{ position: 'relative', zIndex: 1 }}>
                 <SongSymbolWrapper
                     song={SONGS.harmonize}

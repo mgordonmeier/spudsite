@@ -5,7 +5,7 @@
   font-family: 'Space Grotesk', sans-serif !important;
 }
 
-.navLink, .navbar-brand, .spudNavBar, .spudsite, .rocksalt, .merch-close-btn, .cart-close-btn, .gallery-close, .chatbox-close-btn, button.btn.chatbox-close-btn, button.btn.merch-close-btn, button.btn.song-close-btn, button.btn.member-close-btn, button.btn.cart-close-btn, .cart-remove-btn {
+.spudsite, .rocksalt, .merch-close-btn, .cart-close-btn, .gallery-close, .chatbox-close-btn, button.btn.chatbox-close-btn, button.btn.merch-close-btn, button.btn.song-close-btn, button.btn.member-close-btn, button.btn.cart-close-btn, .cart-remove-btn {
   font-family: 'Rock Salt', cursive !important;
 }
 
@@ -45,4 +45,251 @@ code {
     monospace;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Global responsive media rules: ensure media scales on small viewports */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.song-symbol-trigger {
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+.song-symbol-trigger:focus-visible {
+  outline: 3px solid rgba(255, 204, 112, 0.9);
+  outline-offset: 6px;
+}
+
+.song-card-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  pointer-events: auto;
+}
+
+.song-card-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 12, 28, 0.36);
+  backdrop-filter: blur(3px);
+  animation: songBackdropIn 280ms ease both;
+}
+
+.song-card-overlay.is-closing .song-card-backdrop {
+  animation: songBackdropOut 280ms ease both;
+}
+
+.song-card-modal {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 36rem);
+  max-height: min(92vh, 56rem);
+  overflow-y: auto;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34), 0 8px 24px rgba(80, 0, 120, 0.22);
+  transform-origin: center;
+}
+
+.song-card-modal.is-opening {
+  animation: songCardOpen 320ms cubic-bezier(.4,2,.6,1) both;
+}
+
+.song-card-modal.is-closing {
+  animation: songCardClose 280ms ease both;
+}
+
+.song-card-modal.specialCard:hover,
+.song-card-modal.card:hover,
+.song-card-modal.specialCard:active,
+.song-card-modal.card:active {
+  transform: translate3d(0, 0, 0) scale(1.01);
+}
+
+.song-card-header {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr 2.25rem;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.75rem;
+}
+
+.song-card-title {
+  grid-column: 2;
+  margin: 0;
+  min-width: 0;
+  text-align: center;
+  font-family: 'Rock Salt', cursive !important;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.song-card-title strong {
+  font-family: 'Rock Salt', cursive !important;
+}
+
+.song-card-video-wrap {
+  width: 100%;
+  padding: 0 clamp(0.75rem, 3vw, 1.5rem);
+}
+
+.song-card-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 6px;
+}
+
+.song-card-body {
+  display: block;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.song-card-body h5 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.song-close-btn {
+  grid-column: 3;
+  justify-self: end;
+  flex: 0 0 auto;
+}
+
+@media (min-width: 768px) {
+  .song-card-modal {
+    width: min(86vw, 44rem);
+    max-height: min(90vh, 60rem);
+  }
+
+  .song-card-title {
+    font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  }
+
+  .song-card-body h5 {
+    font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  }
+}
+
+@keyframes songCardOpen {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.25rem, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes songCardClose {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0) scale(0.96);
+  }
+}
+
+@keyframes songBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes songBackdropOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Utility to center block-level images */
+.center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Calendar wrapper to ensure proper height display */
+.calendar-wrapper {
+  height: 600px;
+  width: 100%;
+}
+
+.calendar-wrapper iframe {
+  height: 100%;
+  width: 100%;
+}
+
+/* Accessible skip link */
+.skip-link {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform: translateY(calc(-100% - 20px));
+  overflow: hidden;
+  z-index: 1000;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus-visible improvement for keyboard users */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 3px solid #ff6bda;
+  outline-offset: 2px;
+}

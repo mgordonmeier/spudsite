@@ -13,7 +13,6 @@
     "@types/three": "^0.156.0",
     "ajv": "^8.8.2",
     "ajv-keywords": "^5.1.0",
-    "drei": "^2.2.21",
     "framer-motion": "^10.16.4",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
@@ -22,11 +21,9 @@
     "react-router-dom": "^7.2.0",
     "react-scripts": "5.0.1",
     "react-spring": "^9.7.3",
-    "react-three-fiber": "^6.0.13",
     "shadergradient": "^1.2.0",
     "three": "^0.170.0",
     "three-mesh-bvh": "^0.8.3",
-    "three.js": "^0.77.1",
     "web-vitals": "^2.1.4",
     "zustand": "^4.1.4"
   },
@@ -34,6 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "optimize-images": "node ./tools/convert-images.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

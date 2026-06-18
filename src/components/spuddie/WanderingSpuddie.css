@@ -1,0 +1,191 @@
+.wandering-spuddie-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 18;
+  pointer-events: none;
+  min-height: 100%;
+  overflow: visible;
+}
+
+.wandering-spuddie-layer--song-card {
+  z-index: 5001;
+}
+
+.wandering-spuddie-layer--pinned {
+  position: fixed;
+  min-height: 0;
+}
+
+.wandering-spuddie {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(79px, 7.65vw, 119px);
+  transition: transform var(--spuddie-move-duration, 3600ms) linear;
+  will-change: transform;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 10px 12px rgba(21, 21, 21, 0.22));
+}
+
+.wandering-spuddie:focus-visible {
+  outline: 3px solid rgba(255, 204, 112, 0.95);
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+.wandering-spuddie--no-transition {
+  transition: none;
+}
+
+.wandering-spuddie--quick-move {
+  transition-duration: 1200ms;
+}
+
+.wandering-spuddie--song-card-approach {
+  transition-duration: 1600ms;
+}
+
+.wandering-spuddie__hover-shell {
+  display: block;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.wandering-spuddie:hover .wandering-spuddie__hover-shell,
+.wandering-spuddie:focus-visible .wandering-spuddie__hover-shell {
+  transform: translateY(-3px) scale(1.025);
+  filter: drop-shadow(0 4px 4px rgba(255, 204, 112, 0.28));
+}
+
+.wandering-spuddie__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: spuddieBreathe 2600ms ease-in-out infinite;
+}
+
+.wandering-spuddie--inspecting .wandering-spuddie__image {
+  animation-name: spuddieInspect;
+  animation-duration: 1800ms;
+}
+
+.wandering-spuddie--resting .wandering-spuddie__image {
+  animation-duration: 3400ms;
+}
+
+.wandering-spuddie--reading .wandering-spuddie__image {
+  animation-name: spuddieReading;
+  animation-duration: 3200ms;
+}
+
+.wandering-spuddie--attention .wandering-spuddie__image {
+  animation-name: spuddieAttention;
+  animation-duration: 700ms;
+  animation-iteration-count: 2;
+}
+
+.wandering-spuddie--noticing .wandering-spuddie__image {
+  animation-name: spuddieNotice;
+  animation-duration: 850ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes spuddieBreathe {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+@keyframes spuddieInspect {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  40% {
+    transform: translateY(-4px) rotate(-3deg) scale(1.03);
+  }
+
+  70% {
+    transform: translateY(0) rotate(2deg) scale(1.01);
+  }
+}
+
+@keyframes spuddieReading {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+}
+
+@keyframes spuddieAttention {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  20% {
+    transform: translateY(-3px) rotate(-5deg) scale(1.035);
+  }
+
+  40% {
+    transform: translateY(0) rotate(5deg) scale(1.02);
+  }
+
+  60% {
+    transform: translateY(-2px) rotate(-4deg) scale(1.03);
+  }
+
+  80% {
+    transform: translateY(0) rotate(3deg) scale(1.01);
+  }
+}
+
+@keyframes spuddieNotice {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  22% {
+    transform: translateY(-5px) rotate(-7deg) scale(1.045);
+  }
+
+  42% {
+    transform: translateY(1px) rotate(7deg) scale(1.025);
+  }
+
+  62% {
+    transform: translateY(-4px) rotate(-5deg) scale(1.035);
+  }
+
+  82% {
+    transform: translateY(0) rotate(4deg) scale(1.018);
+  }
+}
+
+@media (max-width: 768px) {
+  .wandering-spuddie-layer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wandering-spuddie {
+    transition: none;
+  }
+
+  .wandering-spuddie__image {
+    animation: none;
+  }
+}

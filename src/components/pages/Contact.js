@@ -84,11 +84,12 @@ function Contact() {
                         </a>
                     </div>
 
-                    <div className="mt-5">
+                    <div className="text-center mt-5">
                         <h3>Join our Discord</h3>
-                        <a href="https://discord.gg/XzafWtMgFZ">
+                        <a className="contact-logo-link" href="https://discord.gg/XzafWtMgFZ">
                             <img 
-                                className="music-video-box mt-1 spuddies hover-grow" 
+                                loading="lazy"
+                                className="contact-logo music-video-box mt-1 spuddies hover-grow center-img" 
                                 src={discord} 
                                 alt="Discord" 
                                 style={{ width: "10em", height: "8em" }}
@@ -96,10 +97,11 @@ function Contact() {
                         </a>
                     </div>
 
-                    <div className="mt-5">
-                        <a href="https://mndaily.com/262980/arts-entertainment/como-band-creates-funky-concert-venue-at-home/">
+                    <div className="text-center mt-5">
+                        <a className="contact-logo-link" href="https://mndaily.com/262980/arts-entertainment/como-band-creates-funky-concert-venue-at-home/">
                             <img 
-                                className="music-video-box spuddies hover-grow" 
+                                loading="lazy"
+                                className="contact-logo music-video-box spuddies hover-grow center-img" 
                                 src={fnsLogo} 
                                 alt="FnS Logo" 
                                 style={{ width: "20em" }} 
@@ -120,7 +122,8 @@ function Contact() {
                         <div className="text-center">
                             <a href="https://lens.snapchat.com/9ab8073ff16547e5bd413f811fb3e513?sender_web_id=4a206bd0-61c0-4d01-9a1c-0db2f2654c50&device_type=desktop&is_copy_url=true">
                                 <img 
-                                    className="jumping-spud hover-grow" 
+                                    loading="lazy"
+                                    className="jumping-spud hover-grow center-img" 
                                     style={{ height: "10em", width: "15em" }} 
                                     src={jumpingSpud} 
                                     alt="Jumping Spud" 

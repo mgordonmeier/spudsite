@@ -25,7 +25,7 @@ const PhotoGallery = ({ images, onClose }) => {
                     </div>
                     <img 
                         src={images[currentIndex]} 
-                        alt={`Gallery image ${currentIndex + 1}`}
+                        alt={`${currentIndex + 1}`}
                         className="gallery-image"
                     />
                     <div className="gallery-controls">
