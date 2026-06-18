@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './BackgroundControls.css';
 import spudFront from "../../img/SpudFront.png";
 
@@ -61,6 +61,32 @@ function normalizeNumber(value) {
 
 function BackgroundControls({ params, onChange, onReset, spuddieEnabled = true, onToggleSpuddie }) {
   const [isOpen, setIsOpen] = useState(false);
+  const controlRef = useRef(null);
+  const activeColorInputRef = useRef(null);
+
+  useEffect(() => {
+    const handleDocumentPointerDown = (event) => {
+      const activeColorInput = activeColorInputRef.current;
+      const clickedActiveColorInput = activeColorInput && event.target === activeColorInput;
+
+      if (activeColorInput && !clickedActiveColorInput) {
+        activeColorInput.blur();
+        activeColorInputRef.current = null;
+      }
+
+      if (!isOpen || controlRef.current?.contains(event.target)) {
+        return;
+      }
+
+      setIsOpen(false);
+    };
+
+    document.addEventListener('pointerdown', handleDocumentPointerDown, true);
+
+    return () => {
+      document.removeEventListener('pointerdown', handleDocumentPointerDown, true);
+    };
+  }, [isOpen]);
 
   const updateParam = (key, value) => {
     onChange({
@@ -105,6 +131,12 @@ function BackgroundControls({ params, onChange, onReset, spuddieEnabled = true, 
           id={`shader-gradient-${control.key}`}
           type="color"
           value={value}
+          onFocus={(event) => {
+            activeColorInputRef.current = event.currentTarget;
+          }}
+          onPointerDown={(event) => {
+            activeColorInputRef.current = event.currentTarget;
+          }}
           onChange={(event) => updateParam(control.key, event.target.value)}
         />
       );
@@ -135,7 +167,7 @@ function BackgroundControls({ params, onChange, onReset, spuddieEnabled = true, 
   };
 
   return (
-    <div className="shader-gradient-control" data-spuddie-avoid="true">
+    <div ref={controlRef} className="shader-gradient-control" data-spuddie-avoid="true">
       <div className="shader-gradient-actions">
         {onToggleSpuddie && (
           <button
