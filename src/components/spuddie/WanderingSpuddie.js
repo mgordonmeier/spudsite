@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './WanderingSpuddie.css';
 import spudFront from '../../img/SpudFront.png';
@@ -22,7 +22,7 @@ const SPUD_IMAGES = {
   right: { src: spudRight, alt: 'Spuddie looking right' },
 };
 
-const DESKTOP_MIN_WIDTH = 769;
+const MOBILE_MAX_WIDTH = 768;
 const STORAGE_STATE = {
   WANDERING: 'wandering',
   INSPECTING: 'inspecting',
@@ -43,6 +43,19 @@ const MOVEMENT = {
   inspectChance: 0.3,
 };
 
+const MOBILE_MOVEMENT = {
+  ...MOVEMENT,
+  margin: 10,
+  navClearance: 72,
+  avoidBuffer: 10,
+  importantBuffer: 20,
+  minStepDistance: 48,
+  maxStepDistance: 130,
+  maxInspectDistance: 210,
+  portalChance: 0.025,
+  inspectChance: 0.22,
+};
+
 const SONG_CARD_EDGE_GAP = 42;
 const SONG_CARD_VERTICAL_PADDING = 24;
 const SCROLL_IDLE_DELAY_MS = 180;
@@ -60,6 +73,7 @@ const PORTAL_ENTRY_DURATION_MS = 950;
 const PORTAL_COOLDOWN_MS = 6500;
 const PORTAL_EDGE_OVERFLOW = 28;
 const INITIAL_ENTRY_DURATION_MS = 1200;
+const DISABLE_EXIT_DURATION_MS = 900;
 const MOVE_PATH_SAMPLE_DISTANCE = 34;
 const MOVE_PATH_BUFFER = 14;
 const ATTENTION_WIGGLE_CHANCE = 0.055;
@@ -137,6 +151,7 @@ function WanderingSpuddie({ enabled = true }) {
   const attentionTimerRef = useRef(null);
   const noticeTimerRef = useRef(null);
   const noticeFrameRef = useRef(null);
+  const disableExitTimerRef = useRef(null);
   const portalTimerRefs = useRef([]);
   const portalCooldownUntilRef = useRef(0);
   const hasPlacedInitialPositionRef = useRef(false);
@@ -162,6 +177,7 @@ function WanderingSpuddie({ enabled = true }) {
   const [songCardApproachMove, setSongCardApproachMove] = useState(false);
   const [moveDurationMs, setMoveDurationMs] = useState(null);
   const [portalMove, setPortalMove] = useState(false);
+  const [disableExiting, setDisableExiting] = useState(false);
   const [attentionWiggle, setAttentionWiggle] = useState(false);
   const [noticeWiggle, setNoticeWiggle] = useState(false);
   const [activeTargetElement, setActiveTargetElement] = useState(null);
@@ -170,37 +186,45 @@ function WanderingSpuddie({ enabled = true }) {
   positionRef.current = position;
   songCardOpenRef.current = songCardOpen;
 
-  const isDesktop = viewport.width >= DESKTOP_MIN_WIDTH;
-  const shouldRender = enabled && isDesktop;
+  const isMobile = viewport.width <= MOBILE_MAX_WIDTH;
+  const movement = useMemo(() => isMobile ? MOBILE_MOVEMENT : MOVEMENT, [isMobile]);
+  const songCardEdgeGap = isMobile ? 18 : SONG_CARD_EDGE_GAP;
+  const songCardCloseStepDistance = isMobile ? 48 : SONG_CARD_CLOSE_STEP_DISTANCE;
+  const songSymbolApproachStepDistance = isMobile ? 82 : SONG_SYMBOL_APPROACH_STEP_DISTANCE;
+  const songSymbolArrivalDistance = isMobile ? 48 : SONG_SYMBOL_ARRIVAL_DISTANCE;
+  const fallbackSpuddieSize = isMobile
+    ? { width: 64, height: 72 }
+    : { width: 106, height: 119 };
+  const shouldRender = enabled || disableExiting || wasEnabledRef.current;
 
   const currentRect = spuddieRef.current?.getBoundingClientRect();
   const spuddieSize = {
-    width: currentRect?.width || 106,
-    height: currentRect?.height || 119,
+    width: currentRect?.width || fallbackSpuddieSize.width,
+    height: currentRect?.height || fallbackSpuddieSize.height,
   };
 
   const getBounds = useCallback(() => {
     const viewportTop = window.scrollY;
 
     return {
-      minX: MOVEMENT.margin,
-      minY: viewportTop + MOVEMENT.navClearance,
-      maxX: Math.max(MOVEMENT.margin, viewport.width - spuddieSize.width - MOVEMENT.margin),
+      minX: movement.margin,
+      minY: viewportTop + movement.navClearance,
+      maxX: Math.max(movement.margin, viewport.width - spuddieSize.width - movement.margin),
       maxY: Math.max(
-        viewportTop + MOVEMENT.navClearance,
-        viewportTop + viewport.height - spuddieSize.height - MOVEMENT.margin
+        viewportTop + movement.navClearance,
+        viewportTop + viewport.height - spuddieSize.height - movement.margin
       ),
     };
-  }, [spuddieSize.height, spuddieSize.width, viewport.height, viewport.width]);
+  }, [movement, spuddieSize.height, spuddieSize.width, viewport.height, viewport.width]);
 
   const getViewportBounds = useCallback(() => {
     return {
-      minX: MOVEMENT.margin,
-      minY: MOVEMENT.navClearance,
-      maxX: Math.max(MOVEMENT.margin, viewport.width - spuddieSize.width - MOVEMENT.margin),
-      maxY: Math.max(MOVEMENT.navClearance, viewport.height - spuddieSize.height - MOVEMENT.margin),
+      minX: movement.margin,
+      minY: movement.navClearance,
+      maxX: Math.max(movement.margin, viewport.width - spuddieSize.width - movement.margin),
+      maxY: Math.max(movement.navClearance, viewport.height - spuddieSize.height - movement.margin),
     };
-  }, [spuddieSize.height, spuddieSize.width, viewport.height, viewport.width]);
+  }, [movement, spuddieSize.height, spuddieSize.width, viewport.height, viewport.width]);
 
   const clampPoint = useCallback((point) => {
     const bounds = getBounds();
@@ -332,10 +356,10 @@ function WanderingSpuddie({ enabled = true }) {
     const spuddieRect = getSpuddieRect(point);
 
     return !getAvoidRects().some((rect) => {
-      const buffer = rect.width < 90 && rect.height < 90 ? MOVEMENT.avoidBuffer : MOVEMENT.importantBuffer;
+      const buffer = rect.width < 90 && rect.height < 90 ? movement.avoidBuffer : movement.importantBuffer;
       return rectsOverlap(spuddieRect, rect, buffer);
     });
-  }, [getAvoidRects, getSpuddieRect]);
+  }, [getAvoidRects, getSpuddieRect, movement.avoidBuffer, movement.importantBuffer]);
 
   const isClearMovePath = useCallback((from, to) => {
     const dx = to.x - from.x;
@@ -410,7 +434,7 @@ function WanderingSpuddie({ enabled = true }) {
     return getBlockingRectsForPath(origin, destination)
       .slice(0, 3)
       .flatMap((rect) => {
-        const gap = MOVE_PATH_BUFFER + MOVEMENT.importantBuffer;
+        const gap = MOVE_PATH_BUFFER + movement.importantBuffer;
         const leftX = rect.left - spuddieSize.width - gap;
         const rightX = rect.right + gap;
         const topY = rect.top - spuddieSize.height - gap;
@@ -435,12 +459,12 @@ function WanderingSpuddie({ enabled = true }) {
           return Math.abs(candidate.x - point.x) < 4 && Math.abs(candidate.y - point.y) < 4;
         }) === index;
       });
-  }, [clampPoint, getBlockingRectsForPath, spuddieSize.height, spuddieSize.width]);
+  }, [clampPoint, getBlockingRectsForPath, movement.importantBuffer, spuddieSize.height, spuddieSize.width]);
 
   const findNearbySafePoint = useCallback((origin) => {
     const distances = [
-      [MOVEMENT.minStepDistance, MOVEMENT.maxStepDistance],
-      [36, MOVEMENT.minStepDistance],
+      [movement.minStepDistance, movement.maxStepDistance],
+      [Math.min(36, movement.minStepDistance), movement.minStepDistance],
     ];
 
     for (const [minDistance, maxDistance] of distances) {
@@ -459,7 +483,7 @@ function WanderingSpuddie({ enabled = true }) {
     }
 
     return origin;
-  }, [clampPoint, isClearMovePath, isSafePausePoint]);
+  }, [clampPoint, isClearMovePath, isSafePausePoint, movement.maxStepDistance, movement.minStepDistance]);
 
   const findApproachStep = useCallback((origin, destination) => {
     const dx = destination.x - origin.x;
@@ -471,14 +495,14 @@ function WanderingSpuddie({ enabled = true }) {
     }
 
     const baseAngle = Math.atan2(dy, dx);
-    const stepDistance = Math.min(distance, SONG_SYMBOL_APPROACH_STEP_DISTANCE);
+    const stepDistance = Math.min(distance, songSymbolApproachStepDistance);
     const angleOffsets = [0, 0.45, -0.45, 0.9, -0.9, 1.35, -1.35, Math.PI / 2, -Math.PI / 2];
     const angledCandidatePoints = angleOffsets
       .flatMap((offset) => {
         const angle = baseAngle + offset;
 
         return [stepDistance, stepDistance * 0.62].map((candidateDistance) => {
-          return offset === 0 && candidateDistance === stepDistance && distance <= SONG_SYMBOL_APPROACH_STEP_DISTANCE
+          return offset === 0 && candidateDistance === stepDistance && distance <= songSymbolApproachStepDistance
             ? destination
             : clampPoint({
                 x: origin.x + Math.cos(angle) * candidateDistance,
@@ -530,7 +554,7 @@ function WanderingSpuddie({ enabled = true }) {
     return candidates.find((candidate) => candidate.pathClear && candidate.safe)?.point ||
       candidates.find((candidate) => candidate.pathClear)?.point ||
       origin;
-  }, [clampPoint, getObstacleWaypointCandidates, isClearMovePath, isSafePausePoint]);
+  }, [clampPoint, getObstacleWaypointCandidates, isClearMovePath, isSafePausePoint, songSymbolApproachStepDistance]);
 
   const findNearestVisibleEdgePoint = useCallback((origin) => {
     const bounds = getBounds();
@@ -699,6 +723,74 @@ function WanderingSpuddie({ enabled = true }) {
     }, PORTAL_EXIT_DURATION_MS + PORTAL_ENTRY_DURATION_MS + 80);
   }, [clearPortalTimers, getBounds, queuePortalTimer, spuddieSize.width]);
 
+  const startDisableExit = useCallback(() => {
+    window.clearTimeout(timerRef.current);
+    window.clearTimeout(scrollIdleTimerRef.current);
+    window.clearTimeout(quickMoveTimerRef.current);
+    window.clearTimeout(songCardApproachTimerRef.current);
+    window.clearTimeout(attentionTimerRef.current);
+    window.clearTimeout(noticeTimerRef.current);
+    window.clearTimeout(disableExitTimerRef.current);
+    window.cancelAnimationFrame(noticeFrameRef.current);
+    clearPortalTimers();
+    avoidRectsCacheRef.current = null;
+    noOpMoveCountRef.current = 0;
+
+    if (prefersReducedMotion) {
+      setDisableExiting(false);
+      return;
+    }
+
+    const spuddieRect = spuddieRef.current?.getBoundingClientRect();
+    const origin = spuddieRect
+      ? {
+          x: spuddieRect.left + window.scrollX,
+          y: spuddieRect.top + window.scrollY,
+        }
+      : positionRef.current;
+    const bounds = getBounds();
+    const midpoint = (bounds.minX + bounds.maxX) / 2;
+    const exitRight = origin.x >= midpoint;
+    const travelY = Math.min(Math.max(origin.y, bounds.minY), bounds.maxY);
+    const exitPoint = {
+      x: exitRight ? bounds.maxX + spuddieSize.width + PORTAL_EDGE_OVERFLOW : -spuddieSize.width - PORTAL_EDGE_OVERFLOW,
+      y: travelY,
+    };
+
+    songCardModeRef.current = false;
+    songCardOpenRef.current = false;
+    clearActiveTarget();
+    setDisableExiting(true);
+    setSuppressMovementTransition(true);
+    setPortalMove(true);
+    setQuickMove(false);
+    setSongCardApproachMove(false);
+    setAttentionWiggle(false);
+    setNoticeWiggle(false);
+    setSongCardOpen(false);
+    setSongCardPinned(false);
+    setSongCardSide(null);
+    setMoveDurationMs(null);
+    setMovementState(STORAGE_STATE.WANDERING);
+    setDirection(exitRight ? 'right' : 'left');
+    setPosition(origin);
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        setSuppressMovementTransition(false);
+        setMoveDurationMs(DISABLE_EXIT_DURATION_MS);
+        setPosition(exitPoint);
+      });
+    });
+
+    disableExitTimerRef.current = window.setTimeout(() => {
+      setDisableExiting(false);
+      setPortalMove(false);
+      setMoveDurationMs(null);
+      setSuppressMovementTransition(false);
+    }, DISABLE_EXIT_DURATION_MS + 120);
+  }, [clearActiveTarget, clearPortalTimers, getBounds, prefersReducedMotion, spuddieSize.width]);
+
   const startInitialEntry = useCallback((origin) => {
     const bounds = getBounds();
     const enterFromRight = origin.x > viewport.width / 2;
@@ -757,9 +849,9 @@ function WanderingSpuddie({ enabled = true }) {
         const dx = targetCenter.x - origin.x;
         const dy = targetCenter.y - origin.y;
 
-        return Math.sqrt((dx * dx) + (dy * dy)) <= MOVEMENT.maxInspectDistance;
+        return Math.sqrt((dx * dx) + (dy * dy)) <= movement.maxInspectDistance;
       });
-  }, [viewport.height]);
+  }, [movement.maxInspectDistance, viewport.height]);
 
   const findPointNearRect = useCallback((rect, origin = null) => {
     const gap = 18;
@@ -784,7 +876,7 @@ function WanderingSpuddie({ enabled = true }) {
   }, [clampPoint, isClearMovePath, isSafePausePoint, spuddieSize.height, spuddieSize.width]);
 
   const findPointBesideRect = useCallback((rect, origin, gap = 18, preferredSide = null) => {
-    const candidates = [
+    const sideCandidates = [
       {
         side: 'left',
         direction: 'right',
@@ -801,7 +893,26 @@ function WanderingSpuddie({ enabled = true }) {
           y: rect.top + (rect.height - spuddieSize.height) / 2,
         },
       },
-    ]
+    ];
+    const verticalCandidates = [
+      {
+        side: 'top',
+        direction: 'down',
+        point: {
+          x: rect.left + (rect.width - spuddieSize.width) / 2,
+          y: rect.top - spuddieSize.height - gap,
+        },
+      },
+      {
+        side: 'bottom',
+        direction: 'up',
+        point: {
+          x: rect.left + (rect.width - spuddieSize.width) / 2,
+          y: rect.bottom + gap,
+        },
+      },
+    ];
+    const candidates = [...sideCandidates, ...verticalCandidates]
       .map((candidate) => {
         const point = clampPoint(candidate.point);
         const dx = point.x - origin.x;
@@ -835,11 +946,65 @@ function WanderingSpuddie({ enabled = true }) {
       candidates.find((candidate) => preferredSide && candidate.side === preferredSide && candidate.safe) ||
       candidates.find((candidate) => candidate.safe && candidate.pathClear) ||
       candidates.find((candidate) => candidate.safe) ||
+      candidates.find((candidate) => candidate.pathClear) ||
       candidates[0] ||
       null;
   }, [clampPoint, isClearMovePath, isSafePausePoint, spuddieSize.height, spuddieSize.width]);
 
   const findSongCardReadingPoint = useCallback((rect, origin, clamp = clampPoint) => {
+    if (isMobile) {
+      const verticalGap = 10;
+      const centerX = rect.left + (rect.width - spuddieSize.width) / 2;
+      const topPoint = {
+        x: centerX,
+        y: rect.top - spuddieSize.height - verticalGap,
+      };
+      const bottomPoint = {
+        x: centerX,
+        y: rect.bottom + verticalGap,
+      };
+      const verticalCandidates = [
+        {
+          side: 'top',
+          direction: 'down',
+          point: topPoint,
+        },
+        {
+          side: 'bottom',
+          direction: 'up',
+          point: bottomPoint,
+        },
+      ]
+        .map((candidate) => {
+          const point = clamp(candidate.point);
+          const dx = point.x - origin.x;
+          const dy = point.y - origin.y;
+          const spuddieRect = getSpuddieRect(point);
+
+          return {
+            ...candidate,
+            point,
+            overlapsCard: rectsOverlap(spuddieRect, rect, movement.avoidBuffer),
+            distance: Math.sqrt((dx * dx) + (dy * dy)),
+          };
+        })
+        .sort((a, b) => {
+          if (a.overlapsCard !== b.overlapsCard) {
+            return a.overlapsCard ? 1 : -1;
+          }
+
+          return a.distance - b.distance;
+        });
+
+      const selectedCandidate = verticalCandidates[0];
+
+      return {
+        point: selectedCandidate.point,
+        direction: selectedCandidate.direction,
+        side: selectedCandidate.side,
+      };
+    }
+
     const cardTop = rect.top + rect.height * 0.4;
     const cardBottom = Math.max(
       cardTop,
@@ -861,7 +1026,7 @@ function WanderingSpuddie({ enabled = true }) {
         side: 'left',
         direction: 'right',
         point: {
-          x: rect.left - spuddieSize.width - SONG_CARD_EDGE_GAP,
+          x: rect.left - spuddieSize.width - songCardEdgeGap,
           y: targetY,
         },
       },
@@ -869,7 +1034,7 @@ function WanderingSpuddie({ enabled = true }) {
         side: 'right',
         direction: 'left',
         point: {
-          x: rect.right + SONG_CARD_EDGE_GAP,
+          x: rect.right + songCardEdgeGap,
           y: targetY,
         },
       },
@@ -889,7 +1054,7 @@ function WanderingSpuddie({ enabled = true }) {
 
     for (const candidate of sideCandidates) {
       const spuddieRect = getSpuddieRect(candidate.point);
-      const cardOverlap = rectsOverlap(spuddieRect, rect, MOVEMENT.avoidBuffer);
+      const cardOverlap = rectsOverlap(spuddieRect, rect, movement.avoidBuffer);
 
       if (!cardOverlap) {
         return {
@@ -907,7 +1072,7 @@ function WanderingSpuddie({ enabled = true }) {
       direction: fallback.direction,
       side: fallback.side,
     };
-  }, [clampPoint, getSpuddieRect, spuddieSize.height, spuddieSize.width]);
+  }, [clampPoint, getSpuddieRect, isMobile, movement.avoidBuffer, songCardEdgeGap, spuddieSize.height, spuddieSize.width]);
 
   const findInspectionPoint = useCallback((origin) => {
     const targets = getInterestTargets(origin);
@@ -1026,7 +1191,7 @@ function WanderingSpuddie({ enabled = true }) {
   }, [findPointBesideRect]);
 
   const takeStep = useCallback(() => {
-    if (!shouldRender || prefersReducedMotion || songCardOpen || songCardModeRef.current || portalMove) {
+    if (!enabled || !shouldRender || prefersReducedMotion || songCardOpen || songCardModeRef.current || portalMove) {
       return;
     }
 
@@ -1071,7 +1236,7 @@ function WanderingSpuddie({ enabled = true }) {
       const dx = songSymbolInspection.point.x - position.x;
       const dy = songSymbolInspection.point.y - position.y;
       const distance = Math.sqrt((dx * dx) + (dy * dy));
-      const hasArrived = distance <= SONG_SYMBOL_ARRIVAL_DISTANCE;
+      const hasArrived = distance <= songSymbolArrivalDistance;
       const proposedPoint = hasArrived ? songSymbolInspection.point : findApproachStep(position, songSymbolInspection.point);
       const nextPoint = hasArrived ? proposedPoint : resolveStuckMove(position, proposedPoint);
 
@@ -1099,12 +1264,12 @@ function WanderingSpuddie({ enabled = true }) {
       return;
     }
 
-    const shouldInspect = !songSymbolInspection && Math.random() < MOVEMENT.inspectChance;
+    const shouldInspect = !songSymbolInspection && Math.random() < movement.inspectChance;
     const inspection = shouldInspect ? findInspectionPoint(position) : null;
     const shouldPortalWander = !inspection &&
       hasCompletedInitialMoveRef.current &&
       Date.now() >= portalCooldownUntilRef.current &&
-      Math.random() < MOVEMENT.portalChance;
+      Math.random() < movement.portalChance;
 
     if (shouldPortalWander) {
       startPortalMove(position);
@@ -1121,10 +1286,10 @@ function WanderingSpuddie({ enabled = true }) {
     setActiveTargetId(inspection?.targetId || null);
     setPosition(nextPoint);
     hasCompletedInitialMoveRef.current = true;
-  }, [activeTargetElement, activeTargetId, attentionWiggle, clearActiveTarget, findApproachStep, findInspectionPoint, findNearestSongSymbolInspectionPoint, findNearbySafePoint, getFacingDirection, getSongSymbolMoveDuration, portalMove, position, prefersReducedMotion, resetIgnoredSongSymbolsThatLeftViewport, resolveStuckMove, shouldPortalToward, shouldRender, songCardOpen, startPortalMove, triggerNoticeWiggle]);
+  }, [activeTargetElement, activeTargetId, attentionWiggle, clearActiveTarget, enabled, findApproachStep, findInspectionPoint, findNearestSongSymbolInspectionPoint, findNearbySafePoint, getFacingDirection, getSongSymbolMoveDuration, movement.inspectChance, movement.portalChance, portalMove, position, prefersReducedMotion, resetIgnoredSongSymbolsThatLeftViewport, resolveStuckMove, shouldPortalToward, shouldRender, songCardOpen, songSymbolArrivalDistance, startPortalMove, triggerNoticeWiggle]);
 
   const moveOnInteraction = useCallback(() => {
-    if (!shouldRender || prefersReducedMotion || portalMove) {
+    if (!enabled || !shouldRender || prefersReducedMotion || portalMove) {
       return;
     }
 
@@ -1170,10 +1335,10 @@ function WanderingSpuddie({ enabled = true }) {
 
       return nextPoint;
     });
-  }, [activeTargetElement, clearActiveTarget, clearPortalTimers, findNearbySafePoint, getFacingDirection, hasVisibleUnclickedSongSymbol, portalMove, prefersReducedMotion, resetIgnoredSongSymbolsThatLeftViewport, shouldRender, songCardOpen, startQuickMove, triggerNoticeWiggle]);
+  }, [activeTargetElement, clearActiveTarget, clearPortalTimers, enabled, findNearbySafePoint, getFacingDirection, hasVisibleUnclickedSongSymbol, portalMove, prefersReducedMotion, resetIgnoredSongSymbolsThatLeftViewport, shouldRender, songCardOpen, startQuickMove, triggerNoticeWiggle]);
 
   useLayoutEffect(() => {
-    if (!shouldRender || prefersReducedMotion) {
+    if (!enabled || !shouldRender || prefersReducedMotion) {
       return undefined;
     }
 
@@ -1249,10 +1414,19 @@ function WanderingSpuddie({ enabled = true }) {
         : position;
 
       if (songCardPinned) {
-        const awayX = songCardSide === 'left' ? -SONG_CARD_CLOSE_STEP_DISTANCE : SONG_CARD_CLOSE_STEP_DISTANCE;
+        const awayX = songCardSide === 'left'
+          ? -songCardCloseStepDistance
+          : songCardSide === 'right'
+            ? songCardCloseStepDistance
+            : getRandomBetween(-24, 24);
+        const awayY = songCardSide === 'top'
+          ? -songCardCloseStepDistance
+          : songCardSide === 'bottom'
+            ? songCardCloseStepDistance
+            : getRandomBetween(-24, 24);
         const nextPoint = clampPoint({
           x: currentDocumentPosition.x + awayX,
-          y: currentDocumentPosition.y + getRandomBetween(-24, 24),
+          y: currentDocumentPosition.y + awayY,
         });
 
         setSuppressMovementTransition(true);
@@ -1292,10 +1466,10 @@ function WanderingSpuddie({ enabled = true }) {
       window.removeEventListener(SPUDDIE_EVENTS.SONG_CARD_OPEN, handleSongCardOpen);
       window.removeEventListener(SPUDDIE_EVENTS.SONG_CARD_CLOSE, handleSongCardClose);
     };
-  }, [clampPoint, clampViewportPoint, clearActiveTarget, clearPortalTimers, enterPendingSongCardMode, findNearbySafePoint, findSongCardReadingPoint, getFacingDirection, position, prefersReducedMotion, shouldRender, songCardPinned, songCardSide]);
+  }, [clampPoint, clampViewportPoint, clearActiveTarget, clearPortalTimers, enabled, enterPendingSongCardMode, findNearbySafePoint, findSongCardReadingPoint, getFacingDirection, position, prefersReducedMotion, shouldRender, songCardCloseStepDistance, songCardPinned, songCardSide]);
 
   useEffect(() => {
-    if (!shouldRender) {
+    if (!enabled || !shouldRender) {
       return undefined;
     }
 
@@ -1319,7 +1493,7 @@ function WanderingSpuddie({ enabled = true }) {
     return () => {
       window.removeEventListener(SPUDDIE_EVENTS.SONG_SYMBOL_CLICK, handleSongSymbolClick);
     };
-  }, [activeTargetId, clearActiveTarget, enterPendingSongCardMode, shouldRender]);
+  }, [activeTargetId, clearActiveTarget, enabled, enterPendingSongCardMode, shouldRender]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -1348,7 +1522,7 @@ function WanderingSpuddie({ enabled = true }) {
   }, [clampPoint]);
 
   useEffect(() => {
-    if (!shouldRender || songCardOpen || songCardModeRef.current || prefersReducedMotion) {
+    if (!enabled || !shouldRender || songCardOpen || songCardModeRef.current || prefersReducedMotion) {
       return undefined;
     }
 
@@ -1404,11 +1578,22 @@ function WanderingSpuddie({ enabled = true }) {
       window.clearTimeout(quickMoveTimerRef.current);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [activeTargetElement, clearActiveTarget, findNearestVisibleEdgePoint, getFacingDirection, prefersReducedMotion, resetIgnoredSongSymbolsThatLeftViewport, shouldRender, songCardOpen, startQuickMove]);
+  }, [activeTargetElement, clearActiveTarget, enabled, findNearestVisibleEdgePoint, getFacingDirection, prefersReducedMotion, resetIgnoredSongSymbolsThatLeftViewport, shouldRender, songCardOpen, startQuickMove]);
 
   useEffect(() => {
     const wasEnabled = wasEnabledRef.current;
     wasEnabledRef.current = enabled;
+
+    if (!enabled) {
+      if (wasEnabled) {
+        startDisableExit();
+        return;
+      }
+
+      if (disableExiting) {
+        return;
+      }
+    }
 
     if (!shouldRender) {
       songCardModeRef.current = false;
@@ -1419,6 +1604,7 @@ function WanderingSpuddie({ enabled = true }) {
       window.clearTimeout(songCardApproachTimerRef.current);
       window.clearTimeout(attentionTimerRef.current);
       window.clearTimeout(noticeTimerRef.current);
+      window.clearTimeout(disableExitTimerRef.current);
       window.cancelAnimationFrame(noticeFrameRef.current);
       clearPortalTimers();
       setPortalMove(false);
@@ -1476,10 +1662,10 @@ function WanderingSpuddie({ enabled = true }) {
     setSongCardSide(null);
     setMovementState(STORAGE_STATE.WANDERING);
     setPosition((current) => clampPoint(current));
-  }, [clampPoint, clearActiveTarget, clearPortalTimers, enabled, location.pathname, shouldRender, startInitialEntry]);
+  }, [clampPoint, clearActiveTarget, clearPortalTimers, disableExiting, enabled, location.pathname, shouldRender, startDisableExit, startInitialEntry]);
 
   useEffect(() => {
-    if (!shouldRender) {
+    if (!enabled || !shouldRender) {
       return undefined;
     }
 
@@ -1515,17 +1701,17 @@ function WanderingSpuddie({ enabled = true }) {
       window.clearTimeout(safetyTimer);
       window.removeEventListener('resize', nudgeIfBlocked);
     };
-  }, [clampPoint, clearActiveTarget, findNearbySafePoint, getFacingDirection, isSafePausePoint, shouldRender, songCardOpen]);
+  }, [clampPoint, clearActiveTarget, enabled, findNearbySafePoint, getFacingDirection, isSafePausePoint, shouldRender, songCardOpen]);
 
   useEffect(() => {
     window.clearTimeout(timerRef.current);
 
-    if (!shouldRender || prefersReducedMotion || songCardOpen) {
+    if (!enabled || !shouldRender || prefersReducedMotion || songCardOpen) {
       return undefined;
     }
 
     const scheduleNextStep = () => {
-      const delay = getRandomBetween(MOVEMENT.minDelay, MOVEMENT.maxDelay);
+      const delay = getRandomBetween(movement.minDelay, movement.maxDelay);
       timerRef.current = window.setTimeout(() => {
         takeStep();
         scheduleNextStep();
@@ -1537,7 +1723,7 @@ function WanderingSpuddie({ enabled = true }) {
     return () => {
       window.clearTimeout(timerRef.current);
     };
-  }, [prefersReducedMotion, shouldRender, songCardOpen, takeStep]);
+  }, [enabled, movement.maxDelay, movement.minDelay, prefersReducedMotion, shouldRender, songCardOpen, takeStep]);
 
   useEffect(() => {
     return () => {
@@ -1547,6 +1733,7 @@ function WanderingSpuddie({ enabled = true }) {
       window.clearTimeout(songCardApproachTimerRef.current);
       window.clearTimeout(attentionTimerRef.current);
       window.clearTimeout(noticeTimerRef.current);
+      window.clearTimeout(disableExitTimerRef.current);
       window.cancelAnimationFrame(noticeFrameRef.current);
       clearPortalTimers();
     };

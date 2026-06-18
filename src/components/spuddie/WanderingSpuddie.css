@@ -175,8 +175,9 @@
 }
 
 @media (max-width: 768px) {
-  .wandering-spuddie-layer {
-    display: none;
+  .wandering-spuddie {
+    width: clamp(56px, 16vw, 68px);
+    filter: drop-shadow(0 7px 9px rgba(21, 21, 21, 0.2));
   }
 }
 
